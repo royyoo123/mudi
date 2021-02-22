@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :events, through: :attendances
+  has_many :events
   has_many :attendances
   validates :email, presence: true
 end
