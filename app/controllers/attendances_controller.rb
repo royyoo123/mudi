@@ -2,6 +2,7 @@ class AttendancesController < ApplicationController
 	def new
 		@event = Event.find(params[:event_id])
 		@attendance = Attendance.new
+		
 	end
 
 	def create
@@ -10,9 +11,18 @@ class AttendancesController < ApplicationController
 		@attendance.user = @user
 		@attendance.event = @event
 		@attendance = Attendance.new()
+		
 		@attendance.save
 
 	  redirect_to event_path
+	end
+
+	def show
+
+	end
+
+	def index
+
 	end
 
 end
