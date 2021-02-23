@@ -14,7 +14,5 @@ class AttendancesController < ApplicationController
 
 	  redirect_to event_path
 	end
-		@attendance = Attendance.new(attendance_params)
-		@attendance.save
-	end
+
 end
