@@ -1,0 +1,20 @@
+<body>
+  <h2>search bar</h2>
+  <h2>filter bar</h2>
+
+  <div class="container">
+  <h1 class="text-center mt-4 mb-4">Events:</h1>
+
+    <div class="row row-cols-2-s">
+      <% @events.each do |e| %>
+      <div class ="col">
+        <div class="card text-center mt-3 mb-3 p-3">
+          <h4><%= e.name %></h4>
+          <p><%= e.address  %>
+          <%= link_to "View details", event_path(e), class: "btn btn-primary" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<body>
