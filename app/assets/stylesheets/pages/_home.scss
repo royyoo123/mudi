@@ -3,13 +3,17 @@ body {
   background-color: $dark;
 }
 
+.logo {
+  width: 200px;
+}
+
 .question-prompt {
   color: $white;
   text-align: center;
   font-family: 'Manjari', sans-serif;
   padding-left: 1.5em;
   padding-right: 1.5em;
-  padding-top: 3em;
+  padding-top: 1em;
 }
 
 .btn {
