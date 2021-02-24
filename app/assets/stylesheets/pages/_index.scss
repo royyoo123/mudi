@@ -1,2 +1,26 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.btn {
+  color: $white;
+  font-size: 14px;
+  font-family: 'Sen', sans-serif;
+  position: relative;
+  background-color: $green;
+  border-radius: 10px;
+  justify-items: center;
+};
+
+.card {
+  height: 175px;
+  width: 150px;
+}
+
+body {
+  background-color: $dark;
+}
+
+
+h1 {
+  color: $white;
+}
