@@ -1,26 +1,26 @@
 // Specific CSS for your home-page
 body {
-  background-color: #2E2E2E;
+  background-color: $dark;
 }
 
 .question-prompt {
-  color: #F6F6F6;
+  color: $white;
   text-align: center;
 }
 
 .btn {
-  color: #F6F6F6;
+  color: $white;
   font-size: 24px;
   font-family: 'Sen', sans-serif;
   position: relative;
-  background-color: #95DCB3;
+  background-color: $green;
   border-radius: 10px;
   margin-inline-start: .5em;
   margin-top: .5em;
 }
 
 #confirm-btn {
-  background-color: #676FC9;
+  background-color: $violet;
   font-size: 18px;
   width: 15em;
 }
@@ -31,4 +31,15 @@ body {
 
 .btns {
   padding-top: 3em;;
+}
+
+.confirm-btn {
+  background-color: #676FC9;
+  font-size: 18px;
+  width: 15em;
+  padding: 5px 30px;
+  border-radius: 10px;
+  color: #F6F6F6;
+  font-size: 24px;
+  font-family: 'Sen', sans-serif;
 }
