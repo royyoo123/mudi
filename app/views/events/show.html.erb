@@ -10,16 +10,17 @@
 			<h3>Description: <%= @event.description %></h3>
 			<h3>Time: <%= @event.time %></h3>
 		</div>
-		<div class="photo">
+		<div class="photo-container">
 			<% @event.photos.each do |photo| %>
-				<%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %>
+				<%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill, class: "photo" %>
 			<% end %>
 		</div>
-		<div class="confirm" style="text-align: center;">
+		<div class="confirm">
       <%= link_to confirmation_path(@event) do %>
-        <button type="button" class="btn" id="book-btn">BOOK</button>
+        <button type="button" id="book-btn">BOOK</button>
       <% end %>
-    </div>
-	<%= link_to "Back", events_path %>
-	</div>
+		</div>
+    <div class="link-back">
+			<%= link_to "Back", events_path %>
+		</div>
 </body>
