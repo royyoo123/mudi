@@ -14,7 +14,6 @@ class AttendancesController < ApplicationController
 		authorize @attendance
 		
 		@attendance.save
-	  redirect_to event_path
+	  redirect_to confirmed_path(@event)
 	end
-
 end
