@@ -9,5 +9,6 @@
 		<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 	<% end %>
 <%= link_to "Back", events_path %>
+<%= link_to "Purchase", confirmation_path(@event) %>
 </div>
 

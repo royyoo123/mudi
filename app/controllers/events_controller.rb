@@ -6,6 +6,14 @@ class EventsController < ApplicationController
 		@events = policy_scope(Event).order(created_at: :desc)
 	end
 
+	def confirmation
+		@event = Event.find(params[:id])
+		authorize @event
+	end
+	def confirmed
+		@event = Event.find(params[:id])
+		authorize @event
+	end
 	def show
 		@event = Event.find(params[:id])
 		# authorize @event
