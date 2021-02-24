@@ -10,7 +10,7 @@ class EventsController < ApplicationController
         lat: event.latitude,
         lng: event.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
-        # image_url: Cloudinary::Utils.cloudinary_url(event.photos[0].key)
+        image_url: Cloudinary::Utils.cloudinary_url(event.photos[0].key)
       }
     end
 	end
