@@ -2,27 +2,19 @@ class AttendancesController < ApplicationController
 	def new
 		@event = Event.find(params[:event_id])
 		@attendance = Attendance.new
-		
+		authorize @attendance
 	end
 
 	def create
 		@user = current_user
 		@event = Event.find(params[:event_id])
+		@attendance = Attendance.new()
 		@attendance.user = @user
 		@attendance.event = @event
-		@attendance = Attendance.new()
+		authorize @attendance
 		
 		@attendance.save
-
 	  redirect_to event_path
-	end
-
-	def show
-
-	end
-
-	def index
-
 	end
 
 end
