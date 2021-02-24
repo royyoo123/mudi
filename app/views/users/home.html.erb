@@ -1,3 +1,9 @@
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manjari&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
+</head>
 <body>
   <div class="container">
     <div class="logo">
@@ -14,17 +20,18 @@
       <button type="button" class="btn">self-reflective</button>
       <button type="button" class="btn">free</button>
       <button type="button" class="btn">joyful</button>
-      <button type="button" class="btn">adventurous</button>
+      <button type="button" class="btn">adventurouse</button>
       <button type="button" class="btn">inspired</button>
       <button type="button" class="btn">relaxed</button>
       <button type="button" class="btn">romantic</button>
       <button type="button" class="btn">thoughtful</button>
       <button type="button" class="btn">calm</button>
-      <button type="button" class="btn">humorous</button>
+      <button type="button" class="btn">humourous</button>
     </div>
     <div class="confirm" style="text-align: center;">
-      <%= link_to "CONFIRM", events_path, class:"confirm-btn" %>
-      <button type="button" class="btn" id="confirm-btn">CONFIRM</button>
+      <%= link_to  events_path do %>
+        <button type="button" class="btn" id="confirm-btn">CONFIRM</button>
+        <% end %>
     </div>
   </div>  
 </body> 
