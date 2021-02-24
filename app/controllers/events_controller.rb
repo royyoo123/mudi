@@ -4,6 +4,15 @@ class EventsController < ApplicationController
 	def index
 		# @events = Event.all
 		@events = policy_scope(Event).order(created_at: :desc)
+
+		@markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
+        # image_url: Cloudinary::Utils.cloudinary_url(event.photos[0].key)
+      }
+    end
 	end
 
 	def confirmation
