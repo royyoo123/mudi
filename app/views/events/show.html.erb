@@ -1,1 +1,13 @@
+<div class="container mt-5">
+	<h1><%= @event.name %></h1>
+	<h3>Price: $<%= @event.price %></h3>
+	<h3>Address: <%= @event.address %></h3>
+	<h3>Date: <%= @event.date %></h3>
+	<h3>Description: <%= @event.description %></h3>
+	<h3>Time: <%= @event.time %></h3>
+	<% @event.photos.each do |photo| %>
+		<%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+	<% end %>
 <%= link_to "Back", events_path %>
+</div>
+
