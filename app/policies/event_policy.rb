@@ -12,5 +12,10 @@ class EventPolicy < ApplicationPolicy
   def show?
   	true
   end
-  
+  def confirmation?
+    true
+  end
+  def confirmed?
+    true
+  end
 end

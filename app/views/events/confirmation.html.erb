@@ -1,0 +1,12 @@
+<div class="container">
+	<h1>order details</h1>
+	<h3><%= @event.name %></h3>
+	<h3><%= @event.date %></h3>
+	<h3><%= @event.price %></h3>
+	<h3><%= @event.description %></h3>
+	<h3><%= @event.date %></h3>
+	<h3><%= @event.time %></h3>
+	<h3><%= @event.price %></h3>
+
+	<%= link_to "confirm", event_attendances_path(@event), method: "post" %>
+</div>
