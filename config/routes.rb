@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :events, only: [:show, :index, :new, :create] do
   	resources :attendances, only: [:create]
   end
+
   get 'events/:id/confirmed', to: 'events#confirmed', as: :confirmed
   get 'events/:id/confirmation', to: "events#confirmation", as: :confirmation
   
