@@ -1,18 +1,26 @@
 <body>
-	<div class="container mt-5">
-		<div class="title">
-			<h1><%= @event.name %></h1>
+	<div class="container mt-2">
+		<div>
+			<h1 class="title"><%= @event.name %></h1>
+			<h3 class="address"><%= @event.address %></h3>
 		</div>
 		<div class="details">
 			<h3>Price: $<%= @event.price %></h3>
 			<h3>Address: <%= @event.address %></h3>
 			<h3>Date: <%= @event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h3>
 			<h3>Description: <%= @event.description %></h3>
+
 		</div>
 		<div class="photo-container">
 			<% @event.photos.each do |photo| %>
 				<%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill, class: "photo" %>
 			<% end %>
+			<h3 class="price">$<%= @event.price %></h3>
+		</div>
+		<div>
+			
+			<h3 class="description"><%= @event.description %></h3>
+		</div>
 		</div>
 		<div class="confirm">
       <%= link_to confirmation_path(@event) do %>
@@ -20,6 +28,9 @@
       <% end %>
 		</div>
     <div class="link-back">
-			<%= link_to "Back", events_path %>
+			<%= link_to events_path do %>
+				<button type="button" id="back-btn">Back to results</button>
+			<% end %>		
 		</div>
+	</div>
 </body>
