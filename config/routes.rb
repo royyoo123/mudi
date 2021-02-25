@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :attendances, only: [:index, :show]
   root to: 'users#home'
   get 'events/map', to: 'events#map', as: :map
   # post 'events/confirmation', to: "attendances#create"
   resources :events, only: [:show, :index, :new, :create] do
-  	resources :attendances, only: [:create]
+  	resources :attendances, only: :create
   end
 
   get 'events/:id/confirmed', to: 'events#confirmed', as: :confirmed

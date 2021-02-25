@@ -4,7 +4,12 @@ class AttendancePolicy < ApplicationPolicy
       scope.all
     end
   end
-
+  def index?
+    true
+  end
+  def show?
+    true
+  end
   def new?
   	true
   end
