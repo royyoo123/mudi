@@ -17,4 +17,7 @@ class EventPolicy < ApplicationPolicy
   def confirmed?
     true
   end
+  def map?
+    true
+  end
 end
