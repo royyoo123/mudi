@@ -1,0 +1,28 @@
+.card {
+  height: 175px;
+  width: 145px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0);
+  border: none;
+  padding: none;
+  margin: auto;
+}
+
+.card-photo {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-title {
+  font-family: 'Manjari', sans-serif;
+  margin-top: .75em;
+}
+
+.card-details {
+  font-family: 'Sen', sans-serif;
+  position: absolute;
+  bottom: 2px;
+  right: 14px;
+  font-size: 18px;
+  top: 140px;
+}

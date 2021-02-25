@@ -24,21 +24,21 @@
     </div>
   </div>
   <div class="container">
-    <div class="row row-cols-2-s">
+    <div class="row row-cols-2-s justify-content-center">
       <% @events.each do |e| %>
       <div class ="col">
         <%= link_to event_path(e) do %>
-        <div class="card text-center mt-3 mb-3 p-3" id="index-cards">
+        <div class="card text-center mt-3 mb-3" id="index-cards">
           <% e.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 40%, width: 100%, crop: :fill, class: "photo" %>
+          <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
           <div class="card-title">
             <h4><%= e.name %></h4>
           </div>
           <div class="card-details">
             <p><%= e.price %></p>
           </div>
+          <% end %>
         </div>
-        <% end %>
       <% end %>
       </div>
       <% end %>

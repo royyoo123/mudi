@@ -1,26 +1,9 @@
-.card {
-  height: 175px;
-  width: 145px;
-}
-
 #index-cards {
   color: $black;
 }
 
-.card-title {
-  font-family: 'Manjari', sans-serif;
-}
-
-.card-details {
-  font-family: 'Sen', sans-serif;
-}
-
 body {
   background-color: $dark;
-}
-
-p {
-  font-size: 10px;
 }
 
 .search-container {
@@ -40,6 +23,7 @@ p {
   border-radius: 10px;
   display: inline;
   background-color: $white;
+  width: 17em;
 }
 
 #searchbar-btn {
@@ -60,6 +44,7 @@ p {
   border-radius: 7px;
   margin-inline-start: .5em;
   border: none;
+  height: 1.9em;
 }
 
 .filter-bar {
@@ -68,18 +53,24 @@ p {
   padding-right: .6em;
   padding-left: .6em;
   margin-top: .5em;
+  background-color: $violet;
+  height: 40px;
 }
 
 .mood-filter {
+  border-radius: 7px;
   background-color: $white;
   height: 30px;
   margin-left: 1em;
+  margin-top: 5px;
   flex-grow: 1;
 }
 
 .date-filter {
+  border-radius: 7px;
   background-color: $white;
   height: 30px;
   margin-left: 1em;
+  margin-top: 5px;
   flex-grow: 1;
 }
