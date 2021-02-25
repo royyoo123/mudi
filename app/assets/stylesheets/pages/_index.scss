@@ -3,16 +3,24 @@
   width: 145px;
 }
 
+#index-cards {
+  color: $black;
+}
+
+.card-title {
+  font-family: 'Manjari', sans-serif;
+}
+
+.card-details {
+  font-family: 'Sen', sans-serif;
+}
+
 body {
   background-color: $dark;
 }
 
 p {
   font-size: 10px;
-}
-
-#card-details {
-  color:$black;
 }
 
 .search-container {
@@ -22,11 +30,25 @@ p {
   padding-left: .6em;
 }
 
-.search-bar  {
+#search-bar  {
+  // display: inline-block;
+  position: relative;
+}
+
+#search-bar-input {
+  border: none;
+  border-radius: 10px;
+  display: inline;
   background-color: $white;
-  height: 30px;
-  margin-left: 1em;
-  flex-grow: 1;
+}
+
+#searchbar-btn {
+  border: none;
+  position: absolute;
+  display: inline;
+  position: absolute;
+  right: 1em;
+  top: 5px;
 }
 
 .map-btn {
