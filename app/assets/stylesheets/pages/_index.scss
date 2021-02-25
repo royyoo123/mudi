@@ -1,27 +1,63 @@
-.btn {
-  color: $white;
-  font-size: 14px;
-  font-family: 'Sen', sans-serif;
-  position: relative;
-  background-color: $green;
-  border-radius: 10px;
-  justify-items: center;
-};
-
 .card {
   height: 175px;
-  width: 150px;
+  width: 145px;
 }
 
 body {
   background-color: $dark;
 }
 
-
-h1 {
-  color: $white;
-}
-
 p {
   font-size: 10px;
+}
+
+#card-details {
+  color:$black;
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-between;
+  padding-right: .6em;
+  padding-left: .6em;
+}
+
+.search-bar  {
+  background-color: $white;
+  height: 30px;
+  margin-left: 1em;
+  flex-grow: 1;
+}
+
+.map-btn {
+  color: $white;
+  font-size: 20px;
+  font-family: 'Sen', sans-serif;
+  position: relative;
+  background-color: $green;
+  border-radius: 7px;
+  margin-inline-start: .5em;
+  border: none;
+}
+
+.filter-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-right: .6em;
+  padding-left: .6em;
+  margin-top: .5em;
+}
+
+.mood-filter {
+  background-color: $white;
+  height: 30px;
+  margin-left: 1em;
+  flex-grow: 1;
+}
+
+.date-filter {
+  background-color: $white;
+  height: 30px;
+  margin-left: 1em;
+  flex-grow: 1;
 }
