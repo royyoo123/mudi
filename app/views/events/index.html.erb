@@ -1,17 +1,18 @@
 <body>
-  <%= form_tag events_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "find an event"
-      %>
-      <%= submit_tag "search", class: "btn btn-primary" %>
-      <% end %>
-      <%= link_to "Map", map_path %>
   <div class="search-container">
+    <%= link_to map_path do %>
     <button type="button" class="map-btn">MAP</button>
-    <div class="search-bar">
-      <h4>search for an activity</h4>
+    <% end %>
+    <div id="search-bar">
+      <%= form_tag events_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        id: "search-bar-input",
+        placeholder: "find an event"
+        %>
+        <%= submit_tag "➜", id: "searchbar-btn" %>
+      <% end %>
     </div>
   </div>
   <div class="filter-bar">
@@ -23,15 +24,22 @@
     </div>
   </div>
   <div class="container">
-    <div class="row row-cols-2-s">
+    <div class="row row-cols-2-s justify-content-center">
       <% @events.each do |e| %>
       <div class ="col">
         <%= link_to event_path(e) do %>
-        <div class="card text-center mt-3 mb-3 p-3">
-          <h4><%= e.name %></h4>
-          <p><%= e.address  %></p>
+        <div class="card text-center mt-3 mb-3" id="index-cards">
+          <% e.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
+          <div class="card-title">
+            <h4><%= e.name %></h4>
+          </div>
+          <div class="card-details">
+            <p><%= e.price %></p>
+          </div>
+          <% end %>
         </div>
-        <% end %>
+      <% end %>
       </div>
       <% end %>
     </div>
