@@ -4,7 +4,6 @@ class EventPolicy < ApplicationPolicy
       scope.all
     end
   end
-
   def create?
   	user.business_owner
   end

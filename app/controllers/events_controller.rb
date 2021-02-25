@@ -1,11 +1,14 @@
 class EventsController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:index, :show]
-	skip_after_action :verify_authorized, only: :show
+	skip_after_action :verify_authorized, only: [:index, :show]
 	def index
-		# @events = Event.all
-		@events = policy_scope(Event).order(created_at: :desc)
-
-		@markers = @events.geocoded.map do |event|
+    if params[:query].present?
+    	@events = Event.search_by_name_and_description(params[:query])
+    else
+    	@events = Event.all.order(created_at: :desc)
+    end
+    @events = policy_scope(@events)
+    @markers = @events.geocoded.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,

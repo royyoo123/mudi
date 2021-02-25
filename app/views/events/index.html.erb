@@ -1,4 +1,12 @@
 <body>
+  <%= form_tag events_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "find an event"
+      %>
+      <%= submit_tag "search", class: "btn btn-primary" %>
+      <% end %>
   <div class="search-container">
     <button type="button" class="map-btn">MAP</button>
     <div class="search-bar">
