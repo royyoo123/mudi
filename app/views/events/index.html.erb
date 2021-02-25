@@ -1,18 +1,28 @@
 <body>
-  <h2>search bar</h2>
-  <h2>filter bar</h2>
-
+  <div class="search-container">
+    <button type="button" class="map-btn">MAP</button>
+    <div class="search-bar">
+      <h4>search for an activity</h4>
+    </div>
+  </div>
+  <div class="filter-bar">
+    <div class= mood-filter>
+      <h4>mood</h4>
+    </div>
+    <div class="date-filter">
+      <h4>date</h4>
+    </div>
+  </div>
   <div class="container">
-  <h1 class="text-center mt-4 mb-4">Events:</h1>
-
     <div class="row row-cols-2-s">
       <% @events.each do |e| %>
       <div class ="col">
+        <%= link_to event_path(e) do %>
         <div class="card text-center mt-3 mb-3 p-3">
           <h4><%= e.name %></h4>
-          <p><%= e.address  %>
-          <%= link_to "View details", event_path(e), class: "btn" %>
+          <p><%= e.address  %></p>
         </div>
+        <% end %>
       </div>
       <% end %>
     </div>
