@@ -1,18 +1,9 @@
-.card {
-  height: 175px;
-  width: 145px;
+#index-cards {
+  color: $black;
 }
 
 body {
   background-color: $dark;
-}
-
-p {
-  font-size: 10px;
-}
-
-#card-details {
-  color:$black;
 }
 
 .search-container {
@@ -22,11 +13,26 @@ p {
   padding-left: .6em;
 }
 
-.search-bar  {
+#search-bar  {
+  // display: inline-block;
+  position: relative;
+}
+
+#search-bar-input {
+  border: none;
+  border-radius: 10px;
+  display: inline;
   background-color: $white;
-  height: 30px;
-  margin-left: 1em;
-  flex-grow: 1;
+  width: 17em;
+}
+
+#searchbar-btn {
+  border: none;
+  position: absolute;
+  display: inline;
+  position: absolute;
+  right: 1em;
+  top: 5px;
 }
 
 .map-btn {
@@ -38,6 +44,7 @@ p {
   border-radius: 7px;
   margin-inline-start: .5em;
   border: none;
+  height: 1.9em;
 }
 
 .filter-bar {
@@ -46,18 +53,24 @@ p {
   padding-right: .6em;
   padding-left: .6em;
   margin-top: .5em;
+  background-color: $violet;
+  height: 40px;
 }
 
 .mood-filter {
+  border-radius: 7px;
   background-color: $white;
   height: 30px;
   margin-left: 1em;
+  margin-top: 5px;
   flex-grow: 1;
 }
 
 .date-filter {
+  border-radius: 7px;
   background-color: $white;
   height: 30px;
   margin-left: 1em;
+  margin-top: 5px;
   flex-grow: 1;
 }
