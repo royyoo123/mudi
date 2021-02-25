@@ -14,20 +14,19 @@
   font-family: 'Sen', sans-serif;
 }
 
+.description {
+  color: $white;
+  font-family: 'Sen', sans-serif;
+}
 
 .date {
   color: $white;
   font-family: 'Sen', sans-serif;
   display: inline;
-  float: left;
+  align-items: center;
+  font-weight: 300;
 }
 
-.time {
-  color: $white;
-  font-family: 'Sen', sans-serif;
-  display: inline;
-  float: right
-}
 
 .price {
   position: absolute;
@@ -72,6 +71,17 @@ h3 {
   font-family: 'Sen', sans-serif;
 }
 
+#back-btn {
+  background-color: $violet;
+  font-size: 18px;
+  width: 15em;
+  border-radius: 10px;
+  color: $white;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+}
+
 .link-back {
   text-align: center;
 }
@@ -80,7 +90,7 @@ h3 {
   display: block;
   justify-content: center;
   position: relative;
-  margin-top: 45px;
+  margin-top: 20px;
   margin-bottom:15px;
   
 }
