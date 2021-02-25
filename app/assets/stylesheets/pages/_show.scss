@@ -9,18 +9,60 @@
   font-family: 'Sen', sans-serif;
 }
 
+.address {
+  color: $white;
+  font-family: 'Sen', sans-serif;
+}
+
+
+.date {
+  color: $white;
+  font-family: 'Sen', sans-serif;
+  display: inline;
+  float: left;
+}
+
+.time {
+  color: $white;
+  font-family: 'Sen', sans-serif;
+  display: inline;
+  float: right
+}
+
+.price {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  font-size: 18px;
+  color: $dark;
+  background-color: $white;
+  padding: .25em;
+  border-radius: 5px;
+  opacity: 70%
+}
+
+h1.title {
+  color: $green;
+  font-size: 2em;
+  text-decoration: none;
+}
+
 h3 {
   font-size: 16px;
+  font-weight: light;
+  
 }
 
 .photo {
   display: block;
-  text-align: center;
+  width: 100%;
   border-radius: 10px;
+  
+  
 }
 
 #book-btn {
-  background-color: $violet;
+  background-color: $green;
   font-size: 18px;
   width: 15em;
   border-radius: 10px;
@@ -35,8 +77,12 @@ h3 {
 }
 
 .photo-container {
-  display: flex;
+  display: block;
   justify-content: center;
+  position: relative;
+  margin-top: 45px;
+  margin-bottom:15px;
+  
 }
 
 .confirm {
