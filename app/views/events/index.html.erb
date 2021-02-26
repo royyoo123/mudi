@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="filter-bar pb-2">
-    <div class="btn-group mt-2">
+    <div class="btn-group mt-1">
       <button type="button" class="btn btn-up" id="mood-dropdown">Moods</button>
       <button type="button" class="btn dropdown-toggle btn-up dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="sr-only">Toggle Dropdown</span>
@@ -79,7 +79,11 @@
             <h5><%= e.name %></h5>
           </div>
           <div class="card-details">
+            <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
             <p><%= e.price %></p>
+            <% else %>
+            <p>$<%= e.price %></p>
+            <% end %>
           </div>
           <% end %>
         </div>
