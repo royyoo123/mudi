@@ -1,11 +1,11 @@
 <div class="container container-form">
 	<%= simple_form_for @event do |f| %>
-	<%= f.input :name %>
-	<%= f.input :price %>
-	<%= f.input :address %>
-	<%= f.input :description %>
-	<%= f.input :start_date, as: :datetime, html5: true %>
-	<%= f.input :photos, as: :file, input_html: { multiple: true } %>
-	<%= f.button :submit %>
+	<%= f.input :name, class:"create-form" %>
+	<%= f.input :price, class:"create-form" %>
+	<%= f.input :address, class:"create-form" %>
+	<%= f.input :description, class:"create-form" %>
+	<%= f.input :start_date, as: :datetime, html5: true, class:"create-form" %>
+	<%= f.input :photos, as: :file, input_html: { multiple: true }, class:"create-form", id:"photo-input" %>
+	<%= f.button :submit, class:"create-btn" %>
 <% end %>
 </div>

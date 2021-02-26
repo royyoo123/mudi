@@ -1,4 +1,55 @@
 .container-form {
 	color: $green;
 	text-align: center;
+	font-family: 'Sen', sans-serif;
+}
+
+.create-form {
+	border-radius: 10px !important;
+}
+
+.string {
+	font-size: 20px;
+	font-family: 'Sen', sans-serif;
+	color: $white;
+}
+
+.text {
+	font-size: 20px;
+	font-family: 'Sen', sans-serif;
+	color: $white;
+}
+
+.datetime {
+	font-size: 20px;
+	font-family: 'Sen', sans-serif;
+	color: $white;
+}
+
+.file {
+	font-size: 20px;
+	font-family: 'Sen', sans-serif;
+	color: $white;
+}
+
+.form-control {
+	border-radius: 10px;
+}
+
+.form-control-file {
+	font-size: 18px;
+	width: 250px
+}
+
+.create-btn {
+	width: 300px;
+}
+
+.simple-form {
+	margin-right: 2em;
+}
+
+#photo-input {
+	justify-content: center;
+	text-align: center;
 }
