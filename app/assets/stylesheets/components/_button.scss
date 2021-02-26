@@ -10,3 +10,87 @@
   height: 1.9em;
   padding: 8px;
 }
+
+.btn-up {
+  display: flex;
+  align-items: center;
+}
+
+#book-btn {
+  background-color: $green;
+  font-size: 18px;
+  width: 15em;
+  border-radius: 10px;
+  color: $white;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+}
+
+#back-btn {
+  background-color: $violet;
+  font-size: 18px;
+  width: 15em;
+  border-radius: 10px;
+  color: $white;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+}
+
+#searchbar-btn {
+  border: none;
+  position: absolute;
+  display: inline;
+  position: absolute;
+  right: 1em;
+  top: 6px;
+  color: #a5a5a5;
+  background-color: #F6F6F6;
+}
+
+.map-btn {
+  color: $white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Sen', sans-serif;
+  position: relative;
+  background-color: $green;
+  border-radius: 7px;
+  margin-inline-start: .5em;
+  border: none;
+  height: 1.9em;
+  width: 3.5em;
+}
+
+.btn {
+  color: $white;
+  font-size: 24px;
+  font-family: 'Sen', sans-serif;
+  position: relative;
+  background-color: $green;
+  border-radius: 10px;
+  margin-inline-start: .5em;
+  margin-top: .35em;
+}
+
+#confirm-btn {
+  background-color: $violet;
+  font-size: 18px;
+  width: 15em;
+}
+.btns {
+  padding-top: 2em;
+  margin-bottom: 1em;
+}
+
+.confirm-btn {
+  background-color: #676FC9;
+  font-size: 18px;
+  width: 15em;
+  padding: 5px 30px;
+  border-radius: 10px;
+  color: #F6F6F6;
+  font-size: 24px;
+  font-family: 'Sen', sans-serif;
+}
