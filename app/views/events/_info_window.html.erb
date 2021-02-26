@@ -1,7 +1,7 @@
+<%= link_to event_path(event) do %>
 <% if event.photos.attached? %>
 	<%= cl_image_tag event.photos[0].key, height: 150, width: 200, crop: :fill %>
 <% end %>
-
 <h2><%= event.name %></h2>
-
-<p><%= event.address %></p>
+<p><%= event.price %></p>
+<% end %>
