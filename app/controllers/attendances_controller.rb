@@ -12,7 +12,6 @@ class AttendancesController < ApplicationController
 		@attendance.user = @user
 		@attendance.event = @event
 		authorize @attendance
-		
 		@attendance.save
 	  redirect_to confirmed_path(@event)
 	end
@@ -20,9 +19,5 @@ class AttendancesController < ApplicationController
 	def index
 		@attendances = current_user.attendances.order(created_at: :desc)
 		@attendances = policy_scope(@attendances)
-	end
-
-	def show
-
 	end
 end

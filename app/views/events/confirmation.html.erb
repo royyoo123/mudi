@@ -11,5 +11,5 @@
 		<h3><%= @event.price %></h3>
 	</div>
 
-	<%= link_to "Sync to calendar", event_attendances_path(@event), method: "post" %>
+	<%= link_to "Sync to calendar", event_attendances_path(@event), method: "post" , class: "confirm-btn"%>
 </div>
