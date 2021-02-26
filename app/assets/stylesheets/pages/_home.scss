@@ -27,6 +27,31 @@ body {
   text-align: center;
 }
 
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label {
+  color: $white;
+  font-size: 24px;
+  font-family: 'Sen', sans-serif;
+  position: relative;
+  background-color: $green;
+  border-radius: 10px;
+  margin-inline-start: .5em;
+}
+
+input[type=checkbox]:checked + label {
+  background-color: $violet;
+  color: $white;
+  animation: btn-color 0.5s ease-in-out;
+}
+
+.mood-btn {
+  padding: 1em;
+  padding-top: 1em;
+}
+
 // btn:focus {
 //   background-color: #676FC9;
 // }
