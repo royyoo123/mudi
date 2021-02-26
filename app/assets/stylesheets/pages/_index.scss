@@ -39,7 +39,7 @@ body {
 }
 
 .mood-filter {
-  border-radius: 7px;
+  border-radius: 5px;
   background-color: $white;
   height: 30px;
   margin-left: 1em;
@@ -52,6 +52,23 @@ body {
   background-color: $white;
   height: 30px;
   margin-left: 1em;
-  margin-top: 5px;
   flex-grow: 1;
 }
+
+#mood-dropdown {
+  font-size: 15px;
+}
+
+#date-dropdown {
+  font-size: 15px;
+  position: absolute;
+  align-items: center;
+}
+
+.mood-item {
+  color: $dark;
+  text-align: center;
+  font-size: 18px;
+  margin-top: .5em;
+}
+
