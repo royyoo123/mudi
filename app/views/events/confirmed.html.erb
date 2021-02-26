@@ -1,4 +1,11 @@
 <div class="container">
 	<h1>Confirmed</h1>
+	<br>
+	<br>
+	<h3 id="event_synced"><%= @event.name %>&nbsphas been synced to your calendar!</h3>
+	<br>
+	<%= image_tag "confetti.png", id:"confirmation-image" %>
+	<br>
+	<br>
 	<%= link_to "back to events", events_path, class: "confirm-btn" %>
 </div>
