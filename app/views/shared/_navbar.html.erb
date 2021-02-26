@@ -4,7 +4,7 @@
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon $white"></span>
+    <span class="navbar-toggler-icon" style="color:white"></span>
   </button>
 
 
@@ -15,15 +15,16 @@
           <% if policy(Event).new? %>
             <%= link_to "Add event", new_event_path, class: "dropdown-item" %>
           <% end %>
-          <%= link_to "Activities", attendances_path %>
+        </li class="nav-item">
+          <%= link_to "Activities", attendances_path, class: "dropdown-item" %>
+        </li class="nav-item">
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </li>
-        </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
       <% end %>
     </ul>
   </div>
 </div>
+         
+          
