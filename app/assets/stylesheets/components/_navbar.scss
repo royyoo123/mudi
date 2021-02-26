@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $dark;
+  
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,3 +12,19 @@
   width: 120px;
 }
 
+.dropdown-item {
+  color: $white !important;
+  text-align: right !important;
+}
+
+.dropdown-item:hover {
+  background-color: $green !important;
+  color: $dark !important;
+}
+
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("https://icon-library.com/images/white-menu-icon/white-menu-icon-12.jpg");
+  width: 50px;
+  height: 50px;
+}
