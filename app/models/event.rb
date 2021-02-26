@@ -10,4 +10,6 @@ class Event < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+  validates :name, presence: true, length: { maximum: 25 }
+  validates :address, presence: true
 end
