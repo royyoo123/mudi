@@ -26,15 +26,15 @@
         <a class="dropdown-item" href="#">Strong</a>
         <a class="dropdown-item" href="#">Creative</a>
         <a class="dropdown-item" href="#">Self-reflective</a>
-        <a class="dropdown-item" href="#">free</a>
-        <a class="dropdown-item" href="#">joyful</a>
-        <a class="dropdown-item" href="#">adventurous</a>
-        <a class="dropdown-item" href="#">inspired</a>
-        <a class="dropdown-item" href="#">relaxed</a>
-        <a class="dropdown-item" href="#">romantic</a>
-        <a class="dropdown-item" href="#">thoughtful</a>
-        <a class="dropdown-item" href="#">calm</a>
-        <a class="dropdown-item" href="#">humorous</a>
+        <a class="dropdown-item" href="#">Free</a>
+        <a class="dropdown-item" href="#">Joyful</a>
+        <a class="dropdown-item" href="#">Adventurous</a>
+        <a class="dropdown-item" href="#">Inspired</a>
+        <a class="dropdown-item" href="#">Relaxed</a>
+        <a class="dropdown-item" href="#">Romantic</a>
+        <a class="dropdown-item" href="#">Thoughtful</a>
+        <a class="dropdown-item" href="#">Calm</a>
+        <a class="dropdown-item" href="#">Humorous</a>
       </div>
     </div>
     <div class="date-filter">
@@ -44,9 +44,9 @@
   <div class="container">
     <div class="row row-cols-2-s justify-content-center">
       <% @events.each do |e| %>
-      <div class ="col p-0">
+      <div class ="col">
         <%= link_to event_path(e) do %>
-        <div class="card text-center mt-3 mb-2" id="index-cards">
+        <div class="card text-center mt-3 mb-3" id="index-cards">
           <% e.photos.each do |photo| %>
           <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
           <div class="card-title">
