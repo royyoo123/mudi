@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:index, :show, :map]
 	skip_after_action :verify_authorized, only: [:index, :show]
+	before_action :find_event, only:[:confirmation,:confirmed,:show]
 	def index
     if params[:query].present?
     	@events = Event.search_by_name_and_description(params[:query])
@@ -8,14 +9,6 @@ class EventsController < ApplicationController
     	@events = Event.all.order(created_at: :desc)
     end
     @events = policy_scope(@events)
-    # @markers = @events.geocoded.map do |event|
-    #   {
-    #     lat: event.latitude,
-    #     lng: event.longitude,
-    #     infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
-    #     image_url: Cloudinary::Utils.cloudinary_url(event.photos[0].key)
-    #   }
-    # end
 	end
 	def map
 		@events = Event.all
@@ -31,16 +24,12 @@ class EventsController < ApplicationController
 	end
 
 	def confirmation
-		@event = Event.find(params[:id])
 		authorize @event
 	end
 	def confirmed
-		@event = Event.find(params[:id])
 		authorize @event
 	end
 	def show
-		@event = Event.find(params[:id])
-		# authorize @event
 	end
 	def new
 		@event = Event.new
@@ -60,5 +49,9 @@ class EventsController < ApplicationController
 	private
 	def event_params
 		params.require(:event).permit(:name, :start_date, :price, :address, :description, photos: [])
+	end
+
+	def find_event
+		@event = Event.find(params[:id])
 	end
 end

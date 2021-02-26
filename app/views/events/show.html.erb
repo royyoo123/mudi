@@ -5,11 +5,7 @@
 			<h3 class="address"><%= @event.address %></h3>
 		</div>
 		<div class="details">
-			<h3>Price: $<%= @event.price %></h3>
-			<h3>Address: <%= @event.address %></h3>
 			<h3>Date: <%= @event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h3>
-			<h3>Description: <%= @event.description %></h3>
-
 		</div>
 		<div class="photo-container">
 			<% @event.photos.each do |photo| %>
@@ -24,7 +20,7 @@
 		</div>
 		<div class="confirm">
       <%= link_to confirmation_path(@event) do %>
-        <button type="button" id="book-btn">BOOK</button>
+        <button type="button" id="book-btn">Book</button>
       <% end %>
 		</div>
     <div class="link-back">
