@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding-right: .6em;
-  padding-left: .6em;
+  padding-left: .4em;
 }
 
 #search-bar  {
@@ -24,6 +24,7 @@ body {
   display: inline;
   background-color: $white;
   width: 17em;
+  font-family: 'Sen', sans-serif;
 }
 
 #searchbar-btn {
@@ -32,12 +33,15 @@ body {
   display: inline;
   position: absolute;
   right: 1em;
-  top: 5px;
+  top: 6px;
+  color: #a5a5a5;
+  background-color: #F6F6F6;
 }
 
 .map-btn {
   color: $white;
   font-size: 20px;
+  font-weight: bold;
   font-family: 'Sen', sans-serif;
   position: relative;
   background-color: $green;
@@ -45,6 +49,7 @@ body {
   margin-inline-start: .5em;
   border: none;
   height: 1.9em;
+  width: 3.5em;
 }
 
 .filter-bar {

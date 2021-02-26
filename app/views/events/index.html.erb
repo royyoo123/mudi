@@ -16,8 +16,8 @@
     </div>
   </div>
   <div class="filter-bar">
-    <div class= mood-filter>
-      <h4>mood</h4>
+    <div class= mood-filter id="mood-filter">
+      <h4>mood ▼</h4>
     </div>
     <div class="date-filter">
       <h4>date</h4>
@@ -32,7 +32,7 @@
           <% e.photos.each do |photo| %>
           <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
           <div class="card-title">
-            <h4><%= e.name %></h4>
+            <h5><%= e.name %></h5>
           </div>
           <div class="card-details">
             <p><%= e.price %></p>
