@@ -32,6 +32,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 import { renderCal } from '../plugins/calendar';
+import { bookmark } from '../plugins/bookmark';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })

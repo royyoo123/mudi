@@ -71,12 +71,15 @@
     <div class="row row-cols-2-s justify-content-center">
       <% @events.each do |e| %>
       <div class ="col">
-        <%= link_to event_path(e) do %>
+        
         <div class="card text-center mt-3 mb-3" id="index-cards">
           <% e.photos.each do |photo| %>
           <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
           <div class="card-title">
             <h5><%= e.name %></h5>
+          </div>
+          <div class="bookmark">
+            <i class="far fa-heart"></i>
           </div>
           <div class="card-details">
             <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
@@ -85,7 +88,7 @@
             <p>$<%= e.price %></p>
             <% end %>
           </div>
-          <% end %>
+          
         </div>
       <% end %>
       </div>

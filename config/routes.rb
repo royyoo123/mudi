@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :events do
   	resources :attendances, only: :create
   end
-
+  resources :bookmarks, only: [:index, :show, :destroy, :create]
   get 'events/:id/confirmed', to: 'events#confirmed', as: :confirmed
   get 'events/:id/confirmation', to: "events#confirmation", as: :confirmation
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
