@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:index, :show, :map]
 	skip_after_action :verify_authorized, only: [:index, :show]
-	before_action :find_event, only:[:confirmation,:confirmed,:show]
+	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
     if params[:query].present?
     	@events = Event.search_by_name_and_description(params[:query])
@@ -27,7 +27,6 @@ class EventsController < ApplicationController
 		authorize @event
 	end
 	def confirmed
-		authorize @event
 	end
 	def show
 	end
@@ -45,7 +44,24 @@ class EventsController < ApplicationController
 			render :new
 		end
 	end
-
+	def edit
+		@event.user = current_user
+	end
+	def update
+		@event.user = current_user
+		@event.update(event_params)
+		if @event.save
+			redirect_to event_path(@event)
+		else
+			render :new
+		end
+	end
+	def destroy
+		@event.user = current_user
+		@event.attendances.destroy_all
+		@event.destroy
+		redirect_to events_path
+	end
 	private
 	def event_params
 		params.require(:event).permit(:name, :start_date, :price, :address, :description, photos: [])
@@ -53,5 +69,6 @@ class EventsController < ApplicationController
 
 	def find_event
 		@event = Event.find(params[:id])
+		authorize @event
 	end
 end

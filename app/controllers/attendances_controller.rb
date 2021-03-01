@@ -20,4 +20,5 @@ class AttendancesController < ApplicationController
 		@attendances = current_user.attendances.order(created_at: :desc)
 		@attendances = policy_scope(@attendances)
 	end
+
 end
