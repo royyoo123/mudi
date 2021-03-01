@@ -1,0 +1,5 @@
+<div class="bookmarks">
+	<% @bookmarks.each do |bookmark| %>	
+		<h1><%= bookmark.event.name unless bookmark.event.nil? %></h1>
+	<% end %>
+</div>

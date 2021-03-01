@@ -71,15 +71,30 @@
     <div class="row row-cols-2-s justify-content-center">
       <% @events.each do |e| %>
       <div class ="col">
-        
+        <%= link_to event_path(e) do %>
         <div class="card text-center mt-3 mb-3" id="index-cards">
           <% e.photos.each do |photo| %>
           <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
           <div class="card-title">
             <h5><%= e.name %></h5>
           </div>
+
           <div class="bookmark">
-            <i class="far fa-heart"></i>
+            
+            <% if e.bookmark_by_user(current_user) %>
+              <%= link_to e.bookmark_by_user(current_user),method: :delete do %>
+              <i class="fa-heart bookmark-heart fas red" data-form-id="<%= e.id %>"></i>
+              <% end %>
+            <% else %>
+              <div class="hidden" id="form_<%= e.id %>" style="display:none">
+              <%= simple_form_for @new_bookmark, remote: true do |f| %>
+              <%= f.input :event_id, input_html: {value: e.id}, as: :hidden %>
+              <%= f.submit %>
+              <% end %>
+              </div>
+              <i class="far fa-heart bookmark-heart" data-form-id="<%= e.id %>"></i>
+
+            <% end %>
           </div>
           <div class="card-details">
             <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
@@ -89,6 +104,7 @@
             <% end %>
           </div>
           
+          <% end %>
         </div>
       <% end %>
       </div>

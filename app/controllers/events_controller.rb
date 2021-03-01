@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     	@events = Event.all.order(created_at: :desc)
     end
     @events = policy_scope(@events)
+    @new_bookmark = Bookmark.new
+    @user = current_user
+
+    
 	end
 	def map
 		@events = Event.all

@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :attendances
+  has_many :bookmarks
   validates :email, presence: true
 end

@@ -35,4 +35,5 @@ import { renderCal } from '../plugins/calendar';
 import { bookmark } from '../plugins/bookmark';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  bookmark();
 })
