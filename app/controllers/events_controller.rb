@@ -45,7 +45,30 @@ class EventsController < ApplicationController
 			render :new
 		end
 	end
-
+	def edit
+		@event = Event.find(params[:id])
+		@event.user = current_user
+		authorize @event
+	end
+	def update
+		@event = Event.find(params[:id])
+		@event.user = current_user
+		@event.update(event_params)
+		authorize @event
+		if @event.save
+			redirect_to event_path(@event)
+		else
+			render :new
+		end
+	end
+	def destroy
+		@event = Event.find(params[:id])
+		@event.user = current_user
+		@event.attendances.destroy_all
+		authorize @event
+		@event.destroy
+		redirect_to events_path
+	end
 	private
 	def event_params
 		params.require(:event).permit(:name, :start_date, :price, :address, :description, photos: [])

@@ -17,4 +17,5 @@ class AttendancePolicy < ApplicationPolicy
   def create?
   	true
   end
+
 end
