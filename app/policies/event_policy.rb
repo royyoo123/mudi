@@ -20,4 +20,13 @@ class EventPolicy < ApplicationPolicy
   def map?
     true
   end
+  def edit?
+    record.user == user
+  end
+  def update?
+    true
+  end
+  def destroy?
+    record.user == user
+  end
 end

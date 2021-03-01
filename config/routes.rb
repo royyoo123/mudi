@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'users#home'
   get 'events/map', to: 'events#map', as: :map
   # post 'events/confirmation', to: "attendances#create"
-  resources :events, only: [:show, :index, :new, :create] do
+  resources :events do
   	resources :attendances, only: :create
   end
   resources :bookmarks, only: [:index, :show, :destroy, :create]
