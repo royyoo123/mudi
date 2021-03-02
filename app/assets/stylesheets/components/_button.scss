@@ -45,14 +45,13 @@
   position: absolute;
   right: 1em;
   top: 6px;
-  color: #a5a5a5;
-  background-color: #F6F6F6;
+  color: $white;
+  background-color: $gray;
 }
 
 .map-btn {
-  color: $white;
+  color: $dark;
   font-size: 20px;
-  font-weight: bold;
   font-family: 'Sen', sans-serif;
   position: relative;
   background-color: $green;
@@ -64,7 +63,7 @@
 }
 
 .btn {
-  color: $white;
+  color: $dark;
   font-size: 24px;
   font-family: 'Sen', sans-serif;
   position: relative;
@@ -93,4 +92,15 @@
   color: #F6F6F6;
   font-size: 24px;
   font-family: 'Sen', sans-serif;
+}
+
+.mood-drop-btn {
+  color: $white;
+  font-size: 24px;
+  font-family: 'Sen', sans-serif;
+  position: relative;
+  background-color: $gray;
+  border-radius: 10px;
+  margin-inline-start: .5em;
+  border: none;
 }

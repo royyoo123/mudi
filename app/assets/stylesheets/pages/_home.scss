@@ -51,7 +51,8 @@ input[type=checkbox]:checked + label {
 }
 
 .mood-btn {
-  padding: 1em;
+  padding: 0 1em;
+  box-sizing: border-box;
 }
 
 // btn:focus {

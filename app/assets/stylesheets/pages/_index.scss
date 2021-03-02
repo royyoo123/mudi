@@ -22,9 +22,13 @@ body {
   border: none;
   border-radius: 10px;
   display: inline;
-  background-color: $white;
+  background-color: $gray;
   width: 17em;
   font-family: 'Sen', sans-serif;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: $white;
 }
 
 .filter-bar {
@@ -34,7 +38,6 @@ body {
   padding-right: .6em;
   padding-left: .6em;
   margin-top: .5em;
-  background-color: $violet;
   height: 40px;
 }
 
@@ -57,6 +60,12 @@ body {
 
 #mood-dropdown {
   font-size: 15px;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+
+#price-dropdown {
+  font-size: 15px;
 }
 
 #date-dropdown {
@@ -73,6 +82,6 @@ body {
 }
 
 .btn-group {
-  height: 30px;
+  height: 35px;
 }
 
