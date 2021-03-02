@@ -34,6 +34,8 @@
 
 .form-control {
 	border-radius: 10px;
+	background-color: $gray;
+	color: $white
 }
 
 .form-control-file {
@@ -53,3 +55,4 @@
 	justify-content: center;
 	text-align: center;
 }
+

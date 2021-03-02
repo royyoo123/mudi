@@ -16,7 +16,7 @@
 }
 dropdown{
    display: inline-block;
-   margin: 20px 50px; 
+  //  margin: 20px 50px; 
 
 }
 dropdown label, dropdown ul li{
@@ -28,10 +28,10 @@ dropdown label, dropdown ul li{
 
 }
 dropdown label:hover, dropdown ul li:hover{
-  background: $green;
+  background: $gray;
   color: white;
   cursor: pointer;
-  height: 25px;
+  height: 35px;
   border-radius: 10px;
   margin-top: 5px;
 }
@@ -54,10 +54,10 @@ dropdown input ~ ul{
   z-index: 1;
 }
 dropdown input:checked + label{
-  background: $green;
+  background: $gray;
   color: white;
   border-radius: 10px;
-  height: 25px;
+  height: 35px;
   margin-top: 5px;
   
 }
@@ -109,7 +109,6 @@ $colors: #FFFFFF, #0072B5, #2C3E50;
   background-color: $gray;
   border-radius: 10px;
   margin-inline-start: .5em;
-  border: none;
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   -ms-transition: all .3s;
