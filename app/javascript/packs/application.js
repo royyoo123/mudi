@@ -37,5 +37,11 @@ import { locateCoords } from '../plugins/geolocator';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   bookmark();
+  const bookmarks = document.querySelectorAll(".bookmark-heart")
+  bookmarks.forEach((bookmark) => { 
+    bookmark.addEventListener("click", (event) => {
+      event.preventDefault()
+    })
+  })
   locateCoords();
 })
