@@ -1,16 +1,19 @@
 .card {
-  height: 195px;
+  height: 225px;
   width: 157px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0);
   border: none;
   padding: none;
   margin: auto;
+  display: inline-block;
+  position: relative;
+  border-radius: 7px;
 }
 
 .card-photo {
-  height: 50%;
+  height: 60%;
   width: 100%;
-  
+  border-radius: 7px 7px 0px 0px;
 }
 
 .card-title {
@@ -21,12 +24,32 @@
 .card-details {
   font-family: 'Sen', sans-serif;
   position: absolute;
-  bottom: 2px;
-  right: 14px;
+  bottom: 7px;
+  right: 10px;
   font-size: 18px;
-  top: 160px;
+  top: 190px;
+  color: $white;
+  background-color: $gray;
+  padding: 0px 5px 0px 5px;
+  border-radius: 7px;
+  
 }
 
 .card-title h5 {
-  font-size: 16px;
+  font-size: 15px;
+  text-align: left;
+  padding-left: .75em;
+  font-weight: bold;
+  color: $dark;
+}
+
+.bookmark {
+position: absolute;
+right: 10px;
+top: 5px;
+color: $white
+}
+
+.bookmark-heart.red {
+	color: $red;
 }

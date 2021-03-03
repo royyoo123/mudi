@@ -7,8 +7,9 @@ const bookmark = () => {
 			heart.classList.toggle("red")
 			const eventId = heart.dataset.formId
 			const formContainer = document.querySelector(`#form_${eventId}`)
+			if (formContainer) {
 			formContainer.querySelector('form').submit()
-
+			}
 		});
 	});
 	

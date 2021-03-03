@@ -1,5 +1,5 @@
 #index-cards {
-  color: $black;
+  color: $dark, !important;
 }
 
 body {
@@ -38,7 +38,7 @@ body {
   display: flex;
   justify-content: space-around;
   padding-right: .6em;
-  padding-left: .6em;
+  padding-left: .3em;
   margin-top: .5em;
   height: 40px;
 }
@@ -71,7 +71,7 @@ body {
 }
 
 #date-dropdown {
-  font-size: 15px;
+  font-size: 22px;
   align-items: center;
 }
 
