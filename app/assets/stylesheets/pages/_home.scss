@@ -39,20 +39,23 @@ body {
   font-size: 24px;
   font-family: 'Sen', sans-serif;
   position: relative;
-  background-color: $green;
+  background-color: $violet;
   border-radius: 10px;
-  margin-inline-start: .5em;
 }
 
 .mood-input[type=checkbox]:checked + label {
-  background-color: $violet;
-  color: $white;
+  background-color: $green;
+  color: $dark;
   animation: btn-color 0.5s ease-in-out;
 }
 
 .mood-btn {
   padding: 0 1em;
   box-sizing: border-box;
+}
+
+.spaced {
+  justify-content: space-between;
 }
 
 // btn:focus {
