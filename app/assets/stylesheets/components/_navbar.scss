@@ -4,6 +4,9 @@
   color: $white;
   
 }
+#home-navbar {
+  flex-direction: row-reverse;
+}
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -47,4 +50,8 @@
   padding-bottom: 0;
   padding-left: 0;
   float: right;
+}
+
+.navbar-light .navbar-toggler {
+  border: none !important;
 }

@@ -12,7 +12,6 @@ const bookmark = () => {
 			}
 		});
 	});
-	
 };
 
 export { bookmark };

@@ -1,8 +1,6 @@
 <body>
   <div class="search-container">
-    <%= link_to map_path do %>
-    <button type="button" class="map-btn">MAP</button>
-    <% end %>
+    <button type="button" class="map-btn" id="map-button1">MAP</button>
     <div id="search-bar">
       <%= form_tag events_path, method: :get do %>
         <%= text_field_tag :query,
@@ -15,6 +13,7 @@
       <% end %>
     </div>
   </div>
+  <div style="display: none"></div>
   <div class="filter-bar pb-2">
     <div class="btn-group mt-1">
       <button type="button" class="mood-drop-btn btn-up dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mood-dropdown">mood</button>
