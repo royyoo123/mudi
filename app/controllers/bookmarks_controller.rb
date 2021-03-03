@@ -13,7 +13,7 @@ class BookmarksController < ApplicationController
 		@bookmark.event = @event
 		authorize @bookmark
 		@bookmark.save
-	  
+	  ####do not touch
 	end
 
 	def index
