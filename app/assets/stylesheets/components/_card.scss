@@ -1,17 +1,18 @@
 .card {
   height: 225px;
-  width: 157px;
+  width: 100%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0);
   border: none;
   padding: none;
   margin: auto;
   display: inline-block;
+  justify-content: space-around;
   position: relative;
   border-radius: 7px;
 }
 
 .card-photo {
-  height: 60%;
+  height: 65%;
   width: 100%;
   border-radius: 7px 7px 0px 0px;
 }
@@ -24,10 +25,9 @@
 .card-details {
   font-family: 'Sen', sans-serif;
   position: absolute;
-  bottom: 7px;
+  bottom: 8px;
   right: 10px;
   font-size: 18px;
-  top: 190px;
   color: $white;
   background-color: $gray;
   padding: 0px 5px 0px 5px;
@@ -39,8 +39,10 @@
   font-size: 15px;
   text-align: left;
   padding-left: .75em;
-  font-weight: bold;
+  font-weight: bolder;
   color: $dark;
+  position: absolute;
+  top: 152px;
 }
 
 .bookmark {
@@ -50,6 +52,21 @@ top: 5px;
 color: $white
 }
 
-.bookmark-heart.red {
-	color: $red;
+.bookmark-heart {
+	color: $green;
+}
+
+.date-time {
+  font-size: 14px;
+  color: $dark;
+  text-align: left;
+  padding-left: .75em;
+  position: absolute;
+  bottom: 8px;
+  font-family: 'Sen', sans-serif, !important;
+  font-weight: bold;
+}
+
+.card-col {
+  margin-right: 4px;
 }
