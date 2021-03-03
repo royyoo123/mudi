@@ -2,16 +2,29 @@ import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  return new mapboxgl.Map({
+  const urlParams = new URLSearchParams(window.location.search)
+  let latitude = urlParams.get('latitude')
+  let longitude = urlParams.get('longitude')
+  var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/royyoo123/cklsk6dkc1jiu17mgpi2co94m',
+    center: [longitude,latitude],
+    zoom: 10
   });
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+      enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    })
+  );
+  return map
 };
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
   const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
   // Create a HTML element for your custom marker
   const element = document.createElement('div');
   element.className = 'marker';
@@ -28,11 +41,11 @@ const addMarkersToMap = (map, markers) => {
 });
 };
 
-const fitMapToMarkers = (map, markers) => {
-  const bounds = new mapboxgl.LngLatBounds();
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
-};
+// const fitMapToMarkers = (map, markers) => {
+//   const bounds = new mapboxgl.LngLatBounds();
+//   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+//   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
+// };
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
@@ -40,7 +53,7 @@ const initMapbox = () => {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
+    // fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                       mapboxgl: mapboxgl }));
   }

@@ -1,15 +1,15 @@
-.navbar-lewagon {
+.navbar-lewagon1 {
   background: $dark;
   display: flex;
   flex-direction: row-reverse;
   
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-lewagon1 .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-lewagon1 .navbar-brand img {
   width: 120px;
 }
 
@@ -29,3 +29,4 @@
   width: 50px;
   height: 50px;
 } 
+
