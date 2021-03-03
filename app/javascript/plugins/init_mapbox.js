@@ -20,9 +20,14 @@ const buildMap = (mapElement) => {
 //         });
 //     }); 
 // } 
+  const urlParams = new URLSearchParams(window.location.search)
+  let latitude = urlParams.get('latitude')
+  let longitude = urlParams.get('longitude')
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/royyoo123/cklsk6dkc1jiu17mgpi2co94m',
+   
+    center: [longitude,latitude],
     
     zoom: 10
   });
