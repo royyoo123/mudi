@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $dark;
+  color: $white;
   
 }
 #home-navbar {
@@ -13,6 +14,11 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 120px;
+}
+
+.navbar-lewagon .navbar-brand-hidden img {
+  width: 120px;
+  display: none;
 }
 
 .dropdown-item {
@@ -30,4 +36,22 @@
   background-image: url("https://icon-library.com/images/white-menu-icon/white-menu-icon-12.jpg");
   width: 50px;
   height: 50px;
+}
+
+
+.login-link {
+  color: $white !important;
+  text-align: right;
+}
+
+.navbar-toggler {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  float: right;
+}
+
+.navbar-light .navbar-toggler {
+  border: none !important;
 }
