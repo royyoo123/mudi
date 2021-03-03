@@ -9,7 +9,7 @@ const locateCoords = () => {
 	const c = document.querySelector('.btn-map');
 	const d = document.getElementById('back-btn');
 	const handleButtonClick = (event) => {
-		window.location.href=`http://localhost:3000/events`;
+		window.location.href=`http://mudi.live/events`;
 	}
 	if (a) a.addEventListener('click', handleButtonClick)
 	function success(pos) {
