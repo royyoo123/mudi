@@ -15,7 +15,6 @@ class Event < ApplicationRecord
   validates :address, presence: true
 
   def bookmark_by_user(user)
-    
     if user
       bookmarks.where(user: user).first
     else

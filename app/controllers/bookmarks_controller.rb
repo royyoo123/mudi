@@ -13,7 +13,11 @@ class BookmarksController < ApplicationController
 		@bookmark.event = @event
 		authorize @bookmark
 		@bookmark.save
-	  
+	  if params[:latitude] && params[:longitude]
+			redirect_to events_path(latitude: params[:latitude],longitude:params[:longitude])
+		else
+			redirect_to events_path
+		end
 	end
 
 	def index
@@ -25,6 +29,10 @@ class BookmarksController < ApplicationController
 		@bookmark = Bookmark.find(params[:id])
 		authorize @bookmark
 		@bookmark.destroy
-		redirect_to events_path
+		if params[:latitude] && params[:longitude]
+			redirect_to events_path(latitude: params[:latitude],longitude:params[:longitude])
+		else
+			redirect_to events_path
+		end
 	end
 end
