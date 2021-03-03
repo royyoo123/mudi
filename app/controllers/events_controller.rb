@@ -16,7 +16,6 @@ class EventsController < ApplicationController
     @events = policy_scope(@events)
     @new_bookmark = Bookmark.new
     @user = current_user
-    # @coords = get_ip
 	end
 	def map
 		@events = Event.all
