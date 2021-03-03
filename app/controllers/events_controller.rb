@@ -3,7 +3,12 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-    if params[:query].present?
+		if params[:latitude].present? && params[:longitude].present?
+			latitude = params[:latitude]
+	    longitude = params[:longitude]
+	    coords = [latitude,longitude]
+	    @events = Event.near(coords, 50)
+    elsif params[:query].present?
     	@events = Event.search_by_name_and_description(params[:query])
     else
     	@events = Event.all.order(created_at: :desc)
@@ -11,8 +16,7 @@ class EventsController < ApplicationController
     @events = policy_scope(@events)
     @new_bookmark = Bookmark.new
     @user = current_user
-
-    
+    # @coords = get_ip
 	end
 	def map
 		@events = Event.all
@@ -75,4 +79,17 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		authorize @event
 	end
+	# def get_ip
+	# 	ip = user.last_sign_in_ip || user.current_sign_in_ip
+	# 	location = Geocoder.search(ip)
+	# 	country = location["country_name"]
+	# 	state = location["region_name"]
+	# 	city = location["city"]
+	# 	zipcode = geoloc["zipcode"]
+	# 	latitude = geoloc["latitude"]
+	# 	longitude = geoloc["longitude"]
+	# 	area_code = geoloc["area_code"]
+	# 	return [latitude, longitude]
+	# end
+
 end
