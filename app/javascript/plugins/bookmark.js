@@ -6,6 +6,7 @@ const bookmark = () => {
 			heart.classList.toggle("fas")
 			heart.classList.toggle("red")
 			const eventId = heart.dataset.formId
+			event.preventDefault();
 			const formContainer = document.querySelector(`#form_${eventId}`)
 			if (formContainer) {
 			formContainer.querySelector('form').submit()
