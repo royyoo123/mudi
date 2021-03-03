@@ -8,10 +8,8 @@ const bookmark = () => {
 			const eventId = heart.dataset.formId
 			const formContainer = document.querySelector(`#form_${eventId}`)
 			formContainer.querySelector('form').submit()
-
 		});
 	});
-	
 };
 
 export { bookmark };
