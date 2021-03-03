@@ -8,9 +8,14 @@ const locateCoords = () => {
 	const b = document.getElementById('map-button1');
 	const c = document.querySelector('.btn-map');
 	const d = document.getElementById('back-btn');
+	const handleButtonClick = (event) => {
+		window.location.href=`http://localhost:3000/events`;
+	}
+	if (a) a.addEventListener('click', handleButtonClick)
 	function success(pos) {
 	  var crd = pos.coords;
 	  if(a){
+			a.removeEventListener('click', handleButtonClick)
 	  	a.addEventListener('click',(event) => {
 			window.location.href=`http://localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
@@ -32,5 +37,5 @@ const locateCoords = () => {
 	  console.warn(`ERROR(${err.code}): ${err.message}`);
 	}
 	navigator.geolocation.getCurrentPosition(success, error, options);
-}
+}	
 export { locateCoords }
