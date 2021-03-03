@@ -6,6 +6,7 @@ const locateCoords = () => {
 	}
 	const a = document.querySelector('#confirm-btn');
 	const b = document.querySelector('#map-button1');
+	const c = document.querySelector('.btn-map')
 	function success(pos) {
 	  var crd = pos.coords;
 	  if(a){
@@ -15,6 +16,10 @@ const locateCoords = () => {
 	} else if (b) {
 		b.addEventListener('click',(event) => {
 			window.location.href=`http://localhost:3000/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+		})
+	} else if (c) {
+		c.addEventListener('click',(event)=> {
+			window.location.href=`http://localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 		})
 	}
 	}
