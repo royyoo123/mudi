@@ -69,29 +69,24 @@
   position: relative;
   background-color: $green;
   border-radius: 10px;
-  margin-inline-start: .5em;
+  // margin-inline-start: .5em;
 }
 
 #confirm-btn {
-  background-color: $violet;
+  background-color: $green;
   font-size: 18px;
-  width: 15em;
+  width: 10em;
+  padding: 5px 30px;
+  border-radius: 10px;
+  color: $dark;
+  font-size: 24px;
+  font-family: 'Sen', sans-serif;
+  margin: none;
 }
 
 .btns {
   padding-top: 2em;
   margin-bottom: 1em;
-}
-
-.confirm-btn {
-  background-color: #676FC9;
-  font-size: 18px;
-  width: 15em;
-  padding: 5px 30px;
-  border-radius: 10px;
-  color: #F6F6F6;
-  font-size: 24px;
-  font-family: 'Sen', sans-serif;
 }
 
 .mood-drop-btn {
