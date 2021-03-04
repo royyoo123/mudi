@@ -2,6 +2,7 @@ const bookmark = () => {
 	const hearts = document.querySelectorAll(".bookmark-heart");
 	hearts.forEach((heart) => {
 		heart.addEventListener("click", (event) => {
+			
 			heart.classList.toggle("far")
 			heart.classList.toggle("fas")
 			heart.classList.toggle("red")

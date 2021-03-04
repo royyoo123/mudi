@@ -85,7 +85,7 @@
   <div class="container">
     <div class="row row-cols-2-s ml-1 mr-1">
       <% @events.each do |e| %>
-      <div class ="col-6">
+      <div class ="col-6 col-lg-4">
   
         <div class="card text-center mt-3 mb-3" >
           <%= link_to event_path(e) do %>
@@ -104,17 +104,18 @@
 
           <div class="bookmark"> 
             <% if e.bookmark_by_user(current_user) %>
-              <%= link_to e.bookmark_by_user(current_user),method: :delete do %>
-              <i class="fa-bookmark bookmark-heart fas" data-form-id="<%= e.id %>"></i>
+              <%= link_to bookmark_path(e.bookmark_by_user(current_user),latitude: params[:latitude],longitude:params[:longitude]),method: :delete, remote: true do %>
+
+              <i class="fa-heart bookmark-heart fas red" data-form-id="<%= e.id %>"></i>
               <% end %>
             <% else %>
               <div class="hidden" id="form_<%= e.id %>" style="display:none">
-              <%= simple_form_for @new_bookmark, remote: true do |f| %>
+              <%= simple_form_for @new_bookmark, url: bookmarks_path+"?latitude=#{params[:latitude]}&longitude=#{params[:longitude]}" do |f| %>
               <%= f.input :event_id, input_html: {value: e.id}, as: :hidden %>
               <%= f.submit %>
               <% end %>
               </div>
-              <i class="far fa-bookmark bookmark-heart" data-form-id="<%= e.id %>"></i>
+              <i class="far fa-heart bookmark-heart" data-form-id="<%= e.id %>"></i>
 
             <% end %>
           </div>

@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   const bookmarks = document.querySelectorAll(".bookmark-heart")
   bookmarks.forEach((bookmark) => { 
     bookmark.addEventListener("click", (event) => {
-      event.preventDefault()
+      event.preventDefault();
     })
   })
   locateCoords();
