@@ -1,7 +1,17 @@
-<a class="map-card"><%= link_to event_path(event) do %>
+<a class="map-card justify-content-center"><%= link_to event_path(event) do %>
 <h2 class="map-card-title"><%= event.name %></h2>
-<% if event.photos.attached? %>
-	<%= cl_image_tag event.photos[0].key, height: 150, width: 200, crop: :fill %>
-<% end %>
-<p><%= event.price %></p>
-<% end %>
+<h3 class="map-card-address"><%= event.address %></h3>
+<div class="map-date-time">
+	<p class="map-date"><%= event.start_date.strftime("%m/%d/%Y") %></p>
+	<p class="map-time">@<%= event.start_date.strftime("%l:%M %p") %></p>
+</div class="map-image">
+	<% if event.photos.attached? %>
+		<%= cl_image_tag event.photos[0].key, height: 200, width: 300, crop: :fill %>
+	<% end %>
+	<% if event.price == "Free" || e.price == "FREE" || e.price == "free" %>
+		<p class="map-price"><%= event.price %></p>
+		<% else %>
+		<p class="map-price">$<%= event.price %></p>
+		<% end %>
+	<% end %>
+</div>
