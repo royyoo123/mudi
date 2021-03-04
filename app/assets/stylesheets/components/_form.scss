@@ -6,6 +6,7 @@
 
 .create-form {
 	border-radius: 10px !important;
+
 }
 
 .string {
@@ -75,7 +76,24 @@ input.form-control {
 	color: $white;
 }
 
-input:-internal-autofill-selected {
-	color: $white  !important;
-	background: $gray !important;
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+{
+ -webkit-text-fill-color: $white;
+ -webkit-box-shadow: 0 0 0 30px $gray inset !important;
 }
+
+// input:-internal-autofill-selected {
+// 	background-color: $gray !important;
+// }
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover, 
+// input:-webkit-autofill:focus, 
+// input:-webkit-autofill:active
+// {
+//  -webkit-box-shadow: 0 0 0 30px $gray inset !important;
+// }
