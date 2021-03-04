@@ -85,7 +85,7 @@
   <div class="container">
     <div class="row row-cols-2-s ml-1 mr-1">
       <% @events.each do |e| %>
-      <div class ="col-6">
+      <div class ="col-sm-6 col-lg-4">
   
         <div class="card text-center mt-3 mb-3" >
           <%= link_to event_path(e) do %>
@@ -104,7 +104,7 @@
 
           <div class="bookmark"> 
             <% if e.bookmark_by_user(current_user) %>
-              <%= link_to bookmark_path(e.bookmark_by_user(current_user),latitude: params[:latitude],longitude:params[:longitude]),method: :delete do %>
+              <%= link_to bookmark_path(e.bookmark_by_user(current_user),latitude: params[:latitude],longitude:params[:longitude]),method: :delete, remote: true do %>
 
               <i class="fa-heart bookmark-heart fas red" data-form-id="<%= e.id %>"></i>
               <% end %>
