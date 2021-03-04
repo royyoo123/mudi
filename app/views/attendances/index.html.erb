@@ -1,9 +1,14 @@
 <body>
-  <div class="attendance-card">
-    <% @attendances.each do |attendance| %>
-    <h2><%= attendance.event.name %></h2>
-    <h2><%= attendance.event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h2>
-    <h2><%= attendance.event.description %></h2>
-  <% end %>
+  <div class="container">
+    <div class="row ml-1 mr-1">
+        <% @attendances.each do |attendance| %>
+        <div class="a-card">
+          <h2><%= attendance.event.name %></h2>
+          <h2><%= attendance.event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h2>
+          <h2><%= attendance.event.description %></h2>
+        </div>
+      <% end %>
+      </div>
+    </div>
   </div>
 </body
