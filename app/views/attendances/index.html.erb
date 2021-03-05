@@ -1,25 +1,32 @@
+
 <body>
-<<<<<<< HEAD
-  <div class="container">
-    <div class="row ml-1 mr-1">
+  <div class="row" id="a-card-row">
+    <div class="col-12 col-lg-3">
         <% @attendances.each do |attendance| %>
         <div class="a-date">
           <p><%= attendance.event.start_date.strftime("%Y/%m/%d  @ %l:%M %p") %></p>
         </div>
         <div class="a-card">
           <div class="a-card-content">
-            <div class="a-card-photo">
-              <% attendance.event.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, crop: :fill, class: "a-card-photo" %>
-              <% end %>
-            </div>
+            <% attendance.event.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, crop: :fill, class: "a-card-photo" %>
+            <% end %>
             <div class="a-card-details">
-              <h2><%= attendance.event.name %></h2>
-              <p><%= attendance.event.address %></p>
+              <div class="a-name">
+                <h2><%= attendance.event.name %></h2>
+              </div>
+              <div class="a-addy">
+                <p><%= attendance.event.address %></p>
+              </div>
+              <div class="view-dets">
+                <%= link_to event_path(attendance.event) do %>
+            <button type="button" id="details-button">View Details</button>
+            <% end %>
+              </div>
             </div>
           </div>
         </div>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>
