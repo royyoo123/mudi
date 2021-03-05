@@ -53,9 +53,39 @@
 }
 
 #photo-input {
-	justify-content: center;
-	text-align: center;
+	justify-content: center !important;
 }
+
+// input#file-upload-button {
+// 	background: $linear-green !important;
+//   font-size: 24px;
+//   width: 10em;
+//   padding: 5px 30px;
+//   border-radius: 10px;
+//   color: $dark;
+//   font-family: 'Sen', sans-serif;
+//   margin: none;
+// }
+
+input#search-bar-input.form-control {
+	color: $white;
+	background: $gray !important;
+}
+
+input:focus {
+	border-color: $green !important;
+	box-shadow: 0 0 3px $green !important;
+}
+
+.form-control:focus {
+	background: $gray !important;
+	color: $white;
+}
+
+input.form-control {
+	color: $white;
+}
+
 
 input#search-bar-input.form-control {
 	color: $white;

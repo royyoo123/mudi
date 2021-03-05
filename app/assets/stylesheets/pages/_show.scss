@@ -4,13 +4,6 @@
   font-family: 'Sen', sans-serif;
 }
 
-.map-card-title {
-  color: $violet !important;
-  font-family: 'Sen', sans-serif;
-  font-size: 24px;
-
-}
-
 .details {
   color: $white;
   font-family: 'Sen', sans-serif;
@@ -19,6 +12,8 @@
 .address {
   color: $white;
   font-family: 'Sen', sans-serif;
+  margin-bottom: 4px;
+  font-size: 18px;
 }
 
 .description {
@@ -51,6 +46,7 @@ h1.title {
   color: $green;
   font-size: 2em;
   text-decoration: none;
+  margin-bottom: 1em;
 }
 
 h3 {

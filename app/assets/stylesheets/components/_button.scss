@@ -1,5 +1,5 @@
 .btn-map {
-	color: $white;
+	color: $dark;
   font-size: 20px;
   font-family: 'Sen', sans-serif;
   position: relative;
@@ -9,6 +9,12 @@
   border: none;
   height: 1.9em;
   padding: 8px;
+  text-decoration: none;
+}
+
+a.btn-map {
+  text-decoration: none;
+  color: $dark;
 }
 
 .btn-up {
@@ -99,4 +105,19 @@
   border: 1.5px;
   border-color: #828282;
   border-style: solid;
+}
+
+#map-event-button {
+  background: $linear-green;
+  font-size: 18px;
+  width: 12em;
+  border-radius: 10px;
+  color: $dark;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+  margin-top: 14px;
+  align-items: center;
+  margin-left: 44px
+
 }
