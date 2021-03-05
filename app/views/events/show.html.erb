@@ -5,7 +5,9 @@
 		</div>
 		<div class="details">
 		<h3 class="address"><%= @event.address %></h3>
+			<% unless @event.start_date.nil? %>
 			<h3>Date: <%= @event.start_date.strftime("%m/%d/%Y %l:%M %p") %></h3>
+			<% end %>
 		</div>
 		<div class="photo-container">
 			<% @event.photos.each do |photo| %>

@@ -1,9 +1,10 @@
- <div class="link-back">
-			<button type="button" id="back-btn">Back to results</button>
-		</div>
-<div class="bookmarks">
+<div class="link-back">
+	<button type="button" id="back-btn">Back to results</button>
+</div>
+
+	<div class="bookmarks">
 	<% @bookmarks.each do |bookmark| %>	
 		<h1><%= link_to bookmark.event.name, event_path(bookmark.event)%></h1>
-	
 	<% end %>
-</div>
+	</div>
+
