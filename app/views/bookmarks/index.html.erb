@@ -3,6 +3,7 @@
 		</div>
 <div class="bookmarks">
 	<% @bookmarks.each do |bookmark| %>	
-		<h1><%= bookmark.event.name unless bookmark.event.nil? %></h1>
+		<h1><%= link_to bookmark.event.name, event_path(bookmark.event)%></h1>
+	
 	<% end %>
 </div>
