@@ -9,6 +9,8 @@
         id: "search-bar-input",
         placeholder: "search for an activity..."
         %>
+        <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+        <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
         <%= submit_tag " ➜ ", id: "searchbar-btn" %>
       <% end %>
     </div>
@@ -52,35 +54,15 @@
         </ul>
       </div>
     </div>
-    <dropdown>
-  <input id="toggle1" type="checkbox">
-  <label for="toggle1" class="mood-drop-btn btn-group mt-1 btn-up1" id="date-dropdown">
-    <span class="iconify" data-icon="akar-icons:calendar" data-inline="false"></span>
-  </label>
-  <ul class="animate">
-    
-<!-- calendar  -->
-<h1 class="center"></h1>
-<div class="calendar" style="margin-top:60px;">
-  <div class="group">
-    <p class="left pointer minusmonth">&laquo;</p>
-    <p class="left monthname center pointer"></p>
-    <p class="right pointer addmonth">&raquo;</p>
-  </div>
-  <ul class="group">
-    <li>Mo</li>
-    <li>Tu</li>
-    <li>We</li>
-    <li>Th</li>
-    <li>Fr</li>
-    <li>Sa</li>
-    <li>Su</li>
-  </ul>
-</div>
+    <div class="datetimepicker">
+      <form action="/events">
+        <input type="date" id="date5"name="date">
+        <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+        <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+        <input type="submit">
+      </form>
 
-  </ul>
-</dropdown>
-
+    </div>
   </div>
   <div class="container">
     <div class="row row-cols-2-s ml-1 mr-1">
