@@ -54,12 +54,13 @@
         </ul>
       </div>
     </div>
-    <div class="datetimepicker">
+    <div class="datetimepicker btn-group">
       <form action="/events">
         <input type="date" id="date5"name="date">
         <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
         <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
-        <input type="submit">
+        <%= submit_tag " ➜ ", id: "searchbar-btn" %>
+        
       </form>
 
     </div>
