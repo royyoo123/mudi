@@ -106,3 +106,18 @@ a.btn-map {
   border-color: #828282;
   border-style: solid;
 }
+
+#map-event-button {
+  background: $linear-green;
+  font-size: 18px;
+  width: 12em;
+  border-radius: 10px;
+  color: $dark;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+  margin-top: 14px;
+  align-items: center;
+  margin-left: 44px
+
+}
