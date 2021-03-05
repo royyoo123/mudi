@@ -17,16 +17,17 @@ class EventsController < ApplicationController
 	    		@events = Event.search_by_name_and_description(params[:query])
 	    	end	
 	    end
+	   
     else
     	date_time=params[:date].to_datetime
     	if params[:latitude].present? && params[:longitude].present?
     		latitude = params[:latitude]
 		    longitude = params[:longitude]
 		    coords = [latitude,longitude]
-		    byebug
-		    @events = Event.near(coords, 50).where("start_date = ?", date_time)
+		    # @events = Event.near(coords, 50).find_by(start_date: date_time)
+		    @events = Event.near(coords, 50).where("start_date > ?", date_time)
 	    else
-	    	@events = Event.where("start_date = ?", date_time)
+	    	@events = Event.where("start_date > ?", date_time)
 	    end
     end
  
