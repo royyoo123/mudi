@@ -83,8 +83,9 @@ class EventsController < ApplicationController
 	def destroy
 		@event.user = current_user
 		@event.attendances.destroy_all
+		@event.bookmarks.destroy_all
 		@event.destroy
-		redirect_to events_path
+		redirect_to root_path
 	end
 	private
 	def event_params

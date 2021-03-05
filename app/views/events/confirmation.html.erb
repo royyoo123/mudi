@@ -15,5 +15,7 @@
 	</div>
 	<br>
 
-	<%= link_to "Sync to calendar", event_attendances_path(@event), method: "post" , class: "confirm-btn"%>
+	<%= link_to event_attendances_path(@event), method: "post" do %>
+        <button type="button" id="book-btn">Sync to calendar</button>
+      <% end %>
 </div>
