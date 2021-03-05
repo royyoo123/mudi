@@ -1,3 +1,6 @@
+ <div class="link-back">
+			<button type="button" id="back-btn">Back to results</button>
+		</div>
 <div class="bookmarks">
 	<% @bookmarks.each do |bookmark| %>	
 		<h1><%= bookmark.event.name unless bookmark.event.nil? %></h1>
