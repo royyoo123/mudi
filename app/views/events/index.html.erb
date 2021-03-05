@@ -92,9 +92,11 @@
                 <i class="far fa-bookmark" data-form-id="<%= e.id %>"></i>
               <% end %>
             </div>
-    
+        
             <div class="date-time">
+              <% unless e.start_date.nil? %>
               <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
+              <% end %>
             </div>
           
             
