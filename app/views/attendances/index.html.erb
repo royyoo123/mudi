@@ -2,10 +2,21 @@
   <div class="container">
     <div class="row ml-1 mr-1">
         <% @attendances.each do |attendance| %>
+        <div class="a-date">
+          <p><%= attendance.event.start_date.strftime("%Y/%m/%d  @ %l:%M %p") %></p>
+        </div>
         <div class="a-card">
-          <h2><%= attendance.event.name %></h2>
-          <h2><%= attendance.event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h2>
-          <h2><%= attendance.event.description %></h2>
+          <div class="a-card-content">
+            <div class="a-card-photo">
+              <% attendance.event.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, crop: :fill, class: "a-card-photo" %>
+              <% end %>
+            </div>
+            <div class="a-card-details">
+              <h2><%= attendance.event.name %></h2>
+              <p><%= attendance.event.address %></p>
+            </div>
+          </div>
         </div>
       <% end %>
       </div>

@@ -5,9 +5,27 @@
   border: none;
   padding: none;
   margin: auto;
-  display: inline-block;
+  display: flex;
   justify-content: space-around;
   position: relative;
   border-radius: 7px;
   background: $white;
+}
+
+.a-date {
+  color: $white;
+}
+
+.a-card-photo {
+  object-fit: cover;
+}
+
+.a-card-content {
+  display: flex;
+
+}
+
+.a-card-photo img {
+  height: 100%;
+  width: 40%;
 }
