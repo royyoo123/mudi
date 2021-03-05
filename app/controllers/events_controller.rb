@@ -24,10 +24,11 @@ class EventsController < ApplicationController
     		latitude = params[:latitude]
 		    longitude = params[:longitude]
 		    coords = [latitude,longitude]
-		    # @events = Event.near(coords, 50).find_by(start_date: date_time)
+		    # @events = Event.near(coords, 50).where('start_date= date_time')
 		    @events = Event.near(coords, 50).where("start_date > ?", date_time)
 	    else
 	    	@events = Event.where("start_date > ?", date_time)
+	    	# @events = Event.where.not("start_date: ?", nil)
 	    end
     end
  
