@@ -18,6 +18,8 @@
           <% if policy(Event).new? %>
             <%= link_to "Add event", new_event_path, class: "dropdown-item" %>
           <% end %>
+        </li class="nav item">
+          <%= link_to "Bookmarks", bookmarks_path, class: "dropdown-item" %>
         </li class="nav-item">
           <%= link_to "Activities", attendances_path, class: "dropdown-item" %>
         </li class="nav-item">

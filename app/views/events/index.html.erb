@@ -9,6 +9,8 @@
         id: "search-bar-input",
         placeholder: "search for an activity..."
         %>
+        <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+        <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
         <%= submit_tag " ➜ ", id: "searchbar-btn" %>
       <% end %>
     </div>
@@ -52,78 +54,52 @@
         </ul>
       </div>
     </div>
-    <dropdown>
-  <input id="toggle1" type="checkbox">
-  <label for="toggle1" class="mood-drop-btn btn-group mt-1 btn-up1" id="date-dropdown">
-    <span class="iconify" data-icon="akar-icons:calendar" data-inline="false"></span>
-  </label>
-  <ul class="animate">
-    
-<!-- calendar  -->
-<h1 class="center"></h1>
-<div class="calendar" style="margin-top:60px;">
-  <div class="group">
-    <p class="left pointer minusmonth">&laquo;</p>
-    <p class="left monthname center pointer"></p>
-    <p class="right pointer addmonth">&raquo;</p>
-  </div>
-  <ul class="group">
-    <li>Mo</li>
-    <li>Tu</li>
-    <li>We</li>
-    <li>Th</li>
-    <li>Fr</li>
-    <li>Sa</li>
-    <li>Su</li>
-  </ul>
-</div>
+    <div class="datetimepicker">
+      <form action="/events">
+        <input type="date" id="date5"name="date">
+        <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+        <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+        <input type="submit">
+      </form>
 
-  </ul>
-</dropdown>
-
+    </div>
   </div>
   <div class="container">
     <div class="row row-cols-2-s ml-1 mr-1">
       <% @events.each do |e| %>
-      <div class ="col-6">
+      <div class ="col-6 col-lg-4">
   
         <div class="card text-center mt-3 mb-3" >
           <%= link_to event_path(e) do %>
-          <% e.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
-          <div class="card-title" >
-            <h5><%= e.name %></h5>
-          </div>
-          <div class="card-details" >
-            <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
-            <p><%= e.price %></p>
-            <% else %>
-            <p>$<%= e.price %></p>
+            <% e.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
             <% end %>
-          </div>
-
-          <div class="bookmark"> 
-            <% if e.bookmark_by_user(current_user) %>
-              <%= link_to e.bookmark_by_user(current_user),method: :delete do %>
-              <i class="fa-bookmark bookmark-heart fas" data-form-id="<%= e.id %>"></i>
+            <div class="card-title" >
+              <h5><%= e.name %></h5>
+            </div>
+            <div class="card-details" >
+              <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
+              <p><%= e.price %></p>
+              <% else %>
+              <p>$<%= e.price %></p>
               <% end %>
-            <% else %>
-              <div class="hidden" id="form_<%= e.id %>" style="display:none">
-              <%= simple_form_for @new_bookmark, remote: true do |f| %>
-              <%= f.input :event_id, input_html: {value: e.id}, as: :hidden %>
-              <%= f.submit %>
+            </div>
+    
+            <div class="bookmark"> 
+              <% if e.bookmark_by_user(current_user) %>
+                <i class="fas fa-bookmark" data-form-id="<%= e.id %>"></i>
+              <% else %>
+                <i class="far fa-bookmark" data-form-id="<%= e.id %>"></i>
               <% end %>
-              </div>
-              <i class="far fa-bookmark bookmark-heart" data-form-id="<%= e.id %>"></i>
-
-            <% end %>
-          </div>
-
-          <div class="date-time">
-            <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
-          </div>
+            </div>
+        
+            <div class="date-time">
+              <% unless e.start_date.nil? %>
+              <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
+              <% end %>
+            </div>
           
-          <% end %>
+            
         </div>
       <% end %>
       </div>

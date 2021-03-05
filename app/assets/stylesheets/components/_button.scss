@@ -1,14 +1,20 @@
 .btn-map {
-	color: $white;
+	color: $dark;
   font-size: 20px;
   font-family: 'Sen', sans-serif;
   position: relative;
-  background-color: $green;
+  background: $linear-green;
   border-radius: 7px;
   margin-inline-start: .5em;
   border: none;
   height: 1.9em;
   padding: 8px;
+  text-decoration: none;
+}
+
+a.btn-map {
+  text-decoration: none;
+  color: $dark;
 }
 
 .btn-up {
@@ -17,7 +23,7 @@
 }
 
 #book-btn {
-  background-color: $green;
+  background: $linear-green;
   font-size: 18px;
   width: 15em;
   border-radius: 10px;
@@ -28,7 +34,7 @@
 }
 
 #back-btn {
-  background-color: $violet;
+  background: $linear-violet;
   font-size: 18px;
   width: 15em;
   border-radius: 10px;
@@ -54,7 +60,7 @@
   font-size: 20px;
   font-family: 'Sen', sans-serif;
   position: relative;
-  background-color: $green;
+  background: $linear-green;
   border-radius: 7px;
   margin-inline-start: .5em;
   border: none;
@@ -67,19 +73,18 @@
   font-size: 24px;
   font-family: 'Sen', sans-serif;
   position: relative;
-  background-color: $green;
+  background: $linear-green;
   border-radius: 10px;
   // margin-inline-start: .5em;
 }
 
 #confirm-btn {
-  background-color: $green;
-  font-size: 18px;
+  background: $linear-green;
+  font-size: 24px;
   width: 10em;
   padding: 5px 30px;
   border-radius: 10px;
   color: $dark;
-  font-size: 24px;
   font-family: 'Sen', sans-serif;
   margin: none;
 }
@@ -100,4 +105,23 @@
   border: 1.5px;
   border-color: #828282;
   border-style: solid;
+}
+
+#map-event-button {
+  background: $linear-green;
+  font-size: 18px;
+  width: 12em;
+  border-radius: 10px;
+  color: $dark;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+  margin-top: 14px;
+  align-items: center;
+  margin-left: 44px
+
+}
+
+.confirm-button {
+  
 }

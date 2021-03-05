@@ -9,11 +9,15 @@
 		<br>
 		<h3 class="info"><%= @event.description %></h3>
 		<br>
+		<% unless @event.start_date.nil? %>
 		<h3 class="info"><%= @event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h3>
 		<br>
+		<% end %>
 		<h3 class="info">Price:&nbsp&nbsp$<%= @event.price %></h3>
 	</div>
 	<br>
 
-	<%= link_to "Sync to calendar", event_attendances_path(@event), method: "post" , class: "confirm-btn"%>
+	<%= link_to event_attendances_path(@event), method: "post" do %>
+        <button type="button" id="book-btn">Sync to calendar</button>
+      <% end %>
 </div>
