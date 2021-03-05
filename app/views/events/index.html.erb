@@ -71,32 +71,33 @@
   
         <div class="card text-center mt-3 mb-3" >
           <%= link_to event_path(e) do %>
-          <% e.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
-          <div class="card-title" >
-            <h5><%= e.name %></h5>
-          </div>
-          <div class="card-details" >
-            <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
-            <p><%= e.price %></p>
-            <% else %>
-            <p>$<%= e.price %></p>
+            <% e.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
             <% end %>
-          </div>
-
-          <div class="bookmark"> 
-            <% if e.bookmark_by_user(current_user) %>
-              <i class="fas fa-bookmark" data-form-id="<%= e.id %>"></i>
-            <% else %>
-              <i class="far fa-bookmark" data-form-id="<%= e.id %>"></i>
-            <% end %>
-          </div>
-
-          <div class="date-time">
-            <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
-          </div>
+            <div class="card-title" >
+              <h5><%= e.name %></h5>
+            </div>
+            <div class="card-details" >
+              <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
+              <p><%= e.price %></p>
+              <% else %>
+              <p>$<%= e.price %></p>
+              <% end %>
+            </div>
+    
+            <div class="bookmark"> 
+              <% if e.bookmark_by_user(current_user) %>
+                <i class="fas fa-bookmark" data-form-id="<%= e.id %>"></i>
+              <% else %>
+                <i class="far fa-bookmark" data-form-id="<%= e.id %>"></i>
+              <% end %>
+            </div>
+    
+            <div class="date-time">
+              <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
+            </div>
           
-          <% end %>
+            
         </div>
       <% end %>
       </div>
