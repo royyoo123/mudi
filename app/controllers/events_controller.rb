@@ -11,26 +11,22 @@ class EventsController < ApplicationController
 		    @events = Event.near(coords, 50)
 		  end
 	    if params[:query].present?
-	    	if @events
-	    		@events = @events.search_by_name_and_description(params[:query])
-	    	else
-	    		@events = Event.search_by_name_and_description(params[:query])
-	    	end	
+	    	@events ? @events.search_by_name_and_description(params[:query]) : Event.search_by_name_and_description(params[:query])
 	    end
-	   
+	    @events = Event.all if @events.nil?
     else
     	date_time=params[:date].to_datetime
     	if params[:latitude].present? && params[:longitude].present?
     		latitude = params[:latitude]
 		    longitude = params[:longitude]
 		    coords = [latitude,longitude]
-		    # @events = Event.near(coords, 50).find_by(start_date: date_time)
-		    @events = Event.near(coords, 50).where("start_date > ?", date_time)
+		    # @events = Event.near(coords, 50).where('start_date= date_time')
+		    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
 	    else
-	    	@events = Event.where("start_date > ?", date_time)
+	    	@events = Event.where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
+	    	# @events = Event.where.not("start_date: ?", nil)
 	    end
     end
- 
     @events = policy_scope(@events)
 	end
 
