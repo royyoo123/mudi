@@ -33,6 +33,18 @@ a.btn-map {
   font-family: 'Sen', sans-serif;
 }
 
+#details-button {
+  background: $linear-green;
+  font-size: 14px;
+  width: 10em;
+  border-radius: 10px;
+  color: $dark;
+  border: none;
+  height: 2.5em;
+  font-family: 'Sen', sans-serif;
+  margin-bottom: 10px;
+}
+
 #back-btn {
   background: $linear-violet;
   font-size: 18px;
