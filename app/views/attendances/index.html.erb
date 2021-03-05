@@ -4,7 +4,9 @@
     <div class="col-12 col-lg-3">
         <% @attendances.each do |attendance| %>
         <div class="a-date">
+          <% unless attendance.event.start_date.nil? %>
           <p><%= attendance.event.start_date.strftime("%Y/%m/%d  @ %l:%M %p") %></p>
+          <% end %>
         </div>
         <div class="a-card">
           <div class="a-card-content">
