@@ -1,10 +1,49 @@
+<div class="bookmarks">
+	<div class="row row-cols-2-s ml-1 mr-1">
+		<% @bookmarks.each do |bookmark| %>
+		<div class ="col-6 col-lg-4">
+
+			<div class="card text-center mt-3 mb-3" >
+				<%= link_to event_path(bookmark.event) do %>
+					<% bookmark.event.photos.each do |photo| %>
+					<%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
+					<% end %>
+					<div class="card-title" >
+						<h5><%= bookmark.event.name %></h5>
+					</div>
+					<div class="card-details" >
+						<% if bookmark.event.price == "Free" || bookmark.event.price == "FREE" || bookmark.event.price == "free" %>
+						<p><%= bookmark.event.price %></p>
+						<% else %>
+						<p>$<%= bookmark.event.price %></p>
+						<% end %>
+					</div>
+	
+					<div class="bookmark"> 
+						<% if bookmark.event.bookmark_by_user(current_user) %>
+							<i class="fas fa-bookmark" data-form-id="<%= bookmark.event.id %>"></i>
+						<% else %>
+							<i class="far fa-bookmark" data-form-id="<%= bookmark.event.id %>"></i>
+						<% end %>
+					</div>
+			
+					<div class="date-time">
+						<% unless bookmark.event.start_date.nil? %>
+						<p> <%= bookmark.event.start_date.strftime("%m/%d/%Y") %> </p>
+						<% end %>
+					</div>
+				
+					
+			</div>
+		<% end %>
+		</div>
+		<% end %>
+	</div>
+</div>
+
 <div class="link-back">
 	<button type="button" id="back-btn">Back to results</button>
 </div>
 
-	<div class="bookmarks">
-	<% @bookmarks.each do |bookmark| %>	
-		<h1><%= link_to bookmark.event.name, event_path(bookmark.event)%></h1>
-	<% end %>
-	</div>
+
 
