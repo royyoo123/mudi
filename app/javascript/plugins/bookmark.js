@@ -1,8 +1,11 @@
+
 const bookmark = () => {
 	const hearts = document.querySelectorAll(".fa-bookmark");
+	console.log();
 	hearts.forEach((heart) => {
 		const eventId = heart.dataset.formId;
 		heart.addEventListener("click", (event) => {
+			event.preventDefault();
 			// console.log(event.path[0].className);
 			if(event.path[0].className === "fas fa-bookmark"){
 				fetch(`/bookmarks/${eventId}`, {

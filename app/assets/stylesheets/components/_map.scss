@@ -35,9 +35,9 @@ div.mapboxgl-popup-content {
 
 .map-price {
   position: absolute;
-  bottom: 10px;
+  bottom: 8px;
   right: 16px;
-  font-size: 18px;
+  font-size: 24px;
   color: $dark;
   background-color: $white;
   padding: .25em;
@@ -77,4 +77,27 @@ button.mapboxgl-popup-close-button {
 .mapboxgl-popup-close-button {
   right: 8px;
   top: 8px;
+}
+
+.map-image {
+  position: relative;
+}
+
+i.fas.fa-bookmark.map-bookmark {
+  font-size: 3em;
+  position: absolute;
+  bottom:14px;
+  left: 20px;
+
+i.far.fa-bookmark.map-bookmark::before {
+  font-size: 3em;
+  position: absolute;
+  bottom:14px;
+  left: 20px;
+}
+  
+}
+
+.map-footer {
+  display: block;
 }

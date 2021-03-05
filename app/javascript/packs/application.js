@@ -31,17 +31,10 @@ import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
-import { renderCal } from '../plugins/calendar';
 import { bookmark } from '../plugins/bookmark';
 import { locateCoords } from '../plugins/geolocator';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   bookmark();
-  const bookmarks = document.querySelectorAll(".fa-bookmark")
-  bookmarks.forEach((bookmark) => { 
-    bookmark.addEventListener("click", (event) => {
-      event.preventDefault();
-    })
-  })
   locateCoords();
 })
