@@ -9,7 +9,7 @@ const locateCoords = () => {
 	const c = document.querySelector('.btn-map');
 	const d = document.getElementById('back-btn');
 	const handleButtonClick = (event) => {
-		window.location.href=`https://mudi.live/events`;
+		window.location.href=`http://www.localhost:3000/events`;
 	}
 	if (a) a.addEventListener('click', handleButtonClick)
 	function success(pos) {
@@ -17,19 +17,19 @@ const locateCoords = () => {
 	  if(a){
 			a.removeEventListener('click', handleButtonClick)
 	  	a.addEventListener('click',(event) => {
-			window.location.href=`https://www.mudi.live/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		} else if (b) {
 			b.addEventListener('click',(event) => {
-			window.location.href=`https://www.mudi.live/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			window.location.href=`http://www.localhost:3000/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		} else if (c) {
 			c.addEventListener('click',(event)=> {
-			window.location.href=`https://www.mudi.live/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		} else if (d) {
 			d.addEventListener('click',(event)=> {
-			window.location.href=`https://www.mudi.live/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		}
 	}
