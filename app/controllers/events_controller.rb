@@ -11,7 +11,11 @@ class EventsController < ApplicationController
 		    @events = Event.near(coords, 50)
 		  end
 	    if params[:query].present?
-	    	@events ? @events.search_by_name_and_description(params[:query]) : Event.search_by_name_and_description(params[:query])
+	    	if @events 
+	    		@events.near(coords,50).search_by_name_and_description(params[:query])
+	    	else
+	    		Event.near(coords,50).search_by_name_and_description(params[:query])
+	    	end
 	    end
 	    @events = Event.all if @events.nil?
     else
