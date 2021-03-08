@@ -1,10 +1,11 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
-  has_many :attendances
-  has_many :bookmarks
+  has_many :attendances, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   geocoded_by :address
   monetize :price_cents
+  has_many :orders, dependent: :destroy
   after_validation :geocode, if: :will_save_change_to_address?
   include PgSearch::Model
   pg_search_scope :search_by_name_and_description,
