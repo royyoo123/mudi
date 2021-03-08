@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_203712) do
+ActiveRecord::Schema.define(version: 2021_03_08_013508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2021_02_28_203712) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.string "price"
     t.string "address"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -74,6 +73,7 @@ ActiveRecord::Schema.define(version: 2021_02_28_203712) do
     t.float "latitude"
     t.float "longitude"
     t.datetime "start_date"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -81,6 +81,19 @@ ActiveRecord::Schema.define(version: 2021_02_28_203712) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "event"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_orders_on_event_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,4 +117,6 @@ ActiveRecord::Schema.define(version: 2021_02_28_203712) do
   add_foreign_key "event_moods", "events"
   add_foreign_key "event_moods", "moods"
   add_foreign_key "events", "users"
+  add_foreign_key "orders", "events"
+  add_foreign_key "orders", "users"
 end
