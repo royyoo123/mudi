@@ -1,9 +1,9 @@
 <%= simple_form_for @event do |f| %>
 	<%= f.input :name, class:"create-form" %>
-	<%= f.input :price, class:"create-form" %>
 	<%= f.input :address, class:"create-form" %>
 	<%= f.input :description, class:"create-form" %>
 	<%= f.input :start_date, as: :datetime, html5: true, class:"create-form" %>
+	<%= f.input :price, class:"create-form" %>
 	<%= f.input :photos, as: :file, input_html: { multiple: true }, class:"create-form btn", id:"photo-input" %>
 	<%= f.button :submit, class:"create-btn" %>
 <% end %>
