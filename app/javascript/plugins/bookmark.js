@@ -6,7 +6,8 @@ const bookmark = () => {
 		heart.addEventListener("click", (event) => {
 			event.preventDefault();
 			// console.log(event.path[0].className);
-			if(event.path[0].className === "fas fa-bookmark"){
+			if(event.path[0].className.includes("fas fa-bookmark")){
+				console.log(event.path[0].className);
 				fetch(`/bookmarks/${eventId}`, {
 					method: "DELETE"
 					// body: JSON.stringify({})
