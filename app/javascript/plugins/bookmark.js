@@ -6,7 +6,7 @@ const bookmark = () => {
 		heart.addEventListener("click", (event) => {
 			event.preventDefault();
 			// console.log(event.path[0].className);
-			if(event.path[0].className.includes("fas fa-bookmark")){
+			if(event.path[0].className.includes("fas")){
 				console.log(event.path[0].className);
 				fetch(`/bookmarks/${eventId}`, {
 					method: "DELETE"
@@ -17,6 +17,7 @@ const bookmark = () => {
 					heart.classList.add("far")
 				});
 			} else {
+				console.log(event)
 				const data = {
 					bookmark: { event_id: eventId }
 				}
