@@ -9,6 +9,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.5'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+gem 'stripe'
+gem 'stripe_event'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -22,6 +24,7 @@ gem 'faker'
 gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
+gem 'money-rails'
 gem 'pg_search', '~> 2.3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
