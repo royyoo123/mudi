@@ -86,14 +86,14 @@
             <div class="card-title" >
               <h5><%= e.name %></h5>
             </div>
-            <div class="card-details" >
-              <% if e.price == "Free" || e.price == "FREE" || e.price == "free" %>
-              <p><%= e.price %></p>
+           
+             <div class="card-details" >
+              <% if e.price == 0 || e.price == "0" || e.price == "free" %>
+              <p>Free</p>
               <% else %>
               <p>$<%= e.price %></p>
               <% end %>
             </div>
-    
             <div class="bookmark"> 
               <% if e.bookmark_by_user(current_user) %>
                 <i class="fas fa-bookmark" data-form-id="<%= e.id %>"></i>
