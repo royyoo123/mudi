@@ -22,14 +22,15 @@
   display: none;
 }
 
-.dropdown-item {
+a.dropdown-item {
   color: $white !important;
   text-align: right !important;
+  padding-right: .75em !important;
 }
 
 .dropdown-item:hover {
-  background-color: $green !important;
-  color: $dark !important;
+  color: $green !important;
+  background-color: $dark !important;
 }
 
 
