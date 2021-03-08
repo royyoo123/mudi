@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:index, :show, :destroy, :create]
   get 'events/:id/confirmed', to: 'events#confirmed', as: :confirmed
   get 'events/:id/confirmation', to: "events#confirmation", as: :confirmation
-  
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

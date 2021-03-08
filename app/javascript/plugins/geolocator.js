@@ -1,3 +1,4 @@
+
 const locateCoords = () => {
 	var options = {
   enableHighAccuracy: true,
@@ -39,3 +40,4 @@ const locateCoords = () => {
 	navigator.geolocation.getCurrentPosition(success, error, options);
 }	
 export { locateCoords }
+
