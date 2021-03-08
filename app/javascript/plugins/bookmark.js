@@ -3,7 +3,7 @@ const bookmark = () => {
 	console.log();
 	hearts.forEach((heart) => {
 		const eventId = heart.dataset.formId;
-		heart.addEventListener("touchstart", (event) => {
+		heart.addEventListener("click", (event) => {
 			event.preventDefault();
 			// console.log(event.path[0].className);
 			if(event.path[0].className === "fas fa-bookmark"){
