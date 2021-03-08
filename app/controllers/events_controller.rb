@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 				latitude = params[:latitude]
 		    longitude = params[:longitude]
 		    coords = [latitude,longitude]
+
 		    @events = Event.near(coords, 50)
 		  end
 	    if params[:query].present?
@@ -27,7 +28,7 @@ class EventsController < ApplicationController
 		    # @events = Event.near(coords, 50).where('start_date= date_time')
 		    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
 	    else
-	    	@events = Event.where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
+	    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
 	    	# @events = Event.where.not("start_date: ?", nil)
 	    end
     end

@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   has_many_attached :photos
   has_many :attendances, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :event_moods
+  has_many :moods, through: :event_moods
   geocoded_by :address
   monetize :price_cents
   has_many :orders, dependent: :destroy
