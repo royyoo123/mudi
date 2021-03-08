@@ -10,7 +10,7 @@ class AttendancesController < ApplicationController
 	  redirect_to confirmed_path(@event)
 	end
 	def index
-		@attendances = current_user.attendances.order(created_at: :desc)
+		@attendances = current_user.attendances
 		@attendances = policy_scope(@attendances)
 	end
 	private
