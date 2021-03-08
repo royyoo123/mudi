@@ -148,10 +148,6 @@ $colors: #FFFFFF, #0072B5, #2C3E50;
   font-size: 14px;
 
   
-  &:focus-within {
-    border-color: teal;
-  }
-  
   input {
     font: inherit;
     color: $white;
@@ -251,4 +247,8 @@ input#date5 {
 
 input#searchbar-btn {
   margin-right: 10px;
+}
+
+input#date:focus {
+  border: none;
 }
