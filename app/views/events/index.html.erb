@@ -60,16 +60,24 @@
         <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
         <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
         <%= submit_tag " ➜ ", id: "searchbar-btn" %>
-        
       </form>
-
     </div>
   </div>
+
   <div class="container">
+    <% if @events.last.nil?  %>
+    <div class="container mt-3">
+      <h1>Sorry, no events are near you!</h1>
+    </div>
+    <% end %>
     <div class="row row-cols-2-s ml-1 mr-1">
       <% @events.each do |e| %>
       <div class ="col-6 col-lg-4">
-  
+        <% unless e.start_date.nil? %>
+          <% if e.start_date < Time.now %>
+            <% e.destroy %>
+          <% end %>
+        <% end %>    
         <div class="card text-center mt-3 mb-3" >
           <%= link_to event_path(e) do %>
             <% e.photos.each do |photo| %>

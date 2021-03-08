@@ -21,9 +21,16 @@
 		</div>
 		</div>
 		<div class="confirm">
-      <%= link_to confirmation_path(@event) do %>
-        <button type="button" id="book-btn">Book</button>
-      <% end %>
+			<% if @event.price == 0 %>
+	      <%= link_to confirmation_path(@event) do %>
+	        <button type="button" id="book-btn">Book</button>
+	      <% end %>
+	    <% else %>
+				<%= form_tag orders_path do %>
+				  <%= hidden_field_tag 'event_id', @event.id %>
+				  <%= submit_tag 'Purchase', id:"book-btn" %>
+				<% end %>
+			<% end %>
 		</div>
     <div class="link-back">
 			<button type="button" id="back-btn">Back to results</button>
