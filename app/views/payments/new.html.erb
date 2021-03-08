@@ -2,9 +2,27 @@
   <div class="row py-4">
   
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase for <strong><%= @order.event.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+      <h1 class="co">Checkout Summary</h1>
+      <div class="confirmation-details" >
+        <h3 id="name"><%= @order.event.name %></h3>
+        <br>
+        <h3 class="info"><strong>Location :&nbsp&nbsp</strong><%= @order.event.address %></h3>
+        <br>
+        <h3 class="info"><strong>Description :&nbsp&nbsp</strong><%= @order.event.description %></h3>
+        <br>
+        <div class="green-info">
+        <% unless @order.event.start_date.nil? %>
+          <h3 class="info">Date :&nbsp&nbsp</h3>
+          <h3 class="green"><%= @order.event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h3>
+          <% end %>
+        </div>
+        <br>
+        <div class="green-info">
+          <h3 class="info">Total :&nbsp&nbsp</h3>
+          <h3 class="green">$<%= @order.event.price %></h3>
+        </div>
+      </div>
+      <button id="pay" class="btn">Pay</button>
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>
