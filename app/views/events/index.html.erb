@@ -73,7 +73,11 @@
     <div class="row row-cols-2-s ml-1 mr-1">
       <% @events.each do |e| %>
       <div class ="col-6 col-lg-4">
-  
+        <% unless e.start_date.nil? %>
+          <% if e.start_date < Time.now %>
+            <% e.destroy %>
+          <% end %>
+        <% end %>    
         <div class="card text-center mt-3 mb-3" >
           <%= link_to event_path(e) do %>
             <% e.photos.each do |photo| %>
