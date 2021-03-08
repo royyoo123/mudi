@@ -4,6 +4,20 @@
 }
 
 #pay {
-  width: 250px;
+  width: 300px;
   margin-top: 1.5em;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.green {
+  color: $green;
+}
+
+.green-info {
+  display: flex;
+}
+
+.info {
+  font-weight: bolder;
 }
