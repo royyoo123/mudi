@@ -11,7 +11,7 @@ const locateCoords = () => {
 	const d = document.getElementById('back-btn');
 
 	const handleButtonClick = (event) => {
-		window.location.href=`http://localhost:3000/events`;
+		window.location.href=`https://www.mudi.live/events`;
 	}
 	if (a) a.addEventListener('click', handleButtonClick)
 	function success(pos) {
@@ -19,11 +19,11 @@ const locateCoords = () => {
 	  if(a || c || d){
 			a.removeEventListener('click', handleButtonClick)
 	  	a.addEventListener('click',(event) => {
-			window.location.href=`http://localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			window.location.href=`https://www.mudi.live/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		} else if (b) {
 			b.addEventListener('click',(event) => {
-			window.location.href=`http://localhost:3000/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			window.location.href=`https://www.mudi.live/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		} 
 	}
