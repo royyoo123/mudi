@@ -54,6 +54,7 @@ class EventsController < ApplicationController
 	def confirmed
 	end
 	def show
+		
 	end
 	def new
 		@event = Event.new
@@ -90,7 +91,7 @@ class EventsController < ApplicationController
 	end
 	private
 	def event_params
-		params.require(:event).permit(:name, :start_date, :price, :address, :description, photos: [])
+		params.require(:event).permit(:name, :payment_url,:start_date, :price, :address, :description, photos: [])
 	end
 
 	def find_event
