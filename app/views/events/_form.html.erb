@@ -4,8 +4,7 @@
 	<%= f.input :description, class:"create-form" %>
 	<%= f.input :start_date, as: :datetime, html5: true, class:"create-form" %>
 	<%= f.input :price, class:"create-form" %>
-	<%= f.input :photos, as: :file, input_html: { multiple: true }, class:"create-form btn", id:"photo-input" %>
 	<%= f.input :moods, collection: Mood.all, as: :select, input_html: { class:"create-form", multiple: true } %>
-
+	<%= f.input :photos, as: :file, input_html: { multiple: true }, class:"create-form btn", id:"photo-input" %>
 	<%= f.button :submit, class:"create-btn" %>
 <% end %>

@@ -63,7 +63,6 @@ class EventsController < ApplicationController
 		@event = Event.new(event_params.except(:moods))
 
 		@mood = Mood.find(event_params[:moods][-1].to_i)
-		raise
 		@event.user = current_user
 		# after line 70, create event mood with @event and @mood
 		authorize @event
