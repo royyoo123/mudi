@@ -34,7 +34,7 @@ const bookmark = () => {
 			}
 			
 		});
-		heart.addEventListener("click", (event) => {
+		heart.addEventListener("touchstart", (event) => {
 			event.preventDefault();
 			// console.log(event.path[0].className);
 			if(event.path[0].className.includes("fas")){
