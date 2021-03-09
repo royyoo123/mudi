@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -33,8 +34,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { bookmark } from '../plugins/bookmark';
 import { locateCoords } from '../plugins/geolocator';
+import { syncCalendar } from '../plugins/sync'
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   bookmark();
+  syncCalendar();
   locateCoords();
 })
