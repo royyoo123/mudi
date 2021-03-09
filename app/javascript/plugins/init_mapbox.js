@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import { bookmark } from '../plugins/bookmark';
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const urlParams = new URLSearchParams(window.location.search)
@@ -25,6 +26,9 @@ const buildMap = (mapElement) => {
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
   const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+  popup.on('open',()=>{
+    bookmark();
+  });
   // Create a HTML element for your custom marker
   const element = document.createElement('div');
   element.className = 'marker';
