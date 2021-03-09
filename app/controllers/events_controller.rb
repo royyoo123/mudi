@@ -60,12 +60,16 @@ class EventsController < ApplicationController
 		authorize @event
 	end
 	def create
-		@event = Event.new(event_params.except(:moods))
-		@mood = Mood.find(event_params[:moods][-1].to_i)
+		@event = Event.new(event_params)
+		event_mood = params[:event_moods_attributes]
 		@event.user = current_user
+		@event.event_moods.each do |mood|
+			mood.event = @event
+			mood.save!
+		end
 		# after line 70, create event mood with @event and @mood
 		authorize @event
-		if @event.save
+		if @event.save!
 			redirect_to @event, notice: 'Event was successfully created'
 		else
 			render :new
