@@ -61,7 +61,6 @@ class EventsController < ApplicationController
 	end
 	def create
 		@event = Event.new(event_params.except(:moods))
-
 		@mood = Mood.find(event_params[:moods][-1].to_i)
 		@event.user = current_user
 		# after line 70, create event mood with @event and @mood
@@ -93,7 +92,7 @@ class EventsController < ApplicationController
 	end
 	private
 	def event_params
-		params.require(:event).permit(:name, :start_date, :price, :address, :description, moods: [], photos: [])
+		params.require(:event).permit(:name, :start_date, :price, :address, :description, event_moods_attributes: [:mood_id], photos: [])
 	end
 
 	def find_event
