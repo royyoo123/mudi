@@ -24,12 +24,10 @@
 div.mapboxgl-popup-content {
   background-color: $white;
   justify-self: center;
-  height: 300px;
-  width: 250px;
   padding-left: 0;
   padding-right: 0;
   width: 300px;
-  height: 400px;
+  height: 385px;
   border-radius: 10px;
 }
 
@@ -86,18 +84,23 @@ button.mapboxgl-popup-close-button {
 i.fas.fa-bookmark.map-bookmark {
   font-size: 3em;
   position: absolute;
-  bottom:14px;
+  bottom: 20px;
   left: 20px;
+}
 
 i.far.fa-bookmark.map-bookmark::before {
   font-size: 3em;
   position: absolute;
-  bottom:14px;
+  bottom: 27px;
   left: 20px;
 }
   
+.fa-bookmark:before {
+  position: absolute;
+  bottom: 7px;
+  left: 0;
 }
 
 .map-footer {
-  display: block;
+  display: inline-block;
 }
