@@ -1,4 +1,3 @@
-
 const bookmark = () => {
 	const hearts = document.querySelectorAll(".fa-bookmark");
 	console.log();
@@ -7,16 +6,18 @@ const bookmark = () => {
 		heart.addEventListener("click", (event) => {
 			event.preventDefault();
 			// console.log(event.path[0].className);
-			if(event.path[0].className === "fas fa-bookmark"){
+			if(event.path[0].className.includes("fas")){
+				console.log(event.path[0].className);
 				fetch(`/bookmarks/${eventId}`, {
 					method: "DELETE"
 					// body: JSON.stringify({})
 				})
 				.then((data)=>{
-					heart.classList.toggle("fas")
-					heart.classList.toggle("far")
+					heart.classList.remove("fas")
+					heart.classList.add("far")
 				});
 			} else {
+				console.log(event)
 				const data = {
 					bookmark: { event_id: eventId }
 				}
@@ -27,23 +28,45 @@ const bookmark = () => {
 				})
 
 				.then((data) => {
-					heart.classList.toggle("fas")
-					heart.classList.toggle("far")
+					heart.classList.add("fas")
+					heart.classList.remove("far")
 				});
 			}
-			// console.log('hello');
-			// heart.classList.toggle("far");
-			// heart.classList.toggle("fas");
-			// heart.classList.toggle("red");
-			// const eventId = heart.dataset.formId;
-			// const formContainer = document.querySelector(`#form_${eventId}`);
-			// if (formContainer) {
-			// 	// formContainer.querySelector('form').submit();
-			// }
+			
+		});
+		heart.addEventListener("touchstart", (event) => {
+			event.preventDefault();
+			// console.log(event.path[0].className);
+			if(event.path[0].className.includes("fas")){
+				console.log(event.path[0].className);
+				fetch(`/bookmarks/${eventId}`, {
+					method: "DELETE"
+					// body: JSON.stringify({})
+				})
+				.then((data)=>{
+					heart.classList.remove("fas")
+					heart.classList.add("far")
+				});
+			} else {
+				console.log(event)
+				const data = {
+					bookmark: { event_id: eventId }
+				}
+				fetch(`/bookmarks`, {
+					method: "POST",
+					headers: {"Content-Type": "application/json"},
+					body: JSON.stringify(data)
+				})
 
+				.then((data) => {
+					heart.classList.add("fas")
+					heart.classList.remove("far")
+				});
+			}
+			
 		});
 	});
-
+	
 };
 
 export { bookmark };

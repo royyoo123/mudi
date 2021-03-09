@@ -3,20 +3,23 @@
 }
 
 .title {
-  text-decoration: underline;
   color: $green;
-  margin-bottom:2em; 
+  margin-bottom: 2em; 
+  margin-top: 2em;
 }
 
 h1 {
-  text-decoration: underline;
-  color: $green;
+  background: -webkit-linear-gradient(#b2e6c8, #95DCB3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #name {
   color: $white;
   justify-content: left;
-  font-size: 24px;
+  font-size: 20px;
+  font-family: 'Manjari', sans-serif;
+  margin-top: 1em;
 }
 
 .container .confirmation-details {
@@ -29,3 +32,4 @@ h1 {
 h3.info {
   font-weight: lighter;
 }
+

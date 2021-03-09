@@ -20,18 +20,22 @@ const locateCoords = () => {
 	  	a.addEventListener('click',(event) => {
 			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
+			
 		} else if (b) {
 			b.addEventListener('click',(event) => {
 			window.location.href=`http://www.localhost:3000/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
+			
 		} else if (c) {
 			c.addEventListener('click',(event)=> {
 			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
+			
 		} else if (d) {
 			d.addEventListener('click',(event)=> {
 			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
+			
 		}
 	}
 	function error(err) {
