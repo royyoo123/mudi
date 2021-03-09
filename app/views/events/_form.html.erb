@@ -4,7 +4,14 @@
 	<%= f.input :description, class:"create-form" %>
 	<%= f.input :start_date, as: :datetime, html5: true, class:"create-form" %>
 	<%= f.input :price, class:"create-form" %>
+	<div id='event_moods'>
+	<%= f.simple_fields_for :event_moods do |mood| %>
+		<%= render 'event_mood_fields', f: mood %>
+		<% end %>
+		<div class='links'>
+		<%= link_to_add_association 'add mood', f, :event_moods %>
+		</div>
+	</div>
 	<%= f.input :photos, as: :file, input_html: { multiple: true }, class:"create-form btn", id:"photo-input" %>
-	<%= f.input :event_moods, class: "create-form" %>
 	<%= f.button :submit, class:"create-btn" %>
 <% end %>

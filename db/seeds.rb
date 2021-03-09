@@ -8,7 +8,7 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do
-	user = User.create!(email: Faker::Internet.email, password: "password")
-	Event.create!(name: Faker::Restaurant.name, price: rand(1..400), address: Faker::Address.street_address, user: user)
+moods = ['Inspired', 'Social', 'Creative','Peaceful','Energized','Cheerful','Romantic','Reflective','Playful','Powerful','Curious','Adventurous']
+moods.each do |mood|
+	Mood.create!(name: mood)
 end
