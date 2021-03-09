@@ -5,6 +5,10 @@
 	<%= f.input :start_date, as: :datetime, html5: true, class:"create-form" %>
 	<%= f.input :price, class:"create-form" %>
 	<%= f.input :moods, collection: Mood.all, as: :select, input_html: { class:"create-form", multiple: true } %>
+	<%= f.fields_for :event_moods, EventMood.new do |mood_attributes| %>
+		<%= mood_attributes.label :name, "Mood:" %>
+		<%= mood_attributes.text_field :name %>
+	<% end %>
 	<%= f.input :photos, as: :file, input_html: { multiple: true }, class:"create-form btn", id:"photo-input" %>
 	<%= f.button :submit, class:"create-btn" %>
 <% end %>
