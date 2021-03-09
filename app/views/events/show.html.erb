@@ -16,7 +16,11 @@
 			<% @event.photos.each do |photo| %>
 				<%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "photo" %>
 			<% end %>
+			<% if @event.price == 0 %>
+			<h3 class="price">Free</h3>
+			<% else %>
 			<h3 class="price">$<%= @event.price %></h3>
+			<% end %>
 		</div>
 		<div>
 			

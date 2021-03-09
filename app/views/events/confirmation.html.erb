@@ -1,13 +1,13 @@
 <div class="container">
-	<div class="title">
+	<div class="title" id="order-details">
 		<h1>order details</h1>
 	</div>
 	<div class="confirmation-details" >
 		<h3 id="name"><%= @event.name %></h3>
 		<br>
-		<h3 class="info"><strong>Location : </strong><%= @event.address %></h3>
+		<h3 class="info" id="event-address"><strong>Location : </strong><%= @event.address %></h3>
 		<br>
-		<h3 class="info"><strong>Description : </strong><%= @event.description %></h3>
+		<h3 class="info" id="event-description"><strong>Description : </strong><%= @event.description %></h3>
 		<br>
 		<div class="green-info">
 			<% unless @event.start_date.nil? %>
@@ -27,3 +27,4 @@
         <button type="button" id="book-btn">Sync to calendar</button>
       <% end %>
 </div>
+>>>>>>> 8bfb79d7917958909eac541b372e3d213f793d4e
