@@ -1,5 +1,5 @@
 .a-card {
-  height: 140px;
+  height: 160px;
   width: 93%;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0);
   border: none;
@@ -27,7 +27,6 @@
   display: inline-flex;
   color: $dark;
   overflow: hidden;
-
 }
 
 .a-card-photo img {
@@ -52,15 +51,17 @@
   font-size: 18px;
   font-weight: bold;
   font-family: 'Manjari', sans-serif;
+  padding-right: 4px;
 }
 
 .a-card-details p {
   padding-top: 3px;
+  padding-right: 4px;
   font-size: 12px;
 }
 
 .view-dets {
   bottom: 0px;
   position: absolute;
-  padding-left: .5em;
+  padding-left: 1em;
 }
