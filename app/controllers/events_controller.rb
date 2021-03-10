@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-		if params[:moods].present?
+		
 			if params[:date].nil?
 				if params[:latitude].present? && params[:longitude].present?
 					latitude = params[:latitude]
