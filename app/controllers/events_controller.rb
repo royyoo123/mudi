@@ -5,11 +5,23 @@ class EventsController < ApplicationController
 	def index
 		if params[:date].nil?
 			if params[:latitude].present? && params[:longitude].present?
-				latitude = params[:latitude]
-		    longitude = params[:longitude]
-		    coords = [latitude,longitude]
-
-		    @events = Event.near(coords, 50)
+				if params[:moods].present?
+					latitude = params[:latitude]
+			    longitude = params[:longitude]
+			    coords = [latitude,longitude]
+			    moods = params[:moods].split(",")
+			   # @events = Event.near(coords, 50)
+			   
+		     	@events = Event.near(coords, 50).select do |event|
+		    
+	      							event.event_moods.any? do |mood_instance|
+	      								# moods, mood_instance.mood_id.to_s
+	      								moods.include?(mood_instance.mood_id.to_s)
+	      							end
+		     				
+		      					end
+				
+		    end		
 		  end
 	    if params[:query].present?
 	    	if @events 
@@ -32,7 +44,7 @@ class EventsController < ApplicationController
 	    	# @events = Event.where.not("start_date: ?", nil)
 	    end
     end
-    @events = policy_scope(@events)
+    # @events = policy_scope(@events)
 	end
 
 	def map
@@ -94,6 +106,7 @@ class EventsController < ApplicationController
 		@event.destroy
 		redirect_to root_path
 	end
+
 	private
 	def event_params
 		params.require(:event).permit(:name, :start_date, :price, :address, :description, event_moods_attributes: [:mood_id], photos: [])
@@ -103,17 +116,4 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		authorize @event
 	end
-	# def get_ip
-	# 	ip = user.last_sign_in_ip || user.current_sign_in_ip
-	# 	location = Geocoder.search(ip)
-	# 	country = location["country_name"]
-	# 	state = location["region_name"]
-	# 	city = location["city"]
-	# 	zipcode = geoloc["zipcode"]
-	# 	latitude = geoloc["latitude"]
-	# 	longitude = geoloc["longitude"]
-	# 	area_code = geoloc["area_code"]
-	# 	return [latitude, longitude]
-	# end
-
 end

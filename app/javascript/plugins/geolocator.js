@@ -7,8 +7,8 @@ const locateCoords = () => {
 	}
 	const a = document.getElementById('confirm-btn');
 	const b = document.getElementById('map-button1');
-	const c = document.querySelector('.btn-map');
-	const d = document.getElementById('back-btn');
+	
+	
 	const handleButtonClick = (event) => {
 		window.location.href=`http://www.localhost:3000/events`;
 	}
@@ -16,24 +16,27 @@ const locateCoords = () => {
 	function success(pos) {
 	  var crd = pos.coords;
 	  if(a){
+	  	const buttons = document.querySelectorAll('.mood-input');
+			let array = [];
+			let array1 = ''
 			a.removeEventListener('click', handleButtonClick)
 	  	a.addEventListener('click',(event) => {
-			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+	  		// iterate over buttons
+	  		// check if theyre checked/input
+	  		// store checked ids in array
+	  		// join array and pass into href
+	  		buttons.forEach((button) => {
+	  			if(button.checked===true){
+	  				array.push(button.dataset.formId)
+	  		}
+	  		array1 = array.join(",")
+	  		})
+	 
+				window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
 			})
-			
 		} else if (b) {
 			b.addEventListener('click',(event) => {
 			window.location.href=`http://www.localhost:3000/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
-			})
-			
-		} else if (c) {
-			c.addEventListener('click',(event)=> {
-			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
-			})
-			
-		} else if (d) {
-			d.addEventListener('click',(event)=> {
-			window.location.href=`http://www.localhost:3000/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 			
 		}

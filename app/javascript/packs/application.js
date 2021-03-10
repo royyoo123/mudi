@@ -35,7 +35,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { bookmark } from '../plugins/bookmark';
 import { locateCoords } from '../plugins/geolocator';
-import { syncCalendar } from '../plugins/sync'
+import { syncCalendar } from '../plugins/sync';
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   bookmark();
