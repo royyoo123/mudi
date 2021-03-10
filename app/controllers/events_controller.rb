@@ -3,34 +3,38 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-		if params[:date].nil?
-			if params[:latitude].present? && params[:longitude].present?
-				latitude = params[:latitude]
-		    longitude = params[:longitude]
-		    coords = [latitude,longitude]
+		if params[:moods].present?
+			if params[:date].nil?
+				if params[:latitude].present? && params[:longitude].present?
+					latitude = params[:latitude]
+			    longitude = params[:longitude]
+			    coords = [latitude,longitude]
 
-		    @events = Event.near(coords, 50)
-		  end
-	    if params[:query].present?
-	    	if @events 
-	    		@events = @events.near(coords,50).search_by_name_and_description(params[:query])
-	    	else
-	    		@events = Event.near(coords,50).search_by_name_and_description(params[:query])
-	    	end
-	    end
-	    @events = Event.all if @events.nil?
-    else
-    	date_time=params[:date].to_datetime
-    	if params[:latitude].present? && params[:longitude].present?
-    		latitude = params[:latitude]
-		    longitude = params[:longitude]
-		    coords = [latitude,longitude]
-		    # @events = Event.near(coords, 50).where('start_date= date_time')
-		    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
+			    @events = Event.near(coords, 50)
+			  end
+		    if params[:query].present?
+		    	if @events 
+		    		@events = @events.near(coords,50).search_by_name_and_description(params[:query])
+		    	else
+		    		@events = Event.near(coords,50).search_by_name_and_description(params[:query])
+		    	end
+		    end
+		    @events = Event.all if @events.nil?
 	    else
-	    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
-	    	# @events = Event.where.not("start_date: ?", nil)
+	    	date_time=params[:date].to_datetime
+	    	if params[:latitude].present? && params[:longitude].present?
+	    		latitude = params[:latitude]
+			    longitude = params[:longitude]
+			    coords = [latitude,longitude]
+			    # @events = Event.near(coords, 50).where('start_date= date_time')
+			    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
+		    else
+		    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
+		    	# @events = Event.where.not("start_date: ?", nil)
+		    end
 	    end
+    if params[:moods].present?
+    	moods = params[:moods].split(",")
     end
     @events = policy_scope(@events)
 	end
