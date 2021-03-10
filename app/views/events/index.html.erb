@@ -1,4 +1,5 @@
 <body>
+
   <div class="search-container">
     <button type="button" class="map-btn" id="map-button1">MAP</button>
     <div id="search-bar">
@@ -53,21 +54,53 @@
           <li class="mood-item" href="#">Curious</li>
           <li class="mood-item" href="#">Inspired</li>
         </ul>
+
       </div>
     </div>
-
-    <div class="btn-group mt-1">
-      <button type="button" class="mood-drop-btn btn-up dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mood-dropdown">price</button>
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <div class="dropdown-menu">
-        <ul class="mood-list">
-          <li class="mood-item" href="#">free</li>
-          <li class="mood-item" href="#">$1 - $24</li>
-          <li class="mood-item" href="#">$25 - $49</li>
-          <li class="mood-item" href="#">$50 - $99</li>
-          <li class="mood-item" href="#">$100 +</li>
-        </ul>
+    <div style="display: none"></div>
+    <div class="filter-bar pb-2">
+      <div class="btn-group mt-1">
+        <button type="button" class="mood-drop-btn btn-up dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mood-dropdown">mood</button>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <ul class="mood-list">
+            <li class="mood-item" href="#">Inspired</li>
+            <li class="mood-item" href="#">Social</li>
+            <li class="mood-item" href="#">Creative</li>
+            <li class="mood-item" href="#">Peaceful</li>
+            <li class="mood-item" href="#">Energized</li>
+            <li class="mood-item" href="#">Cheerful</li>
+            <li class="mood-item" href="#">Romantic</li>
+            <li class="mood-item" href="#">Reflective</li>
+            <li class="mood-item" href="#">Playful</li>
+            <li class="mood-item" href="#">Powerful</li>
+            <li class="mood-item" href="#">Curious</li>
+            <li class="mood-item" href="#">Adventurous</li>
+          </ul>
+        </div>
+      </div>
+      <div class="btn-group mt-1">
+        <button type="button" class="mood-drop-btn btn-up dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="mood-dropdown">price</button>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <div class="dropdown-menu">
+          <ul class="mood-list">
+            <li class="mood-item" href="#">free</li>
+            <li class="mood-item" href="#">$1 - $24</li>
+            <li class="mood-item" href="#">$25 - $49</li>
+            <li class="mood-item" href="#">$50 - $99</li>
+            <li class="mood-item" href="#">$100 +</li>
+          </ul>
+        </div>
+      </div>
+      <div class="datetimepicker btn-group">
+        <form action="/events">
+          <input type="date" id="date5"name="date">
+          <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+          <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+          <%= submit_tag " ➜ ", id: "searchbar-btn" %>
+        </form>
       </div>
     </div>
     <div class="datetimepicker btn-group">
@@ -83,6 +116,7 @@
 
   <div class="container">
     <% if @events.nil?  %>
+
     <div class="container mt-3">
       <h1>Sorry, no events are near you!</h1>
     </div>
