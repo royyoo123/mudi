@@ -8,7 +8,7 @@ require 'faker'
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-moods = ['Inspired', 'Social', 'Creative','Peaceful','Energized','Cheerful','Romantic','Reflective','Playful','Powerful','Curious','Adventurous']
+moods = ['Adventurous', 'Social', 'Creative','Peaceful','Energized','Cheerful','Romantic','Reflective','Playful','Powerful','Curious','Inspired']
 moods.each do |mood|
 	Mood.create!(name: mood)
 end
