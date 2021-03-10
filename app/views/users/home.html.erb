@@ -9,68 +9,19 @@
     </div>
 
     <div class="btns spaced" style="text-align: center;">
-      <input class="mood-input" type="checkbox" id="Checkbox" name="Checkbox">
-      <label for="Checkbox">
-        <span class="mood-btn">Adventurous</span>
-      </label>
-      
-      <input class="mood-input" type="checkbox" id="Checkbox2" name="Checkbox2">
-      <label for="Checkbox2">
-        <span class="mood-btn">Social</span>
-      </label>
-      
-      <input class="mood-input" type="checkbox" id="Checkbox3" name="Checkbox3">
-      <label for="Checkbox3">
-        <span class="mood-btn">Creative</span>
-      </label>
+      <% @moods.each do |mood| %>
+      <input class="mood-input" type="checkbox" data-form-id='<%= mood.id %>' name='Checkbox<%= mood.id %>' id='Checkbox<%= mood.id %>'>
 
-      <input class="mood-input" type="checkbox" id="Checkbox4" name="Checkbox">
-      <label for="Checkbox4">
-        <span class="mood-btn">Peaceful</span>
+      <label for="Checkbox<%=mood.id %>">
+        <span class="mood-btn" id="qwe"><%= mood.name %></span>
       </label>
+      <% end %>
       
-      <input class="mood-input" type="checkbox" id="Checkbox5" name="Checkbox2">
-      <label for="Checkbox5">
-        <span class="mood-btn">Energized</span>
-      </label>
-      
-      <input class="mood-input" type="checkbox" id="Checkbox6" name="Checkbox3">
-      <label for="Checkbox6">
-        <span class="mood-btn">Cheerful</span>
-      </label>
-
-      <input class="mood-input" type="checkbox" id="Checkbox7" name="Checkbox">
-      <label for="Checkbox7">
-        <span class="mood-btn">Romantic</span>
-      </label>
-      
-      <input class="mood-input" type="checkbox" id="Checkbox8" name="Checkbox2">
-      <label for="Checkbox8">
-        <span class="mood-btn">Reflective</span>
-      </label>
-        
-      <input class="mood-input" type="checkbox" id="Checkbox9" name="Checkbox3">
-      <label for="Checkbox9">
-        <span class="mood-btn">Playful</span>
-      </label>
-
-      <input class="mood-input" type="checkbox" id="Checkbox10" name="Checkbox">
-      <label for="Checkbox10">
-        <span class="mood-btn">Powerful</span>
-      </label>
-      
-      <input class="mood-input" type="checkbox" id="Checkbox11" name="Checkbox2">
-      <label for="Checkbox11">
-        <span class="mood-btn">Curious</span>
-      </label>
-      
-      <input class="mood-input" type="checkbox" id="Checkbox12" name="Checkbox3">
-      <label for="Checkbox12">
-        <span class="mood-btn">Inspired</span>
-      </label>
     </div>
     <div class="confirm" style="text-align: center;">
-      <button type="button" class="btn" id="confirm-btn">Confirm</button>
+
+      <a type="button" class="btn" id="confirm-btn" href="">Confirm</a>
     </div>
   </div>  
 </body> 
+
