@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
+
 		if params[:date].nil?
 			if params[:latitude].present? && params[:longitude].present?
 				if params[:moods].present?
@@ -10,39 +11,52 @@ class EventsController < ApplicationController
 			    longitude = params[:longitude]
 			    coords = [latitude,longitude]
 			    moods = params[:moods].split(",")
-			   # @events = Event.near(coords, 50)
-			   
 		     	@events = Event.near(coords, 50).select do |event|
-		    
 	      							event.event_moods.any? do |mood_instance|
-	      								# moods, mood_instance.mood_id.to_s
 	      								moods.include?(mood_instance.mood_id.to_s)
 	      							end
-		     				
 		      					end
-				
 		    end		
 		  end
 	    if params[:query].present?
-	    	if @events 
-	    		@events = @events.near(coords,50).search_by_name_and_description(params[:query])
-	    	else
-	    		@events = Event.near(coords,50).search_by_name_and_description(params[:query])
-	    	end
-	    end
-	    @events = Event.all if @events.nil?
-    else
-    	date_time=params[:date].to_datetime
-    	if params[:latitude].present? && params[:longitude].present?
-    		latitude = params[:latitude]
+	    	raise
+	    	latitude = params[:latitude]
 		    longitude = params[:longitude]
 		    coords = [latitude,longitude]
-		    # @events = Event.near(coords, 50).where('start_date= date_time')
-		    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
-	    else
-	    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
-	    	# @events = Event.where.not("start_date: ?", nil)
+		    moods = params[:moods].split(",")
+	    	@events = Event.near(coords,50).search_by_name_and_description(params[:query]).select do |event|
+	      							event.event_moods.any? do |mood_instance|
+	      								moods.include?(mood_instance.mood_id.to_s)
+	      							end
+		      					end
 	    end
+	    # @events = Event.all if @events.nil?
+    else
+    	date_time=params[:date].to_datetime
+    	if params[:moods].present?
+    		
+	    	if params[:latitude].present? && params[:longitude].present?
+	    		latitude = params[:latitude]
+			    longitude = params[:longitude]
+			    coords = [latitude,longitude]
+			    moods = params[:moods].split(",")
+			    # @events = Event.near(coords, 50).where('start_date= date_time')
+			    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day).select do |event|
+	      							event.event_moods.any? do |mood_instance|
+	      								moods.include?(mood_instance.mood_id.to_s)
+	      							end
+		      					end
+			    
+		    else
+		    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day).select do |event|
+	      							event.event_moods.any? do |mood_instance|
+	      								moods.include?(mood_instance.mood_id.to_s)
+	      							end
+		      					end
+		    	
+		    	# @events = Event.where.not("start_date: ?", nil)
+		    end
+		  end
     end
     # @events = policy_scope(@events)
 	end
@@ -115,5 +129,14 @@ class EventsController < ApplicationController
 	def find_event
 		@event = Event.find(params[:id])
 		authorize @event
+	end
+
+	def filter(event_instance)
+		moods = params[:moods].split(",")
+		event_instance.select do |event|
+			event.event_moods.any? do |mood_instance|
+				moods.include?(mood_instance.mood_id.to_s)
+			end
+		end
 	end
 end

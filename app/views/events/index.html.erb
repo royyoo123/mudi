@@ -11,6 +11,23 @@
         %>
         <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
         <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+        <input type="hidden" name="moods" value="<%= params[:moods] %>" >
+        <select name="mood">
+          <% Mood.all.each do |mood| %>
+            <option value="<% mood.id %>">
+              <%= mood.name %>
+            </option>
+          <% end %>
+        </select>
+        <select>
+          <option value="0">free</option>
+          <option value="1,24">1-24</option>
+          <option value="25,49">25-49</option>
+          <option value="50,99">50-99</option>
+          <option value="100+">100+</option>
+
+        </select>
+
         <%= submit_tag " ➜ ", id: "searchbar-btn" %>
       <% end %>
     </div>
@@ -23,7 +40,7 @@
       </button>
       <div class="dropdown-menu">
         <ul class="mood-list">
-          <li class="mood-item" href="#">Inspired</li>
+          <li class="mood-item" href="#">Adventurous</li>
           <li class="mood-item" href="#">Social</li>
           <li class="mood-item" href="#">Creative</li>
           <li class="mood-item" href="#">Peaceful</li>
@@ -34,7 +51,7 @@
           <li class="mood-item" href="#">Playful</li>
           <li class="mood-item" href="#">Powerful</li>
           <li class="mood-item" href="#">Curious</li>
-          <li class="mood-item" href="#">Adventurous</li>
+          <li class="mood-item" href="#">Inspired</li>
         </ul>
       </div>
     </div>
@@ -58,17 +75,18 @@
         <input type="date" id="date5"name="date">
         <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
         <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+        <input type="hidden" name="moods" value="<%= params[:moods] %>" >
         <%= submit_tag " ➜ ", id: "searchbar-btn" %>
       </form>
     </div>
   </div>
 
   <div class="container">
-    <% if @events.last.nil?  %>
+    <% if @events.nil?  %>
     <div class="container mt-3">
       <h1>Sorry, no events are near you!</h1>
     </div>
-    <% end %>
+    <% else %>
     <div class="row row-cols-2-s ml-1 mr-1">
       <% @events.each do |e| %>
       <div class ="col-6 col-lg-4">
@@ -93,6 +111,7 @@
               <p>$<%= e.price %></p>
               <% end %>
             </div>
+            <% if current_user %>
             <div class="bookmark"> 
               <% if e.bookmark_by_user(current_user) %>
                 <i class="fas fa-bookmark" data-form-id="<%= e.id %>"></i>
@@ -100,7 +119,7 @@
                 <i class="far fa-bookmark" data-form-id="<%= e.id %>"></i>
               <% end %>
             </div>
-        
+        <% end %>
             <div class="date-time">
               <% unless e.start_date.nil? %>
               <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
@@ -112,6 +131,8 @@
       <% end %>
       </div>
       <% end %>
+
     </div>
+    <% end %>
   </div>
 <body>
