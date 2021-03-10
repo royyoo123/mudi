@@ -6,11 +6,21 @@ class EventsController < ApplicationController
 		
 			if params[:date].nil?
 				if params[:latitude].present? && params[:longitude].present?
-					latitude = params[:latitude]
-			    longitude = params[:longitude]
-			    coords = [latitude,longitude]
-
-			    @events = Event.near(coords, 50)
+					if params[:moods].present?
+						latitude = params[:latitude]
+				    longitude = params[:longitude]
+				    coords = [latitude,longitude]
+				    moods = params[:moods].split(",")
+				   # @events = Event.near(coords, 50)
+				   
+			     	@events = Event.near(coords, 50).select do |event|
+			     							moods.each do |mood|
+			      							event.event_moods.each do |mood_instance|
+			      								mood_instance.mood_id == mood
+			      							end
+			     							end
+			      					end		
+			    end		
 			  end
 		    if params[:query].present?
 		    	if @events 
@@ -33,9 +43,7 @@ class EventsController < ApplicationController
 		    	# @events = Event.where.not("start_date: ?", nil)
 		    end
 	    end
-    if params[:moods].present?
-    	moods = params[:moods].split(",")
-    end
+
     @events = policy_scope(@events)
 	end
 
