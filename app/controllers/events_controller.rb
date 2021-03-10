@@ -11,13 +11,16 @@ class EventsController < ApplicationController
 			    coords = [latitude,longitude]
 			    moods = params[:moods].split(",")
 			   # @events = Event.near(coords, 50)
+			   
 		     	@events = Event.near(coords, 50).select do |event|
-		     							moods.each do |mood|
-		      							event.event_moods.each do |mood_instance|
-		      								mood_instance.mood_id = mood
-		      							end
-		     							end
+		    
+	      							event.event_moods.any? do |mood_instance|
+	      								# moods, mood_instance.mood_id.to_s
+	      								moods.include?(mood_instance.mood_id.to_s)
+	      							end
+		     				
 		      					end
+				
 		    end		
 		  end
 	    if params[:query].present?
@@ -41,7 +44,7 @@ class EventsController < ApplicationController
 	    	# @events = Event.where.not("start_date: ?", nil)
 	    end
     end
-    @events = policy_scope(@events)
+    # @events = policy_scope(@events)
 	end
 
 	def map
