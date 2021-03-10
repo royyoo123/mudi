@@ -39,6 +39,7 @@
   font-size: 15px;
   text-align: left;
   padding-left: .75em;
+  padding-right: .75em;
   font-weight: bolder;
   color: $dark;
   position: absolute;
@@ -64,7 +65,6 @@ color: $white
   position: absolute;
   bottom: 8px;
   font-family: 'Sen', sans-serif, !important;
-  font-weight: bold;
 }
 
 .card-col {
