@@ -3,47 +3,44 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-		
-			if params[:date].nil?
-				if params[:latitude].present? && params[:longitude].present?
-					if params[:moods].present?
-						latitude = params[:latitude]
-				    longitude = params[:longitude]
-				    coords = [latitude,longitude]
-				    moods = params[:moods].split(",")
-				   # @events = Event.near(coords, 50)
-				   
-			     	@events = Event.near(coords, 50).select do |event|
-			     							moods.each do |mood|
-			      							event.event_moods.each do |mood_instance|
-			      								mood_instance.mood_id == mood
-			      							end
-			     							end
-			      					end		
-			    end		
-			  end
-		    if params[:query].present?
-		    	if @events 
-		    		@events = @events.near(coords,50).search_by_name_and_description(params[:query])
-		    	else
-		    		@events = Event.near(coords,50).search_by_name_and_description(params[:query])
-		    	end
-		    end
-		    @events = Event.all if @events.nil?
-	    else
-	    	date_time=params[:date].to_datetime
-	    	if params[:latitude].present? && params[:longitude].present?
-	    		latitude = params[:latitude]
+		if params[:date].nil?
+			if params[:latitude].present? && params[:longitude].present?
+				if params[:moods].present?
+					latitude = params[:latitude]
 			    longitude = params[:longitude]
 			    coords = [latitude,longitude]
-			    # @events = Event.near(coords, 50).where('start_date= date_time')
-			    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
-		    else
-		    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
-		    	# @events = Event.where.not("start_date: ?", nil)
-		    end
+			    moods = params[:moods].split(",")
+			   # @events = Event.near(coords, 50)
+		     	@events = Event.near(coords, 50).select do |event|
+		     							moods.each do |mood|
+		      							event.event_moods.each do |mood_instance|
+		      								mood_instance.mood_id = mood
+		      							end
+		     							end
+		      					end
+		    end		
+		  end
+	    if params[:query].present?
+	    	if @events 
+	    		@events = @events.near(coords,50).search_by_name_and_description(params[:query])
+	    	else
+	    		@events = Event.near(coords,50).search_by_name_and_description(params[:query])
+	    	end
 	    end
-
+	    @events = Event.all if @events.nil?
+    else
+    	date_time=params[:date].to_datetime
+    	if params[:latitude].present? && params[:longitude].present?
+    		latitude = params[:latitude]
+		    longitude = params[:longitude]
+		    coords = [latitude,longitude]
+		    # @events = Event.near(coords, 50).where('start_date= date_time')
+		    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
+	    else
+	    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day)
+	    	# @events = Event.where.not("start_date: ?", nil)
+	    end
+    end
     @events = policy_scope(@events)
 	end
 
@@ -106,6 +103,7 @@ class EventsController < ApplicationController
 		@event.destroy
 		redirect_to root_path
 	end
+
 	private
 	def event_params
 		params.require(:event).permit(:name, :start_date, :price, :address, :description, event_moods_attributes: [:mood_id], photos: [])
@@ -115,17 +113,4 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		authorize @event
 	end
-	# def get_ip
-	# 	ip = user.last_sign_in_ip || user.current_sign_in_ip
-	# 	location = Geocoder.search(ip)
-	# 	country = location["country_name"]
-	# 	state = location["region_name"]
-	# 	city = location["city"]
-	# 	zipcode = geoloc["zipcode"]
-	# 	latitude = geoloc["latitude"]
-	# 	longitude = geoloc["longitude"]
-	# 	area_code = geoloc["area_code"]
-	# 	return [latitude, longitude]
-	# end
-
 end
