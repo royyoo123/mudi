@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
-
+  
   private
 
   def skip_pundit?
@@ -22,5 +22,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:business_owner, :email, :password, :password_confirmation)}
+  end
+
+  def default_url_options
+    { host: ENV["www.mudi.live"] || "localhost:3000" }
   end
 end
