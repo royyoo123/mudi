@@ -26,4 +26,12 @@ class Event < ApplicationRecord
       nil
     end
   end
+
+  def filter(events)
+    events.select do |event|
+                      event.event_moods.any? do |mood_instance|
+                        moods.include?(mood_instance.mood_id.to_s)
+                      end
+                    end
+  end
 end

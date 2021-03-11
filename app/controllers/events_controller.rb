@@ -3,13 +3,23 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-
 		if params[:date].nil?
 			if params[:latitude].present? && params[:longitude].present?
 				if params[:moods].present?
 					if params[:prices].present?
 						price = params[:prices].split('-')
 						latitude = params[:latitude]
+				    longitude = params[:longitude]
+				    coords = [latitude,longitude]
+				    moods = params[:moods].split(",")
+			     	@events = Event.near(coords, 50).select do |event|
+		      							event.event_moods.any? do |mood_instance|
+		      								moods.include?(mood_instance.mood_id.to_s)
+		      							end
+			      					end
+
+			    else
+			    	latitude = params[:latitude]
 				    longitude = params[:longitude]
 				    coords = [latitude,longitude]
 				    moods = params[:moods].split(",")
@@ -32,7 +42,7 @@ class EventsController < ApplicationController
 	      							end
 		      					end
 	    end
-	    @events = Event.all if @events.nil?
+	    
     else
     	date_time=params[:date].to_datetime
     	if params[:moods].present?
