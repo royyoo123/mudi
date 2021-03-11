@@ -16,7 +16,6 @@
           <select name="moods">
             <option value="" disabled selected>select mood</option>
             <% Mood.all.each do |mood| %>
-
               <option value="<%= mood.id %>">
                 <%= mood.name %>
               </option>

@@ -5,6 +5,7 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  position: relative;
   
 }
 .map-card {
@@ -33,7 +34,7 @@ div.mapboxgl-popup-content {
 
 .map-price {
   position: absolute;
-  bottom: 8px;
+  bottom: 14px;
   right: 16px;
   font-size: 24px;
   color: $dark;
@@ -81,19 +82,19 @@ button.mapboxgl-popup-close-button {
   position: relative;
 }
 
-i.fas.fa-bookmark.map-bookmark {
+.map-bookmark {
   font-size: 3em;
   position: absolute;
   bottom: 20px;
-  left: 20px;
+  left: 23px;
 }
 
-i.far.fa-bookmark.map-bookmark::before {
-  font-size: 3em;
-  position: absolute;
-  bottom: 27px;
-  left: 20px;
-}
+// i.far.fa-bookmark.map-bookmark::before {
+//   font-size: 3em;
+//   position: absolute;
+//   bottom: 27px;
+//   left: 20px;
+// }
   
 // .fa-bookmark:before {
 //   position: absolute;
@@ -105,6 +106,7 @@ i.far.fa-bookmark.map-bookmark::before {
   display: inline-block;
 }
 
+
 svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search {
   top: 4px;
 }
@@ -112,4 +114,19 @@ svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search {
 input.mapboxgl-ctrl-geocoder--input {
   width: 150px;
   height: 30px;
+
+
+#map-event-button {
+  background: $linear-green;
+  font-size: 18px;
+  position: absolute;
+  bottom: 21px;
+  right: 20px;
+  width: 12em;
+  border-radius: 10px;
+  color: $dark;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+  align-items: center;
 }
