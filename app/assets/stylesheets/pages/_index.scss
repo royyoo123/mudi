@@ -6,6 +6,7 @@
 
 body {
   background-color: $dark;
+  height: 100%;
 }
 
 .search-container {
@@ -88,7 +89,15 @@ body {
   height: 35px;
 }
 
-.sticky-filters {
-  position: sticky;
-  top: 0;
+
+.content {
+  flex-shrink:0;
+}
+
+.fixed-sticky{
+  position: fixed;
+  bottom: 60px;
+  text-align: center;
+  width: 100vw;
+
 }
