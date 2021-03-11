@@ -1,34 +1,34 @@
 <a class="map-card justify-content-center"><%= link_to event_path(event) do %>
-<h2 class="map-card-title"><%= event.name %></h2>
-<h3 class="map-card-address"><%= event.address %></h3>
-<div class="map-date-time">
-	<% unless event.start_date.nil? %>
-	<p class="map-date"><%= event.start_date.strftime("%m/%d/%Y") %></p>
-	<p class="map-time">@<%= event.start_date.strftime("%l:%M %p") %></p>
-	<% end %>
-</div>
-<div class="map-image">
-	<% if event.photos.attached? %>
-		<%= cl_image_tag event.photos[0].key, height: 200, width: 300, crop: :fill %>
-	<% end %>
-	<% if event.price == "Free" || event.price == "FREE" || event.price == "free" %>
-		<p class="map-price"><%= event.price %></p>
-		<% else %>
-		<p class="map-price">$<%= event.price %></p>
-		<% end %>
-	<% end %>
-</div>
-<div class="map-footer">
-	<div class="details-button">
-		<%= link_to event_path(event) do %>
-			<button type="button" id="map-event-button">Details</button>
+	<h2 class="map-card-title"><%= event.name %></h2>
+	<!-- <h3 class="map-card-address"><%= event.address %></h3> -->
+	<div class="map-date-time">
+		<% unless event.start_date.nil? %>
+		<p class="map-date"><%= event.start_date.strftime("%m/%d/%Y") %></p>
+		<p class="map-time">@<%= event.start_date.strftime("%l:%M %p") %></p>
 		<% end %>
 	</div>
-	<div class="map-bookmark"> 
-		<% if event.bookmark_by_user(current_user) %>
-			<i class="fas fa-bookmark map-bookmark" data-form-id="<%= event.id %>"></i>
-		<% else %>
-			<i class="far fa-bookmark map-bookmark" data-form-id="<%= event.id %>"></i>
+	<div class="map-image">
+		<% if event.photos.attached? %>
+			<%= cl_image_tag event.photos[0].key, height: 200, width: 300, crop: :fill %>
+		<% end %>
+		<% if event.price == "Free" || event.price == "FREE" || event.price == "free" %>
+			<p class="map-price"><%= event.price %></p>
+			<% else %>
+			<p class="map-price">$<%= event.price %></p>
+			<% end %>
 		<% end %>
 	</div>
-</div>
+	<div class="map-footer">
+		<div class="details-button">
+			<%= link_to event_path(event) do %>
+				<button type="button" id="map-event-button">Details</button>
+			<% end %>
+		</div>
+		<div class="map-bookmark"> 
+			<% if event.bookmark_by_user(current_user) %>
+				<i class="fas fa-bookmark" data-form-id="<%= event.id %>"></i>
+			<% else %>
+				<i class="far fa-bookmark" data-form-id="<%= event.id %>"></i>
+			<% end %>
+		</div>
+	</div>
