@@ -1,4 +1,3 @@
-<body>
 
   <div class="search-container">
     <button type="button" class="map-btn" id="map-button1">MAP</button>
@@ -29,19 +28,15 @@
           <option value="25-49">25-49</option>
           <option value="50-99">50-99</option>
           <option value="100-100000">100+</option>
-
         </select>
-
         <%= submit_tag " ➜ ", id: "searchbar-btn" %>
       <% end %>
     </div>
   </div>
   <div style="display: none"></div>
   <div class="filter-bar pb-2">
-    
     <div style="display: none"></div>
     <div class="filter-bar pb-2">
-   
     </div>
     <div class="datetimepicker btn-group">
       <form action="/events">
@@ -53,10 +48,8 @@
       </form>
     </div>
   </div>
-
   <div class="container">
     <% if @events.nil?  %>
-
     <div class="container mt-3">
       <h1>Sorry, no events are near you!</h1>
     </div>
@@ -98,9 +91,7 @@
               <% unless e.start_date.nil? %>
               <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
               <% end %>
-            </div>
-          
-            
+            </div>           
         </div>
       <% end %>
       </div>
