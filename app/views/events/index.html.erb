@@ -1,7 +1,7 @@
 <body>
 
   <div class="search-container">
-    <!-- <button type="button" class="map-btn" id="map-button1">MAP</button> -->
+    
     <div id="search-bar">
       <%= form_tag events_path, method: :get do %>
         <%= text_field_tag :query,
@@ -12,12 +12,10 @@
         %>
 
         <div class="datetimepicker btn-group">
-          <!-- <form action="/events"> -->
-            <input type="date" id="date5"name="date">
-            <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
-            <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
-            <input type="hidden" name="moods" value="<%= params[:moods] %>" >
-          <!-- </form> -->
+          <input type="date" id="date5"name="date">
+          <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+          <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+          <input type="hidden" name="moods" value="<%= params[:moods] %>" >
         </div>
 
         <div class="filter-bar">
@@ -53,59 +51,56 @@
   </div>
 
   <div class="container">
-    <% if @events.nil?  %>
-
-    <div class="container mt-3">
-      <h1>Sorry, no events are near you!</h1>
-    </div>
-    <div class="container">
-      <% if @events.nil?  %>
-      <div class="container mt-3">
-        <h1>Sorry, no events are near you!</h1>
-      </div>
-      <% else %>
-      <div class="row row-cols-2-s ml-1 mr-1">
-        <% @events.each do |e| %>
-        <div class ="col-6 col-lg-4">
-          <% unless e.start_date.nil? %>
-            <% if e.start_date < Time.now %>
-              <% e.destroy %>
-            <% end %>
-          <% end %>    
-          <div class="card text-center mt-3 mb-3" >
-            <%= link_to event_path(e) do %>
-              <% e.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
-              <% end %>
-              <div class="card-title" >
-                <h5><%= e.name %></h5>
+    
+      <div class="container">
+        <% if @events.nil?  %>
+          <div class="container mt-3">
+            <h1>Sorry, no events are near you!</h1>
+          </div>
+        <% else %>
+          <div class="row row-cols-2-s ml-1 mr-1">
+            <% @events.each do |e| %>
+            <div class ="col-6 col-lg-4">
+              <% unless e.start_date.nil? %>
+                <% if e.start_date < Time.now %>
+                  <% e.destroy %>
+                <% end %>
+              <% end %>    
+              <div class="card text-center mt-3 mb-3" >
+                <%= link_to event_path(e) do %>
+                  <% e.photos.each do |photo| %>
+                  <%= cl_image_tag photo.key, crop: :fill, class: "card-photo" %>
+                  <% end %>
+                  <div class="card-title" >
+                    <h5><%= e.name %></h5>
+                  </div>
+                
+                  <div class="card-details" >
+                    <% if e.price == 0 || e.price == "0" || e.price == "free" %>
+                    <p>Free</p>
+                    <% else %>
+                    <p>$<%= e.price %></p>
+                    <% end %>
+                  </div>
+                  <% if current_user %>
+                  <div class="bookmark"> 
+                    <% if e.bookmark_by_user(current_user) %>
+                      <i class="fas fa-bookmark" data-form-id="<%= e.id %>"></i>
+                    <% else %>
+                      <i class="far fa-bookmark" data-form-id="<%= e.id %>"></i>
+                    <% end %>
+                  </div>
+                  <% end %>
+                  <div class="date-time">
+                    <% unless e.start_date.nil? %>
+                    <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
+                    <% end %>
+                  </div>     
+                  <% end %>      
               </div>
             
-              <div class="card-details" >
-                <% if e.price == 0 || e.price == "0" || e.price == "free" %>
-                <p>Free</p>
-                <% else %>
-                <p>$<%= e.price %></p>
-                <% end %>
-              </div>
-              <% if current_user %>
-              <div class="bookmark"> 
-                <% if e.bookmark_by_user(current_user) %>
-                  <i class="fas fa-bookmark" data-form-id="<%= e.id %>"></i>
-                <% else %>
-                  <i class="far fa-bookmark" data-form-id="<%= e.id %>"></i>
-                <% end %>
-              </div>
-          <% end %>
-              <div class="date-time">
-                <% unless e.start_date.nil? %>
-                <p> <%= e.start_date.strftime("%m/%d/%Y") %> </p>
-                <% end %>
-              </div>           
           </div>
-        <% end %>
-        </div>
-        <% end %>
+          <% end %>
 
       </div>
       <% end %>
@@ -114,4 +109,4 @@
   <div class="fixed-sticky">
     <button type="button" class="map-btn m-auto" id="map-button1">MAP</button>
   </div>
-<body>
+</body>
