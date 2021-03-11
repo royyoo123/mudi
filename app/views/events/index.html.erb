@@ -1,7 +1,7 @@
 <body>
 
   <div class="search-container">
-    <button type="button" class="map-btn" id="map-button1">MAP</button>
+    <!-- <button type="button" class="map-btn" id="map-button1">MAP</button> -->
     <div id="search-bar">
       <%= form_tag events_path, method: :get do %>
         <%= text_field_tag :query,
@@ -10,47 +10,45 @@
         id: "search-bar-input",
         placeholder: "search for an activity..."
         %>
-        <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
-        <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
-        <input type="hidden" name="moods" value="<%= params[:moods] %>" >
-        <select name="moods">
-          <option value="" disabled selected>select mood</option>
-          <% Mood.all.each do |mood| %>
 
-            <option value="<%= mood.id %>">
-              <%= mood.name %>
-            </option>
-          <% end %>
-        </select>
-        <select name="prices">
-          <option value="" disabled selected>select price</option>
-          <option value="0">free</option>
-          <option value="1-24">1-24</option>
-          <option value="25-49">25-49</option>
-          <option value="50-99">50-99</option>
-          <option value="100-100000">100+</option>
+        <div class="datetimepicker btn-group">
+          <!-- <form action="/events"> -->
+            <input type="date" id="date5"name="date">
+            <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+            <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+            <input type="hidden" name="moods" value="<%= params[:moods] %>" >
+          <!-- </form> -->
+        </div>
 
-        </select>
-
-        <%= submit_tag " ➜ ", id: "searchbar-btn" %>
-      <% end %>
-    </div>
-  </div>
-  <div style="display: none"></div>
-  <div class="filter-bar pb-2">
+        <div class="filter-bar">
+          <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+          <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+          <input type="hidden" name="moods" value="<%= params[:moods] %>" >
+          <div class="btn-group mt-1">
+            <select class="mood-drop-btn btn-up" id="mood-dropdown" name="moods">
+              <option value="" disabled selected>select mood</option>
+              <% Mood.all.each do |mood| %>
     
-    <div style="display: none"></div>
-    <div class="filter-bar pb-2">
-   
-    </div>
-    <div class="datetimepicker btn-group">
-      <form action="/events">
-        <input type="date" id="date5"name="date">
-        <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
-        <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
-        <input type="hidden" name="moods" value="<%= params[:moods] %>" >
-        <%= submit_tag " ➜ ", id: "searchbar-btn" %>
-      </form>
+                <option value="<%= mood.id %>">
+                  <%= mood.name %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+          <div class="btn-group mt-1">
+            <select class="mood-drop-btn btn-up" id="mood-dropdown" name="prices">
+              <option value="" disabled selected>select price</option>
+              <option value="0">free</option>
+              <option value="1-24">$1-24</option>
+              <option value="25-49">$25-49</option>
+              <option value="50-99">$50-99</option>
+              <option value="100-100000">$100+</option>
+    
+            </select>
+          </div>
+          <%= submit_tag " submit ", id: "searchbar-btn" %>
+        <% end %>
+        </div>
     </div>
   </div>
 
