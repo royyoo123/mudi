@@ -26,9 +26,12 @@
 	        <button type="button" id="book-btn">Book</button>
 	      <% end %>
 	    <% elsif @event.payment_url.present? %>
-	    	<%= link_to @event.payment_url do %>
-	    	<button type="button" id="book-btn">Book</button>
+	    	<%= link_to @event.payment_url, target: :_blank, rel: 'noopener' do %>	
+	    	<button type="button" id="book-btn">Buy ticket</button>
 	    	<% end %>
+	    	<%= link_to confirmation_path(@event) do %>
+	        <button type="button" id="book-btn">Add to activities</button>
+	      <% end %>
 	    <% else %>
 				<%= form_tag orders_path do %>
 				  <%= hidden_field_tag 'event_id', @event.id %>
