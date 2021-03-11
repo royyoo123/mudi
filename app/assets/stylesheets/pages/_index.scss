@@ -13,12 +13,23 @@ body {
   display: flex;
   justify-content: space-between;
   padding-right: .6em;
-  padding-left: .4em;
+  padding-left: .6em;
 }
 
 #search-bar  {
   // display: inline-block;
   position: relative;
+}
+
+#searchbar-btn {
+  border: none;
+  display: inline;
+  height: 37px;
+  color: $dark;
+  background: $linear-green;
+  border-radius: 7px;
+  font-family: 'Sen', sans-serif;
+  margin-top: 4px
 }
 
 #search-bar-input {
@@ -28,7 +39,7 @@ body {
   border-radius: 10px;
   display: inline;
   background-color: $gray;
-  width: 17em;
+  width: 14em;
   font-family: 'Sen', sans-serif;
 }
 
@@ -40,11 +51,16 @@ body {
   position: relative;
   display: flex;
   justify-content: space-around;
-  padding-right: .6em;
-  padding-left: .3em;
   margin-top: .5em;
   height: 40px;
+  margin-left: 0px;
 }
+
+select#mood-dropdown.mood-drop-btn.btn-up {
+  margin-left: 0;
+  margin-right: 6px;
+}
+
 
 .mood-filter {
   border-radius: 5px;
@@ -86,7 +102,7 @@ body {
 }
 
 .btn-group {
-  height: 35px;
+  height: 37px;
 }
 
 
