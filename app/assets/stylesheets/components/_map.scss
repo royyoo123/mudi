@@ -104,3 +104,12 @@ i.far.fa-bookmark.map-bookmark::before {
 .map-footer {
   display: inline-block;
 }
+
+svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search {
+  top: 4px;
+}
+
+input.mapboxgl-ctrl-geocoder--input {
+  width: 150px;
+  height: 30px;
+}
