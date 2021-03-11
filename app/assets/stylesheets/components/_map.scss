@@ -107,6 +107,16 @@ button.mapboxgl-popup-close-button {
 }
 
 
+svg.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search {
+  top: 4px;
+}
+
+input.mapboxgl-ctrl-geocoder--input {
+  width: 150px;
+  height: 30px;
+}
+
+
 #map-event-button {
   background: $linear-green;
   font-size: 18px;
@@ -120,5 +130,5 @@ button.mapboxgl-popup-close-button {
   height: 2em;
   font-family: 'Sen', sans-serif;
   align-items: center;
+}
 
-} 

@@ -6,6 +6,7 @@
 
 body {
   background-color: $dark;
+  height: 100%;
 }
 
 .search-container {
@@ -104,7 +105,15 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   height: 37px;
 }
 
-.sticky-filters {
-  position: sticky;
-  top: 0;
+
+.content {
+  flex-shrink:0;
+}
+
+.fixed-sticky{
+  position: fixed;
+  bottom: 60px;
+  text-align: center;
+  width: 100vw;
+
 }
