@@ -17,16 +17,38 @@ class EventsController < ApplicationController
 					moods.include?(mood_instance.mood_id.to_s)
 				end
 			end
-			
 		end
-	
 		if params[:query].present?
-			@events.search_by_name_and_description(params[:query])
+			events = Event.search_by_name_and_description(params[:query])
+			arr = []
+			@events.each do |event|
+				arr.push(event) if events.include?(event)
+			end
+			@events = arr
 		end
-		# if params[:prices].present?
-		# 	price = params[:prices].split('-')
-		# end
-
+		if params[:date].present?
+			date_time = params[:date].to_datetime
+			events = Event.where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day) 
+			arr = []
+			
+			@events.each do |event|
+				arr.push(event) if events.include?(event)
+			end
+			@events = arr
+		end
+		if params[:prices].present?
+			arr = []
+			price_points = params[:prices].split('-')
+			if price_points.length == 1
+				events = Event.where("price_cents = ?", (price_points[0].to_i)*100)
+			else
+				events = Event.where("price_cents BETWEEN ? AND ?", price_points[0].to_i*100, price_points[1].to_i*100)
+			end
+			@events.each do |event|
+				arr.push(event) if events.include?(event)
+			end
+			@events = arr
+		end
     # @events = policy_scope(@events)
 	end
 
