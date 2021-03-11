@@ -9,7 +9,6 @@ const syncCalendar = () => {
   if(button){
   button.addEventListener("click", () => {
     baseUrl += name.innerText.split(' ').join('+');
-    alert("wait");
     baseUrl += "&details=";
     baseUrl += description.innerText.split(' ').join('+');
     baseUrl += "&location=";
