@@ -5,10 +5,11 @@
 		</div>
 		<div class="details">
 		<h3 class="address"><%= @event.address %></h3>
-			<% unless @event.start_date.nil? %>
+			
 		</div>
 		<div class="photo-container">
 			<div class="mt-3 show-datetime">
+				<% unless @event.start_date.nil? %>
 				<h3 class="show-date"><%= @event.start_date.strftime("%m/%d/%Y ") %></h3>
 				<h3 class="show-time">@<%= @event.start_date.strftime("%l:%M %p") %></h3>
 				<% end %>
