@@ -19,6 +19,7 @@ class Event < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
   validates :address, presence: true
   validates :photos, presence: true
+  validates :event_moods, length: { maximum: 5 }
   def bookmark_by_user(user)
     if user
       bookmarks.where(user: user).first
