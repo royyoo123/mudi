@@ -86,7 +86,7 @@ class EventsController < ApplicationController
 		end
 		# after line 70, create event mood with @event and @mood
 		authorize @event
-		if @event.save!
+		if @event.save
 			redirect_to @event, notice: 'Event was successfully created'
 		else
 			render :new
