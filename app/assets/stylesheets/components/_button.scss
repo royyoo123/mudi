@@ -91,6 +91,8 @@ a.btn-map {
   color: $dark;
   font-family: 'Sen', sans-serif;
   margin: none;
+  -webkit-appearance: none;
+  
 }
 
 .btns {
@@ -109,6 +111,7 @@ a.btn-map {
   border: 1.5px;
   border-color: #828282;
   border-style: solid;
+  -webkit-appearance: none;
 }
 
 #map-event-button {
