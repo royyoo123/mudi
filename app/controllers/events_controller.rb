@@ -7,19 +7,21 @@ class EventsController < ApplicationController
 		if params[:date].nil?
 			if params[:latitude].present? && params[:longitude].present?
 				if params[:moods].present?
-					latitude = params[:latitude]
-			    longitude = params[:longitude]
-			    coords = [latitude,longitude]
-			    moods = params[:moods].split(",")
-		     	@events = Event.near(coords, 50).select do |event|
-	      							event.event_moods.any? do |mood_instance|
-	      								moods.include?(mood_instance.mood_id.to_s)
-	      							end
-		      					end
+					if params[:prices].present?
+						price = params[:prices].split('-')
+						latitude = params[:latitude]
+				    longitude = params[:longitude]
+				    coords = [latitude,longitude]
+				    moods = params[:moods].split(",")
+			     	@events = Event.near(coords, 50).select do |event|
+		      							event.event_moods.any? do |mood_instance|
+		      								moods.include?(mood_instance.mood_id.to_s)
+		      							end
+			      					end
+			    end
 		    end		
 		  end
 	    if params[:query].present?
-	    	raise
 	    	latitude = params[:latitude]
 		    longitude = params[:longitude]
 		    coords = [latitude,longitude]
@@ -30,7 +32,7 @@ class EventsController < ApplicationController
 	      							end
 		      					end
 	    end
-	    # @events = Event.all if @events.nil?
+	    @events = Event.all if @events.nil?
     else
     	date_time=params[:date].to_datetime
     	if params[:moods].present?
@@ -106,8 +108,10 @@ class EventsController < ApplicationController
 	end
 	def update
 		@event.user = current_user
+		@event.event_moods.destroy_all
 		@event.update(event_params)
-		if @event.save
+		
+		if @event.save!
 			redirect_to event_path(@event)
 		else
 			render :new

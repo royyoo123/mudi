@@ -13,18 +13,21 @@
         <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
         <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
         <input type="hidden" name="moods" value="<%= params[:moods] %>" >
-        <select name="mood">
+        <select name="moods">
+          <option value="" disabled selected>select mood</option>
           <% Mood.all.each do |mood| %>
-            <option value="<% mood.id %>">
+
+            <option value="<%= mood.id %>">
               <%= mood.name %>
             </option>
           <% end %>
         </select>
-        <select>
+        <select name="prices">
+          <option value="" disabled selected>select price</option>
           <option value="0">free</option>
-          <option value="1,24">1-24</option>
-          <option value="25,49">25-49</option>
-          <option value="50,99">50-99</option>
+          <option value="1-24">1-24</option>
+          <option value="25-49">25-49</option>
+          <option value="50-99">50-99</option>
           <option value="100+">100+</option>
 
         </select>
