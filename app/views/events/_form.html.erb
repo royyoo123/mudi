@@ -9,7 +9,7 @@
 		<%= render 'event_mood_fields', f: mood %>
 		<% end %>
 		<div class='links'>
-		<%= link_to_add_association 'add mood', f, :event_moods %>
+		<%= link_to_add_association 'add mood (max 5)', f, :event_moods %>
 		</div>
 	</div>
 	<%= f.input :photos, as: :file, input_html: { multiple: true }, class:"create-form btn", id:"photo-input" %>
