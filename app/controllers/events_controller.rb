@@ -3,73 +3,30 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-		if params[:date].nil?
-			if params[:latitude].present? && params[:longitude].present?
-				if params[:moods].present?
-					if params[:prices].present?
-						price = params[:prices].split('-')
-						latitude = params[:latitude]
-				    longitude = params[:longitude]
-				    coords = [latitude,longitude]
-				    moods = params[:moods].split(",")
-			     	@events = Event.near(coords, 50).select do |event|
-		      							event.event_moods.any? do |mood_instance|
-		      								moods.include?(mood_instance.mood_id.to_s)
-		      							end
-			      					end
+		@events = Event.all.order(:created_at)
+		if params[:latitude].present? && params[:longitude].present?
+			latitude = params[:latitude]
+	    longitude = params[:longitude]
+	    coords = [latitude,longitude]
+	    @events = Event.near(coords, 50)
+		end
+		if params[:moods].present?
+			moods = params[:moods].split(",")
+			@events = @events.select do |event|
+				event.event_moods.any? do |mood_instance|
+					moods.include?(mood_instance.mood_id.to_s)
+				end
+			end
+			
+		end
+	
+		if params[:query].present?
+			@events.search_by_name_and_description(params[:query])
+		end
+		# if params[:prices].present?
+		# 	price = params[:prices].split('-')
+		# end
 
-			    else
-			    	latitude = params[:latitude]
-				    longitude = params[:longitude]
-				    coords = [latitude,longitude]
-				    moods = params[:moods].split(",")
-			     	@events = Event.near(coords, 50).select do |event|
-		      							event.event_moods.any? do |mood_instance|
-		      								moods.include?(mood_instance.mood_id.to_s)
-		      							end
-			      					end
-			    end
-		    end		
-		  end
-	    if params[:query].present?
-	    	latitude = params[:latitude]
-		    longitude = params[:longitude]
-		    coords = [latitude,longitude]
-		    moods = params[:moods].split(",")
-	    	@events = Event.near(coords,50).search_by_name_and_description(params[:query]).select do |event|
-	      							event.event_moods.any? do |mood_instance|
-	      								moods.include?(mood_instance.mood_id.to_s)
-	      							end
-		      					end
-	    end
-	    
-    else
-    	date_time=params[:date].to_datetime
-    	if params[:moods].present?
-    		
-	    	if params[:latitude].present? && params[:longitude].present?
-	    		latitude = params[:latitude]
-			    longitude = params[:longitude]
-			    coords = [latitude,longitude]
-			    moods = params[:moods].split(",")
-			    # @events = Event.near(coords, 50).where('start_date= date_time')
-			    @events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day).select do |event|
-	      							event.event_moods.any? do |mood_instance|
-	      								moods.include?(mood_instance.mood_id.to_s)
-	      							end
-		      					end
-			    
-		    else
-		    	@events = Event.near(coords, 50).where("(start_date BETWEEN ? AND ?) OR start_date IS NULL", date_time.beginning_of_day, date_time.end_of_day).select do |event|
-	      							event.event_moods.any? do |mood_instance|
-	      								moods.include?(mood_instance.mood_id.to_s)
-	      							end
-		      					end
-		    	
-		    	# @events = Event.where.not("start_date: ?", nil)
-		    end
-		  end
-    end
     # @events = policy_scope(@events)
 	end
 
