@@ -26,9 +26,9 @@
 		</div>
 		<div class="map-bookmark"> 
 			<% if event.bookmark_by_user(current_user) %>
-				<i class="fas fa-bookmark" data-form-id="<%= event.id %>"></i>
+				<i class="fas fa-bookmark map-bm" data-form-id="<%= event.id %>"></i>
 			<% else %>
-				<i class="far fa-bookmark" data-form-id="<%= event.id %>"></i>
+				<i class="far fa-bookmark map-bm" data-form-id="<%= event.id %>"></i>
 			<% end %>
 		</div>
 	</div>

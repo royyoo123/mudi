@@ -44,6 +44,14 @@ div.mapboxgl-popup-content {
   opacity: 70%
 }
 
+i.far.fa-bookmark.map-bm::before {
+  font-size: 35px;
+}
+
+i.fa-bookmark.map-bm.fas::before {
+  font-size: 35px;
+}
+
 .map-date-time {
   display: grid;
   grid-template-columns: 1fr 1fr;
