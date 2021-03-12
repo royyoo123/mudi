@@ -11,8 +11,8 @@
 		<% if event.photos.attached? %>
 			<%= cl_image_tag event.photos[0].key, height: 200, width: 300, crop: :fill %>
 		<% end %>
-		<% if event.price == "Free" || event.price == "FREE" || event.price == "free" %>
-			<p class="map-price"><%= event.price %></p>
+		<% if event.price == 0 || event.price == "FREE" || event.price == "free" %>
+			<p class="map-price">Free</p>
 			<% else %>
 			<p class="map-price">$<%= event.price %></p>
 			<% end %>
