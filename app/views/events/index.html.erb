@@ -12,7 +12,7 @@
         %>
 
         <div class="datetimepicker btn-group">
-          <input type="date" id="date5"name="date" placeholder="test">
+          <input type="date" id="date5"name="date" placeholder="Date" onchange="this.className=(this.value!=''?'has-value':'')">
           <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
           <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
           <input type="hidden" name="moods" value="<%= params[:moods] %>" >
