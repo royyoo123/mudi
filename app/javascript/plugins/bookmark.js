@@ -6,39 +6,8 @@ const bookmark = () => {
 		heart.addEventListener("click", (event) => {
 			event.preventDefault();
 			// console.log(event.path[0].className);
-			if(event.path[0].className.includes("fas")){
-				console.log(event.path[0].className);
-				fetch(`/bookmarks/${eventId}`, {
-					method: "DELETE"
-					// body: JSON.stringify({})
-				})
-				.then((data)=>{
-					heart.classList.remove("fas")
-					heart.classList.add("far")
-				});
-			} else {
-				console.log(event)
-				const data = {
-					bookmark: { event_id: eventId }
-				}
-				fetch(`/bookmarks`, {
-					method: "POST",
-					headers: {"Content-Type": "application/json"},
-					body: JSON.stringify(data)
-				})
-
-				.then((data) => {
-					heart.classList.add("fas")
-					heart.classList.remove("far")
-				});
-			}
-			
-		});
-		heart.addEventListener("touchstart", (event) => {
-			event.preventDefault();
-			// console.log(event.path[0].className);
-			if(event.path[0].className.includes("fas")){
-				console.log(event.path[0].className);
+			if(event.target.className.includes("fas")){
+				console.log(event.target.className);
 				fetch(`/bookmarks/${eventId}`, {
 					method: "DELETE"
 					// body: JSON.stringify({})
