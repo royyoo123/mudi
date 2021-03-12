@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   has_many_attached :photos
   has_many :attendances, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :event_moods, dependent: :destroy
+  has_many :event_moods, dependent: :destroy # ???
   has_many :moods, through: :event_moods
   accepts_nested_attributes_for :event_moods, reject_if: :all_blank, allow_destroy: true
   geocoded_by :address
