@@ -7,6 +7,7 @@ const locateCoords = () => {
 	}
 	const a = document.getElementById('confirm-btn');
 	const b = document.getElementById('map-button1');
+	const c = document.getElementById('back-btn');
 	
 	
 	const handleButtonClick = (event) => {
@@ -36,9 +37,12 @@ const locateCoords = () => {
 			})
 		} else if (b) {
 			b.addEventListener('click',(event) => {
-			window.location.href=`/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+				window.location.href=`/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
-			
+		} else if (c) {
+			c.addEventListener('click',(event)=>{
+				window.location.href=`/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			})
 		}
 	}
 	function error(err) {
