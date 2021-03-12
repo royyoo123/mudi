@@ -28,7 +28,7 @@
           <h3 class="green"><%= @order.created_at.to_date %></h3>
         </div>
       <div class="link-back">
-        <%= link_to event_attendances_path(@event), method: "post" do %>
+        <%= link_to event_attendances_path(@order.event), method: "post" do %>
           <button type="button" id="book-btn">Sync to calendar</button>
       <% end %>
       </div>
