@@ -13,7 +13,7 @@ class BookmarksController < ApplicationController
 		@bookmark.user = @user
 		@bookmark.event = @event
 		authorize @bookmark
-		@bookmark.save
+		@bookmark.save!
 		return @bookmark
 	 #  if params[:latitude] && params[:longitude]
 		# 	redirect_to events_path(latitude: params[:latitude],longitude:params[:longitude])
