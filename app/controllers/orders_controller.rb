@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
         currency: 'usd',
         quantity: 1
       }],
-      success_url: order_path(order),
-      cancel_url: order_path(order)
+      success_url: 'https://www.mudi.live' + order_path(order),
+      cancel_url: 'https://www.mudi.live' + order_path(order)
     )
     authorize order
     order.update(checkout_session_id: session.id)
