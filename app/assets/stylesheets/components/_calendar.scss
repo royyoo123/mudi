@@ -262,6 +262,16 @@ input#date5 {
     outline: none;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
   }
+  &:not(.has-value){
+    color: $gray;
+  }
+  &:not(.has-value):before{
+    color: $white;
+    font-size: 16px;
+    padding-left: 4px;
+    content: attr(placeholder);
+  }
+  
 }
 
 input#searchbar-btn {
