@@ -41,7 +41,7 @@ const locateCoords = () => {
 			})
 		} else if (c) {
 			c.addEventListener('click',(event)=>{
-				window.location.href=`/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+				window.location.href=`/events/?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		}
 	}
