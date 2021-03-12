@@ -167,6 +167,16 @@ $colors: #FFFFFF, #0072B5, #2C3E50;
       padding: .25rem 0 .25rem .5rem;
       border-right-width: 0;
     }
+
+    input[type="date"]:before{
+      color:lightgray;
+      content:attr(placeholder);
+  }
+  
+  input[type="date"].full:before {
+      color:black;
+      content:""!important;
+  }
     
     &[type=time] {
       width: 5.5rem;
@@ -248,6 +258,20 @@ body {
 
 input#date5 {
   // padding-right: 1px;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+  }
+  &:not(.has-value){
+    color: $gray;
+  }
+  &:not(.has-value):before{
+    color: $white;
+    font-size: 16px;
+    padding-left: 4px;
+    content: attr(placeholder);
+  }
+  
 }
 
 input#searchbar-btn {
@@ -255,7 +279,7 @@ input#searchbar-btn {
 }
 
 input#date:focus {
-  border: none;
+  outline: none;
 }
 
 #date5 {
