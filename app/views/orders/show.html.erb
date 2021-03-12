@@ -1,4 +1,4 @@
-<div class="container">
+<lodiv class="container">
   <div class="row py-4">
    
     <div class="col">
@@ -27,8 +27,11 @@
           <h3 class="info">Issued On :&nbsp&nbsp</h3>
           <h3 class="green"><%= @order.created_at.to_date %></h3>
         </div>
-      <div class="link-back">
-        <button type="button" class="backto" id="back-btn">Back to results</button>
+      <div class="link-back mt-3">
+        <%= link_to confirmation_path(@order.event) do %>
+          <button type="button" id="book-btn">Details page</button>
+        <% end %>
+
       </div>
   
 
