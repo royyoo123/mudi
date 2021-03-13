@@ -19,7 +19,7 @@ const locateCoords = () => {
 	  if(a){
 	  	const buttons = document.querySelectorAll('.mood-input');
 			let array = [];
-			let array1 = ''
+			let array1 = '';
 			a.removeEventListener('click', handleButtonClick)
 	  	a.addEventListener('click',(event) => {
 	  		// iterate over buttons
@@ -28,9 +28,9 @@ const locateCoords = () => {
 	  		// join array and pass into href
 	  		buttons.forEach((button) => {
 	  			if(button.checked===true){
-	  				array.push(button.dataset.formId)
+	  				array.push(button.dataset.formId);
 	  		}
-	  		array1 = array.join(",")
+	  		array1 = array.join(",");
 	  		})
 	 
 				window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
@@ -40,6 +40,8 @@ const locateCoords = () => {
 				window.location.href=`/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		} else if (listButtonOnMap) {
+			window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
+		} else if (c) {
 			window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
 		}
 	}
