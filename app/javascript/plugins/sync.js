@@ -15,7 +15,7 @@ const syncCalendar = () => {
     baseUrl += address.innerText.split(' ').join('+');
     baseUrl += "&dates=";
     console.log(dateTime);
-    let dateTimeNew = dateTime.innerText.split(' ');
+    let dateTimeNew = dateTime.innerText.split('');
     let dateConverter = (x) => {
       let string = '';
       x.forEach((letter) => {
