@@ -6,7 +6,7 @@ class AttendancesController < ApplicationController
 		@user = current_user
 		@attendance.user = @user
 		@attendance.event = @event
-		@attendance.save
+		@attendance.save!
 	  redirect_to confirmed_path(@event)
 	end
 	def index
