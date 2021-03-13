@@ -39,15 +39,11 @@ const locateCoords = () => {
 			b.addEventListener('click',(event) => {
 				window.location.href=`/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
-		} else if (c) {
-			c.addEventListener('click',(event)=>{
-				window.location.href=`/events/?latitude=${crd.latitude}&longitude=${crd.longitude}`;
-			})
 		}
 	}
 	function error(err) {
 	  console.warn(`ERROR(${err.code}): ${err.message}`);
 	}
 	navigator.geolocation.getCurrentPosition(success, error, options);
-}	
+}
 export { locateCoords }

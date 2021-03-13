@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:business_owner, :email, :password, :password_confirmation)}
   end
 
-  # def default_url_options
-  #   { host: ENV["www.mudi.live"] || "localhost:3000" }
-  # end
+  def default_url_options
+    { host: ENV["www.mudi.live"] || "localhost:3000" }
+  end
 end
