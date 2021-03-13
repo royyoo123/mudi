@@ -1,7 +1,11 @@
 <div class="container">
 	<h1 id="confirmed">Confirmed</h1>
 	<br>
+	<% if @event.start_date.nil? %>
+	<h3 id="event_synced"><%= @event.name %> has been added to your attendances!</h3>
+	<% else %>
 	<h3 id="event_synced"><%= @event.name %>&nbsphas been synced to your calendar!</h3>
+	<% end %>
 	<br>
 	<%= image_tag "confetti.png", id:"confirmation-image" %>
 	<br>
