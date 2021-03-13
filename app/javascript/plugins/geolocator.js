@@ -7,7 +7,7 @@ const locateCoords = () => {
 	}
 	const a = document.getElementById('confirm-btn');
 	const b = document.getElementById('map-button1');
-	const c = document.getElementById('back-btn');
+	
 	const listButtonOnMap = document.querySelector('.btn-map');
 	
 	const handleButtonClick = (event) => {
@@ -41,9 +41,7 @@ const locateCoords = () => {
 			})
 		} else if (listButtonOnMap) {
 			window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
-		} else if (c) {
-			window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
-		}
+		} 
 	}
 	function error(err) {
 	  console.warn(`ERROR(${err.code}): ${err.message}`);
