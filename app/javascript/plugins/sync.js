@@ -1,5 +1,5 @@
 const syncCalendar = () => {
-	const button = document.querySelector("#book-btn");
+	const button = document.querySelector("#book-btn1");
   const description = document.querySelector("#event-description");
   const name = document.querySelector("#name");
   

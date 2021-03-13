@@ -22,8 +22,13 @@
 		</div>
 	</div>
 	<br>
-
-	<%= link_to event_attendances_path(@event), method: "post" do %>
-        <button type="button" id="book-btn">Sync to calendar</button>
+	<% if @event.start_date.nil? %>
+		<%= link_to event_attendances_path(@event), method: "post" do %>
+        <button type="button" id="book-btn">Add to activities</button>
       <% end %>
+	<% else %>
+	<%= link_to event_attendances_path(@event), method: "post" do %>
+        <button type="button" id="book-btn1">Sync to calendar</button>
+      <% end %>
+  <% end %>
 </div>
