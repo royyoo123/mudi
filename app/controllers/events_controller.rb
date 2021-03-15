@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-		render variants: [:desktop, :mobile]
+		request.variant = determine_variant
 		@events = Event.all.order(:created_at)
 		if params[:latitude].present? && params[:longitude].present?
 			latitude = params[:latitude]
@@ -125,12 +125,10 @@ class EventsController < ApplicationController
 		authorize @event
 	end
 
-	def filter(event_instance)
-		moods = params[:moods].split(",")
-		event_instance.select do |event|
-			event.event_moods.any? do |mood_instance|
-				moods.include?(mood_instance.mood_id.to_s)
-			end
-		end
+	def determine_variant
+  # some code to determine the variant(s) to use
+  variant = :mobile if session[:use_mobile]
+	variant = :desktop
+  variant
 	end
 end
