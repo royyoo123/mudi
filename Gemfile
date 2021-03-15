@@ -12,6 +12,7 @@ gem 'puma', '~> 4.1'
 gem 'stripe'
 gem 'stripe_event'
 gem "cocoon"
+gem 'browser', '2.0.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker

@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
+	protect_from_forgery with: :exception
+  before_action :detect_device_variant
 	skip_before_action :authenticate_user!, only: [:index, :show, :map]
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
-		request.variant = determine_variant
 		@events = Event.all.order(:created_at)
 		if params[:latitude].present? && params[:longitude].present?
 			latitude = params[:latitude]
@@ -124,11 +125,7 @@ class EventsController < ApplicationController
 		@event = Event.find(params[:id])
 		authorize @event
 	end
-
-	def determine_variant
-  # some code to determine the variant(s) to use
-  variant = :mobile if session[:use_mobile]
-	variant = :desktop
-  variant
-	end
+	def detect_device_variant
+    request.variant = :phone if browser.device.mobile?
+  end
 end
