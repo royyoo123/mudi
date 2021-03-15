@@ -3,6 +3,7 @@ class EventsController < ApplicationController
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
 	def index
+		render variants: [:desktop, :mobile]
 		@events = Event.all.order(:created_at)
 		if params[:latitude].present? && params[:longitude].present?
 			latitude = params[:latitude]
