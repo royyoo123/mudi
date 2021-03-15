@@ -40,9 +40,13 @@ const locateCoords = () => {
 				window.location.href=`/events/map?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
 		} else if (listButtonOnMap) {
-			window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
+			listButtonOnMap.addEventListener('click',(event)=>{
+				window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			})
 		} else if (c) {
-			window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}&moods=${array1}`;
+			c.addEventListener('click',(event)=>{
+				window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			})
 		}
 	}
 	function error(err) {
