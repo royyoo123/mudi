@@ -37,6 +37,18 @@ div.container {
   width: 104px;
 }
 
+#dt-searchbar-btn {
+  border: none;
+  display: inline;
+  height: 37px;
+  color: $dark;
+  background: $linear-green;
+  border-radius: 7px;
+  font-family: 'Sen', sans-serif;
+  margin-top: 4px;
+  width: 104px;
+}
+
 #search-bar-input {
   border: 1.5px;
   border-color: #828282;
