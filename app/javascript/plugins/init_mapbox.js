@@ -13,12 +13,13 @@ const buildMap = (mapElement) => {
     zoom: 10
   });
   map.addControl(
-new MapboxGeocoder({
-accessToken: mapboxgl.accessToken,
-mapboxgl: mapboxgl
-})
-);
-
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+      })
+    );
   return map
 };
 

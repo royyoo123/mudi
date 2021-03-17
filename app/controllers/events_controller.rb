@@ -51,6 +51,14 @@ class EventsController < ApplicationController
 			end
 			@events = arr
 		end
+		@markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: event.photos.attached? ? Cloudinary::Utils.cloudinary_url(event.photos[0].key) : ''
+      }
+    end
     # @events = policy_scope(@events)
 	end
 
