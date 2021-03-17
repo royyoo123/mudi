@@ -1,1 +1,51 @@
-<h1>TEST</h1>
+<body>
+  <div class="desktop-search-container">
+    
+    <div id="search-bar">
+      <%= form_tag events_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        id: "desktop-search-bar-input",
+        placeholder: "search for an activity..."
+        %>
+
+        
+        <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+        <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+        <input type="hidden" name="moods" value="<%= params[:moods] %>" >
+        <div class="btn-group" id="dt-btn-group">
+          <select class="mood-drop-btn btn-up" id="mood-dropdown" name="moods">
+            <option value="" disabled selected>select mood</option>
+            <% Mood.all.each do |mood| %>
+  
+              <option value="<%= mood.id %>">
+                <%= mood.name %>
+              </option>
+            <% end %>
+          </select>
+        </div>
+        <div class="btn-group" id="dt-btn-group">
+          <select class="mood-drop-btn btn-up" id="mood-dropdown" name="prices">
+            <option value="" disabled selected>select price</option>
+            <option value="0">free</option>
+            <option value="1-24">$1-24</option>
+            <option value="25-49">$25-49</option>
+            <option value="50-99">$50-99</option>
+            <option value="100-100000">$100+</option>
+  
+          </select>
+        </div>
+
+        <div class="datetimepicker btn-group">
+          <input type="date" id="date5"name="date" placeholder="date" onchange="this.className=(this.value!=''?'has-value':'')">
+          <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
+          <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
+          <input type="hidden" name="moods" value="<%= params[:moods] %>" >
+        </div>
+        <div>
+          <%= submit_tag " submit ", id: "dt-searchbar-btn" %>
+          <% end %>
+        </div>
+    </div>
+</body>

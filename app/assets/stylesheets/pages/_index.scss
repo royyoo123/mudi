@@ -37,6 +37,18 @@ div.container {
   width: 104px;
 }
 
+#dt-searchbar-btn {
+  border: none;
+  display: inline;
+  height: 37px;
+  color: $dark;
+  background: $linear-green;
+  border-radius: 7px;
+  font-family: 'Sen', sans-serif;
+  margin-top: 4px;
+  width: 104px;
+}
+
 #search-bar-input {
   border: 1.5px;
   border-color: #828282;
@@ -110,6 +122,11 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   height: 37px;
 }
 
+#dt-btn-group {
+  margin-bottom: 3px;
+  margin-left: .75em;
+}
+
 
 .content {
   flex-shrink:0;
@@ -121,4 +138,23 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   text-align: center;
   width: 100vw;
 
+}
+
+
+.desktop-search-container {
+  display: flex;
+  justify-content: space-between;
+  // padding-right: .6em;
+  padding-left: 4em;
+}
+
+#desktop-search-bar-input {
+  border: 1.5px;
+  border-color: #828282;
+  border-style: solid;
+  border-radius: 10px;
+  display: inline;
+  background-color: $gray;
+  width: 20em;
+  font-family: 'Sen', sans-serif;
 }
