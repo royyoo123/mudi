@@ -49,8 +49,8 @@
         </div>
     </div>
 
-    <section class="container mt-3 desk-map" style="width: 40%; height: 100%">  <div id="map"
-     style="width: 100%; height: 100%;"
+    <section class="container mt-3 desk-map" style="top: -16px; width: 40%; height: 100%; padding:0;">  <div id="map"
+     style="width: 100%; height: 100%; position: sticky;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
    </section>
