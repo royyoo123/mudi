@@ -4,8 +4,8 @@ class EventsController < ApplicationController
 	skip_before_action :authenticate_user!, only: [:index, :show, :map]
 	skip_after_action :verify_authorized, only: [:index, :show]
 	before_action :find_event, only:[:edit,:update,:destroy,:confirmation,:confirmed,:show]
+	before_action :map_markers, only: [:index, :map]
 	def index
-		@events = Event.all.order(:created_at)
 		if params[:latitude].present? && params[:longitude].present?
 			latitude = params[:latitude]
 	    longitude = params[:longitude]
@@ -55,15 +55,6 @@ class EventsController < ApplicationController
 	end
 
 	def map
-		@events = Event.all
-		@markers = @events.geocoded.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
-        image_url: event.photos.attached? ? Cloudinary::Utils.cloudinary_url(event.photos[0].key) : ''
-      }
-    end
     authorize @events
 	end
 
@@ -127,5 +118,16 @@ class EventsController < ApplicationController
 	end
 	def detect_device_variant
     request.variant = :phone if browser.device.mobile?
+  end
+  def map_markers
+  	@events = Event.all.order(:created_at)
+		@markers = @events.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
+        image_url: event.photos.attached? ? Cloudinary::Utils.cloudinary_url(event.photos[0].key) : ''
+      }
+    end
   end
 end

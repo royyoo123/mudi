@@ -142,7 +142,16 @@ input.mapboxgl-ctrl-geocoder--input {
 
 .desk-map {
   position: absolute;
-  right: 10px;
-  width: 600px;
-  height: 25%;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  right: 1px;
+
+}
+
+.container mt-3 {
+  position: relative;
+  padding: 0;
+  height: 100% !important;
+  width: 25% !important;
 }

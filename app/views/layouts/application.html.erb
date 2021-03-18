@@ -41,10 +41,10 @@
   </head>
 
   <body>
-    <% if params[:action] == 'home' %>
-      <%= render 'shared/home_navbar' %>
-    <% else %>
+    <% if params[:action] == 'index' %>
       <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/other_navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
