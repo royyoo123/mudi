@@ -48,8 +48,8 @@ div.container {
   margin-top: 4px;
   width: 104px;
   position: absolute;
-  left: 750px;
-  top: -3px;
+  // left: 750px;
+  // top: -3px;
 }
 
 #search-bar-input {
@@ -148,7 +148,7 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   display: flex;
   justify-content: space-between;
   // padding-right: .6em;
-  padding-left: 4em;
+  padding-left: 3em;
 }
 
 #desktop-search-bar-input {
@@ -158,6 +158,20 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   border-radius: 10px;
   display: inline;
   background-color: $gray;
-  width: 20em;
+  width: 13em;
   font-family: 'Sen', sans-serif;
+}
+
+.split {
+  height: 100%;
+  width: 45%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  // overflow-x: hidden;
+  // padding-top: 20px;
+}
+
+.left {
+  left: 0;
 }

@@ -1,7 +1,7 @@
 <body>
   <div class="desktop-search-container">
     
-    <div id="search-bar">
+    <div class="split left" id="search-bar">
       <%= form_tag events_path, method: :get do %>
         <%= text_field_tag :query,
         params[:query],
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <div class="container mt-3 desk-map">  <div id="map"
+    <div class="container mt-3 desk-map split right">  <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
