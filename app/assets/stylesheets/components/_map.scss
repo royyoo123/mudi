@@ -123,7 +123,10 @@ input.mapboxgl-ctrl-geocoder--input {
   width: 150px;
   height: 30px;
 }
-
+.mapboxgl-ctrl-top-right {
+  position: relative !important;
+  width: 40%;
+}
 
 #map-event-button {
   background: $linear-green;
