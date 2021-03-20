@@ -6,7 +6,7 @@ const buildMap = (mapElement) => {
   const urlParams = new URLSearchParams(window.location.search)
   let latitude = urlParams.get('latitude');
   let longitude = urlParams.get('longitude');
-  const fixedLongitude = Number(longitude) + .42;
+  const fixedLongitude = Number(longitude) + .385;
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/royyoo123/cklsk6dkc1jiu17mgpi2co94m',
