@@ -161,3 +161,16 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   width: 20em;
   font-family: 'Sen', sans-serif;
 }
+
+.left-side-container {
+  flex: 0 0 60%;
+}
+
+.page {
+  display: flex;
+  height: 100vh;
+}
+
+.right-side-container {
+  flex: 0 0 40%;
+}

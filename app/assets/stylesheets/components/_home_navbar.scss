@@ -1,10 +1,12 @@
-.navbar-lewagon1 {
+.navbar-lewagon2 {
   background: $dark;
   display: flex;
   flex-direction: row-reverse;
-  
+  left: 30em;
 }
-
+#home-navbar {
+  right: 100px;
+}
 .navbar-lewagon1 .navbar-collapse {
   flex-grow: 0;
 }
