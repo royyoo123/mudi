@@ -16,6 +16,10 @@ body {
   padding-left: .6em;
 }
 
+.dt-searchbar {
+  padding-left: 2.5em;
+}
+
 div.container {
   padding: none;
 }
@@ -40,16 +44,16 @@ div.container {
 #dt-searchbar-btn {
   border: none;
   display: inline;
-  height: 37px;
+  height: 33px;
   color: $dark;
   background: $linear-green;
-  border-radius: 7px;
+  border-radius: 10px;
   font-family: 'Sen', sans-serif;
   margin-top: 4px;
   width: 104px;
   position: absolute;
-  left: 750px;
-  top: -3px;
+  left: 720px;
+  top: -4px;
 }
 
 #search-bar-input {
@@ -62,6 +66,7 @@ div.container {
   width: 14em;
   font-family: 'Sen', sans-serif;
 }
+
 
 .form-control::-webkit-input-placeholder {
   color: $white;
@@ -105,6 +110,14 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   padding-left: 1em;
 }
 
+#dt-mood-drop {
+  color: red;
+}
+
+#dt-price-drop {
+  color: red;
+}
+
 #price-dropdown {
   font-size: 15px;
 }
@@ -127,7 +140,8 @@ select#mood-dropdown.mood-drop-btn.btn-up {
 
 #dt-btn-group {
   margin-bottom: 3px;
-  margin-left: .75em;
+  margin-right: 3px;
+  height: 33px;
 }
 
 
@@ -158,8 +172,12 @@ select#mood-dropdown.mood-drop-btn.btn-up {
   border-radius: 10px;
   display: inline;
   background-color: $gray;
-  width: 20em;
+  width: 18em;
+  height: 33px;
+  text-align: center;
   font-family: 'Sen', sans-serif;
+  font-size: 15px;
+  margin-right: 8px;
 }
 
 .left-side-container {
