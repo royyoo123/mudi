@@ -54,13 +54,13 @@
             <% e.destroy %>
           <% end %>
         <% end %>
-        <div class="card mt-3 mb-3">
+        <div class="card mt-3 mb-3" id="desktop-card">
           <%= link_to event_path(e) do %>
                 <% e.photos.each do |photo| %>
                   <div class="card-photo" style="background-image: linear-gradient(to top, rgba(0,0,0, 0.1), rgba(0,0,0, 0.2)), url('<%= cl_image_path(photo.key) %>')">
                   </div>
                 <% end %>
-                <div class="card-title" >
+                <div class="dt-card-title" >
                   <h5><%= e.name %></h5>
                 </div>
               

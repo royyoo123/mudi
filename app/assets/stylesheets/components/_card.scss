@@ -11,6 +11,11 @@
   border-radius: 7px;
 }
 
+#desktop-card {
+  width: 90%;
+  height: 315px;
+}
+
 .card-photo {
   height: 65%;
   width: 100%;
@@ -46,6 +51,17 @@
   color: $dark;
   position: absolute;
   top: 152px;
+}
+
+.dt-card-title h5 {
+  font-size: 15px;
+  text-align: left;
+  padding-left: .75em;
+  padding-right: .75em;
+  font-weight: bolder;
+  color: $dark;
+  position: absolute;
+  top: 218px;
 }
 
 .bookmark {
