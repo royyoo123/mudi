@@ -1,10 +1,10 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <% if current_page?(root_path) %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon home-page">
+  <% if params[:action] == "home" %>
     <%= link_to root_path, class: "navbar-brand-hidden" do %>
       <%= image_tag "mudi_logo.png" %>
     <% end %>
   <% else %>
-    <%= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand other-page" do %>
       <%= image_tag "mudi_logo.png" %>
     <% end %>
   <% end %>
@@ -12,7 +12,7 @@
     <span class="navbar-toggler-icon" style="color:white"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav navbar-nav1 mr-auto" style="left: 88em;">
       <% if user_signed_in? %>
         <li class="nav-item">
           <% if policy(Event).new? %>
