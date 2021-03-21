@@ -16,9 +16,11 @@ const buildMap = (mapElement) => {
   map.addControl(
     new mapboxgl.GeolocateControl({
       positionOptions: {
-        enableHighAccuracy: true
+        enableHighAccuracy: true,
+        center: [fixedLongitude,latitude]
       },
       trackUserLocation: true
+      
       })
     );
   return map
