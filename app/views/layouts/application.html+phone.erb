@@ -41,7 +41,12 @@
   </head>
 
   <body>
-  
+    <% if params[:action] == 'index' && params[:controller] == 'events' %>
+      <%= render 'shared/navbar' %>
+    <% else %>
+      <%= render 'shared/other_navbar' %>
+    <% end %>
+    <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
 </html>
