@@ -7,8 +7,8 @@
     <div class="question-prompt">
       <h2 class="glow">How would you like to feel?</h2>
     </div>
-
-    <div class="btns spaced" style="text-align: center;">
+    <div class="container" style="width:400px;height:400px;">
+      <div class="btns spaced" style="text-align: center;">
       <% @moods.each do |mood| %>
       <input class="mood-input" type="checkbox" data-form-id='<%= mood.id %>' name='Checkbox<%= mood.id %>' id='Checkbox<%= mood.id %>'>
 
@@ -18,6 +18,8 @@
       <% end %>
       
     </div>
+    </div>
+    
     <div class="confirm" style="text-align: center;">
 
       <a type="button" class="btn" id="confirm-btn" href="">Confirm</a>

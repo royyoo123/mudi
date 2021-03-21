@@ -1,0 +1,26 @@
+<body>
+  <div class="container">
+    <div>
+      <%= image_tag("mudi_logo.png", width:200) %>
+    </div>
+
+    <div class="question-prompt">
+      <h2 class="glow">How would you like to feel?</h2>
+    </div>
+
+    <div class="btns spaced" style="text-align: center;">
+      <% @moods.each do |mood| %>
+      <input class="mood-input" type="checkbox" data-form-id='<%= mood.id %>' name='Checkbox<%= mood.id %>' id='Checkbox<%= mood.id %>'>
+
+      <label for="Checkbox<%=mood.id %>">
+        <span class="mood-btn" id="qwe"><%= mood.name %></span>
+      </label>
+      <% end %>
+      
+    </div>
+    <div class="confirm" style="text-align: center;">
+
+      <a type="button" class="btn" id="confirm-btn" href="">Confirm</a>
+    </div>
+  </div>  
+</body> 
