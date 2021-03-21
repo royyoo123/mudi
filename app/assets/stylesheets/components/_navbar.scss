@@ -5,7 +5,7 @@
   
 }
 .navbar-nav navbar-nav1 mr-auto {
-
+  left: 200px;
 }
 #home-navbar {
   flex-direction: row-reverse;
@@ -66,8 +66,10 @@ a.dropdown-item {
   border: none !important;
 }
 
-.navbar-nav {
-
+.navbar-nav1 {
+  position: absolute;
+  left: 29vw;
+  display: flex;
 }
 
 .mapboxgl-canvas {
