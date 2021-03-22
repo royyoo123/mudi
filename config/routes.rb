@@ -14,5 +14,10 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
   mount StripeEvent::Engine, at: '/stripe-webhooks'
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :events, only: [ :index, :show, :update ]
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
