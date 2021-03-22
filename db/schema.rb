@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_013508) do
+ActiveRecord::Schema.define(version: 2021_03_22_052516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_013508) do
     t.float "longitude"
     t.datetime "start_date"
     t.integer "price_cents", default: 0, null: false
+    t.string "url"
+    t.string "payment_url"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -105,6 +107,8 @@ ActiveRecord::Schema.define(version: 2021_03_08_013508) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "business_owner"
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

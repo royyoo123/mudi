@@ -24,7 +24,7 @@ class EventPolicy < ApplicationPolicy
     record.user == user
   end
   def update?
-    true
+    record.user == user
   end
   def destroy?
     record.user == user
