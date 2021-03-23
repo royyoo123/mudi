@@ -28,6 +28,13 @@
   font-weight: lighter;
 }
 
+.dt-description {
+  color: $white;
+  font-family: 'Sen', sans-serif;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
 
 .price {
   position: absolute;
@@ -119,4 +126,34 @@ h3 {
 .show-picture {
   height: 500px;
   width: 700px;
+}
+
+.dt-show-picture {
+  height: 500px;
+  width: 700px;
+  border-radius: 7px;
+}
+
+.dt-show-photo {
+  border-radius: 10px;
+}
+
+.dt-details {
+  margin: 5em 0 5em 12em;
+}
+
+.dt-info {
+  color: $white;
+  font-weight: bold;
+}
+
+.left-show {
+  padding-left: 3em;
+  width: 800px;
+}
+
+.right-show {
+  width: 45%;
+  position: relative;
+  justify-content: center;
 }

@@ -1,13 +1,23 @@
 <body>
-	<div class="mt-2 page">
+	<div class="mt-5 page">
 		<div class="left-show">
 			<div class="dt-show-photo">
 				<% @event.photos.each do |photo| %>
-				<%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "photo show-picture" %>
+				<%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "photo dt-show-picture" %>
+				<% end %>
+
+				<% if current_user %>
+				<div class="show-bookmark"> 
+					<% if @event.bookmark_by_user(current_user) %>
+						<i class="fas fa-bookmark show-bm" data-form-id="<%= @event.id %>"></i>
+					<% else %>
+						<i class="far fa-bookmark show-bm" data-form-id="<%= @event.id %>"></i>
+					<% end %>
+				</div>
 				<% end %>
 			</div>
-			<div>
-				<p class="description"><%= @event.description %></p>
+			<div class="mt-3">
+				<p class="dt-description"><%= @event.description %></p>
 			</div>
 		</div>
 		<div class="right-show">
@@ -17,21 +27,23 @@
 			<div>
 				<h3 class="address"><%= @event.address %></h3>
 			</div>
-			<div class="green-info">
-				<% unless @event.start_date.nil? %>
-				<h3 class="info">Date :&nbsp&nbsp</h3>
-				<h3 class="green" id="date-time"><%= @event.start_date.strftime("%Y/%m/%d %l:%M %p") %></h3>
-			</div>
-			<br>
-			<div class="green-info">
-				<h3 class="info">Time :&nbsp&nbsp</h3>
-				<h3 class="green" id="date-time"><%= @event.start_date.strftime("%l:%M %p") %></h3>
-				<% end %>
-			</div>
-			<br>
-			<div class="green-info">
-				<h3 class="info">Total :&nbsp&nbsp</h3>
-				<h3 class="green">$<%= @event.price %></h3>
+			<div class="dt-details">
+				<div class="green-info">
+					<% unless @event.start_date.nil? %>
+					<h3 class="dt-info">Date :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+					<h3 class="green" id="date-time"><%= @event.start_date.strftime("%Y/%m/%d") %></h3>
+				</div>
+				<br>
+				<div class="green-info">
+					<h3 class="dt-info">Time :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+					<h3 class="green" id="date-time"><%= @event.start_date.strftime("%l:%M %p") %></h3>
+					<% end %>
+				</div>
+				<br>
+				<div class="green-info">
+					<h3 class="dt-info">Total :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+					<h3 class="green">$<%= @event.price %></h3>
+				</div>
 			</div>
 			<div class="confirm">
 				<% if @event.price == 0 %>
