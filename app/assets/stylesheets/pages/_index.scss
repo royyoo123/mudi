@@ -8,10 +8,7 @@ body {
   background-color: $dark;
   height: 100%;
 }
-.filterbar {
 
-
-}
 #map {
   position: fixed;
   
@@ -24,7 +21,7 @@ body {
 }
 
 .dt-searchbar {
-  
+  padding-left: 2.5em;
 }
 
 div.container {
@@ -58,7 +55,9 @@ div.container {
   font-family: 'Sen', sans-serif;
   margin-top: 4px;
   width: 104px;
- 
+  position: absolute;
+  left: 720px;
+  top: -4px;
 }
 
 #search-bar-input {
@@ -200,9 +199,4 @@ select#mood-dropdown.mood-drop-btn.btn-up {
 
 .dt-column {
   padding-left: 1.5em;
-}
-
-.form-flex {
-  display: flex;
-  justify-content: space-evenly;
 }

@@ -1,20 +1,18 @@
 <body>
   <div class="page">
     <div class="left-side-container">
-      <div class="filterbar">
-        <div id="search-bar" class="dt-searchbar">
-        <%= form_tag events_path, class: "form-flex",method: :get do %>
+      <div id="search-bar" class="dt-searchbar">
+        <%= form_tag events_path, method: :get do %>
           <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           id: "desktop-search-bar-input",
-          placeholder: "search for an activity...",
-          style:"height:4vh;"
+          placeholder: "search for an activity..."
           %>
           <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
           <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
           <input type="hidden" name="moods" value="<%= params[:moods] %>" >
-          
+          <div class="btn-group" id="dt-btn-group">
             <select class="mood-drop-btn btn-up" id="mood-dropdown" name="moods">
               <option value="" disabled selected>select mood</option>
               <% Mood.all.each do |mood| %>
@@ -24,8 +22,8 @@
               </option>
               <% end %>
             </select>
-         
-          
+          </div>
+          <div class="btn-group" id="dt-btn-group">
             <select class="mood-drop-btn btn-up" id="mood-dropdown" name="prices">
               <option value="" disabled selected>select price</option>
               <option value="0">free</option>
@@ -35,21 +33,18 @@
               <option value="100-100000">$100+</option>
     
             </select>
-        
+          </div>
 
-     
-
-            <input type="date" id="date5" onchange="this.className=(this.value!=''?'has-value':'')" style="border-radius:10px;background-color:#6F7189; padding:.25rem .25rem .25rem .5rem; color:white">
+          <div class="datetimepicker btn-group" id="dt-btn-group">
+            <input type="date" id="date5"name="date" placeholder="date" onchange="this.className=(this.value!=''?'has-value':'')">
             <input type="hidden" name="latitude" value="<%= params[:latitude] %>">
             <input type="hidden" name="longitude" value="<%= params[:longitude] %>">
             <input type="hidden" name="moods" value="<%= params[:moods] %>" >
-          
-
+          </div>
+          <div>
             <%= submit_tag " submit ", id: "dt-searchbar-btn" %>
             <% end %>
-         
-      </div>
-
+          </div>
       </div>
     <div class="row ml-1 mr-1 dt-column">
       <% @events.each do |e| %>
