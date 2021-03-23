@@ -74,8 +74,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_052516) do
     t.float "longitude"
     t.datetime "start_date"
     t.integer "price_cents", default: 0, null: false
-    t.string "url"
-    t.string "payment_url"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
