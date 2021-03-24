@@ -134,8 +134,14 @@ h3 {
   border-radius: 7px;
 }
 
+.dt-title {
+  display: flex;
+  justify-content: center;
+}
+
 .dt-show-photo {
   border-radius: 10px;
+  position: relative;
 }
 
 .dt-details {
@@ -156,4 +162,8 @@ h3 {
   width: 45%;
   position: relative;
   justify-content: center;
+}
+
+.location {
+  font-size: 28px;
 }

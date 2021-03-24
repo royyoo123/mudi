@@ -5,9 +5,19 @@
 				<% @event.photos.each do |photo| %>
 				<%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill, class: "photo dt-show-picture" %>
 				<% end %>
-
+			</div>
+			<div class="mt-3">
+				<p class="dt-description"><%= @event.description %></p>
+			</div>
+			<div class="dt-show-map">
+				<h1 class="mt-5 location">Location</h1>
+			</div>
+		</div>
+		<div class="right-show">
+			<div class="dt-title">
+				<h1 class="e-title" id="event-title"><%= @event.name %></h1>
 				<% if current_user %>
-				<div class="show-bookmark"> 
+				<div class="dt-show-bookmark"> 
 					<% if @event.bookmark_by_user(current_user) %>
 						<i class="fas fa-bookmark show-bm" data-form-id="<%= @event.id %>"></i>
 					<% else %>
@@ -16,71 +26,65 @@
 				</div>
 				<% end %>
 			</div>
-			<div class="mt-3">
-				<p class="dt-description"><%= @event.description %></p>
-			</div>
-		</div>
-		<div class="right-show">
-			<div>
-				<h1 class="e-title" id="event-title"><%= @event.name %></h1>
-			</div>
 			<div>
 				<h3 class="address"><%= @event.address %></h3>
 			</div>
-			<div class="dt-details">
-				<div class="green-info">
-					<% unless @event.start_date.nil? %>
-					<h3 class="dt-info">Date :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
-					<h3 class="green" id="date-time"><%= @event.start_date.strftime("%Y/%m/%d") %></h3>
+			<div class="container">
+				<div class="dt-details">
+					<div class="green-info">
+						<% unless @event.start_date.nil? %>
+						<h3 class="dt-info">Date :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+						<h3 class="green" id="date-time"><%= @event.start_date.strftime("%m/%d/%Y") %></h3>
+					</div>
+					<br>
+					<div class="green-info">
+						<h3 class="dt-info">Time :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+						<h3 class="green" id="date-time"><%= @event.start_date.strftime("%l:%M %p") %></h3>
+						<% end %>
+					</div>
+					<br>
+					<div class="green-info">
+						<h3 class="dt-info">Total :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+						<h3 class="green">$<%= @event.price %></h3>
+					</div>
 				</div>
-				<br>
-				<div class="green-info">
-					<h3 class="dt-info">Time :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
-					<h3 class="green" id="date-time"><%= @event.start_date.strftime("%l:%M %p") %></h3>
+				<div class="confirm">
+					<% if @event.price == 0 %>
+						<%= link_to confirmation_path(@event) do %>
+							<button type="button" id="book-btn">Book</button>
+						<% end %>
+					<% else %>
+						<%= form_tag orders_path do %>
+							<%= hidden_field_tag 'event_id', @event.id %>
+							<%= submit_tag 'Purchase', id:"book-btn" %>
+						<% end %>
 					<% end %>
 				</div>
-				<br>
-				<div class="green-info">
-					<h3 class="dt-info">Total :&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
-					<h3 class="green">$<%= @event.price %></h3>
+				
+		
+				<script>
+				function goBack() {
+					window.history.back();
+				}
+				</script>
+				<div class="link-back">
+					<button type="button" id="back-btn" onclick="goBack()">Back to results</button>
 				</div>
-			</div>
-			<div class="confirm">
-				<% if @event.price == 0 %>
-					<%= link_to confirmation_path(@event) do %>
-						<button type="button" id="book-btn">Book</button>
+				<div class="confirm">
+					<% if policy(@event).edit? %>
+						<%= link_to edit_event_path(@event) do %>
+							<button type="button" id="book-btn">Update event</button>
+						<% end %>
 					<% end %>
-				<% else %>
-					<%= form_tag orders_path do %>
-						<%= hidden_field_tag 'event_id', @event.id %>
-						<%= submit_tag 'Purchase', id:"book-btn" %>
+				</div>
+				<div class="link-back">
+					<% if policy(@event).destroy? %>
+						<%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure?" } do %>
+						<button type="button" id="back-btn">Delete</button>
+						<% end %>
 					<% end %>
-				<% end %>
+				</div>	
 			</div>
-			
-	
-			<script>
-			function goBack() {
-				window.history.back();
-			}
-			</script>
-			<div class="link-back">
-				<button type="button" id="back-btn" onclick="goBack()">Back to results</button>
-			</div>
-			<div class="confirm">
-				<% if policy(@event).edit? %>
-					<%= link_to edit_event_path(@event) do %>
-						<button type="button" id="book-btn">Update event</button>
-					<% end %>
-				<% end %>
-			</div>
-			<div class="link-back">
-				<% if policy(@event).destroy? %>
-					<%= link_to event_path(@event), method: :delete, data: { confirm: "Are you sure?" } do %>
-					<button type="button" id="back-btn">Delete</button>
-					<% end %>
-				<% end %>
-			</div>	
 		</div>
 		</div>
 
