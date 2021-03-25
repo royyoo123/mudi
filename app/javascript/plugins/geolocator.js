@@ -43,6 +43,10 @@ const locateCoords = () => {
 			listButtonOnMap.addEventListener('click',(event)=>{
 				window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
 			})
+		} else if (c) {
+			c.addEventListener('click',(event)=>{
+				window.location.href=`/events?latitude=${crd.latitude}&longitude=${crd.longitude}`;
+			})
 		}
 	}
 	function error(err) {
