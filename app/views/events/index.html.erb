@@ -47,8 +47,16 @@
           </div>
       </div>
     <div class="row ml-1 mr-1 dt-column">
+      <div class="container mt-3">
+        <% unless @events.present? %>
+          <h1>No events in your area!</h1>
+          <button id="all-btn">View all events here</button>
+        <% end %>
+      </div>
+      
       <% @events.each do |e| %>
       <div class="col-lg-4">
+       
         <% unless e.start_date.nil? %>
           <% if e.start_date < Time.now %>
             <% e.destroy %>

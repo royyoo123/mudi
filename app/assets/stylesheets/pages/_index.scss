@@ -13,6 +13,16 @@ body {
   position: fixed;
   
 }
+#all-btn {
+  background: $linear-green;
+  font-size: 18px;
+  width: 15em;
+  border-radius: 10px;
+  color: $dark;
+  border: none;
+  height: 2em;
+  font-family: 'Sen', sans-serif;
+}
 .search-container {
   display: flex;
   justify-content: space-between;
