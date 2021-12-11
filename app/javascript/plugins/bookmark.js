@@ -1,13 +1,11 @@
 const bookmark = () => {
 	const hearts = document.querySelectorAll(".fa-bookmark");
-	console.log();
 	hearts.forEach((heart) => {
 		const eventId = heart.dataset.formId;
 		heart.addEventListener("click", (event) => {
 			event.preventDefault();
 			// console.log(event.path[0].className);
 			if(event.target.className.includes("fas")){
-				console.log(event.target.className);
 				fetch(`/bookmarks/${eventId}`, {
 					method: "DELETE"
 					// body: JSON.stringify({})
@@ -17,7 +15,6 @@ const bookmark = () => {
 					heart.classList.add("far")
 				});
 			} else {
-				console.log(event)
 				const data = {
 					bookmark: { event_id: eventId }
 				}
